@@ -1,10 +1,14 @@
 import ev3dev.ev3 as ev3
-fr = ev3.LargeMotor('outA');fl = ev3.LargeMotor('outB');br = ev3.LargeMotor('outC');bl = ev3.LargeMotor('outD');
+#NOTE: NEEDS SOME TESTING AND EDITTING
+fr = ev3.LargeMotor('outA');
+fl = ev3.LargeMotor('outB');
+br = ev3.LargeMotor('outC');
+bl = ev3.LargeMotor('outD');
 def forward(speed, time):
     fr.run_timed(speed_sp = speed, time_sp = time);
     fl.run_timed(speed_sp = speed, time_sp = time);
-    br.run_timed(speed_sp = speed, time_sp = time);    
-    bl.run_timed(speed_sp = speed, time_sp = time);
+    br.run_timed(speed_sp = -speed, time_sp = time);    
+    bl.run_timed(speed_sp = -speed, time_sp = time);
     return
 def back(speed, time):
     forward(-speed,time)
