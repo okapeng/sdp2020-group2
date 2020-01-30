@@ -8,9 +8,9 @@
 
     <ImageButton
         android:id="@+id/up"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="125dp"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/green_rounded_corner"
         android:contentDescription="@string/arrow_pointing_upwards"
         android:padding="10dp"
@@ -22,9 +22,9 @@
 
     <ImageButton
         android:id="@+id/down"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginBottom="125dp"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/green_rounded_corner"
         android:contentDescription="@string/arrow_pointing_downwards"
         android:padding="10dp"
@@ -36,10 +36,11 @@
 
     <ImageButton
         android:id="@+id/right"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/green_rounded_corner"
         android:contentDescription="@string/arrow_pointing_right"
         android:cropToPadding="false"
@@ -52,10 +53,11 @@
 
     <ImageButton
         android:id="@+id/left"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/green_rounded_corner"
         android:contentDescription="@string/arrow_pointing_left"
         android:padding="10dp"
@@ -67,11 +69,11 @@
 
     <ImageButton
         android:id="@+id/rotate_left"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="50dp"
         android:adjustViewBounds="false"
         android:background="@drawable/yellow_circle"
         android:contentDescription="@string/arrow_rotating_anti_clockwise"
@@ -84,11 +86,11 @@
 
     <ImageButton
         android:id="@+id/rotate_right"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/yellow_circle"
         android:contentDescription="@string/arrow_rotating_clockwise"
         android:padding="30dp"
