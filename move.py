@@ -1,4 +1,5 @@
 import ev3dev.ev3 as ev3
+#NEEDS TESTING WITH CURRENT BASE ROBOT
 
 fr = ev3.LargeMotor('outA');#Front Right wheel to port A
 fl = ev3.LargeMotor('outB');#Front Left wheel to port B
