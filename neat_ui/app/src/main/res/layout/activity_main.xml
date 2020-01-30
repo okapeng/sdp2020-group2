@@ -10,7 +10,7 @@
         android:id="@+id/movement_controls"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:background="#03A9F4"
+        android:background="@drawable/blue_rounded_corners"
         android:text="@string/movement_controls"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
