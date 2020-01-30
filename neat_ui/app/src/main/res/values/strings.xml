@@ -13,4 +13,6 @@
     <string name="arrow_pointing_downwards">arrow pointing downwards</string>
     <string name="arrow_pointing_right">arrow pointing right</string>
     <string name="arrow_pointing_left">arrow pointing left</string>
+    <string name="arrow_rotating_anti_clockwise">arrow rotating anti-clockwise</string>
+    <string name="arrow_rotating_clockwise">arrow rotating clockwise</string>
 </resources>
