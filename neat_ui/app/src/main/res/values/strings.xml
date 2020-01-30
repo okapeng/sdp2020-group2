@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NEAT_ui</string>
+    <string name="forward">Forward</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="forward_right">Forward right</string>
+    <string name="forward_left">Forward left</string>
+    <string name="backward_left">Backward left</string>
+    <string name="backward_right">Backward right</string>
+    <string name="backward">Backward</string>
+    <string name="movement_controls">Movement Controls</string>
+</resources>

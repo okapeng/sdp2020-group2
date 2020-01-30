@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManualMovementActivity">
+
+    <Button
+        android:id="@+id/forward"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="145dp"
+        android:background="#44A741"
+        android:text="@string/forward"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/forward-right"
+        app:layout_constraintStart_toEndOf="@id/forward-left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backward"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="145dp"
+        android:background="#44A741"
+        android:text="@string/backward"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/backward-right"
+        app:layout_constraintStart_toEndOf="@+id/backward-left" />
+
+    <Button
+        android:id="@+id/right"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:background="#44A741"
+        android:text="@string/right"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/backward-right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forward-right" />
+
+    <Button
+        android:id="@+id/left"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:background="#44A741"
+        android:text="@string/left"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/backward-left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forward-left" />
+
+    <Button
+        android:id="@+id/forward-right"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:background="#44A741"
+        android:text="@string/forward_right"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/forward-left"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="145dp"
+        android:background="#44A741"
+        android:text="@string/forward_left"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backward-left"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="145dp"
+        android:background="#44A741"
+        android:text="@string/backward_left"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/backward-right"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="145dp"
+        android:background="#44A741"
+        android:text="@string/backward_right"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
