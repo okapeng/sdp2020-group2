@@ -4,7 +4,7 @@
     <string name="left">Left</string>
     <string name="right">Right</string>
     <string name="backward">Backward</string>
-    <string name="movement_controls">Movement Controls</string>
+    <string name="manual_mode">Manual Mode</string>
     <string name="arrow_pointing_upwards">arrow pointing upwards</string>
     <string name="arrow_pointing_downwards">arrow pointing downwards</string>
     <string name="arrow_pointing_right">arrow pointing right</string>

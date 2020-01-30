@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/movement_controls"
+        android:id="@+id/manual_mode"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:background="@drawable/blue_rounded_corners"
-        android:text="@string/movement_controls"
+        android:text="@string/manual_mode"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

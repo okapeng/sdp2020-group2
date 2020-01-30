@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button button = findViewById(R.id.movement_controls);
+        Button button = findViewById(R.id.manual_mode);
 
         button.setOnClickListener(new View.OnClickListener() {
 
