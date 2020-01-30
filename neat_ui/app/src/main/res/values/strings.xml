@@ -13,6 +13,9 @@
     <string name="arrow_rotating_clockwise">arrow rotating clockwise</string>
     <string name="follow_me">follow me</string>
     <string name="come_to_me">come to me</string>
-    <string name="lift_controls">lift controls</string>
+    <string name="lift_controls">Lift Controls</string>
     <string name="logo">logo</string>
+    <string name="counter_height">counter height</string>
+    <string name="table_height">table height</string>
+    <string name="base_height">base height</string>
 </resources>

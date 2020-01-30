@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.pipes);
 
 
-        Button button = findViewById(R.id.manual_mode);
+        Button button_manual = findViewById(R.id.manual_mode);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button_manual.setOnClickListener(new View.OnClickListener() {
 
             @Override
 
@@ -38,11 +38,61 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        Button button_follow = findViewById(R.id.follow);
+
+        button_follow.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+                //TODO;
+
+            }
+
+        });
+
+        Button button_come = findViewById(R.id.come_to_me);
+
+        button_come.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+                //TODO;
+
+            }
+
+        });
+
+        Button button_lift = findViewById(R.id.lift_controls);
+
+        button_lift.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+                goToLiftMovementActivity();
+
+            }
+
+        });
     }
 
     private void goToManualMovementActivity() {
 
         Intent intent = new Intent(this, ManualMovementActivity.class);
+
+        startActivity(intent);
+
+    }
+
+    private void goToLiftMovementActivity() {
+
+        Intent intent = new Intent(this, LiftMovementActivity.class);
 
         startActivity(intent);
 
