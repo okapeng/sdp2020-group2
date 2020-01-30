@@ -11,4 +11,8 @@
     <string name="arrow_pointing_left">arrow pointing left</string>
     <string name="arrow_rotating_anti_clockwise">arrow rotating anti-clockwise</string>
     <string name="arrow_rotating_clockwise">arrow rotating clockwise</string>
+    <string name="follow_me">follow me</string>
+    <string name="come_to_me">come to me</string>
+    <string name="lift_controls">lift controls</string>
+    <string name="logo">logo</string>
 </resources>
