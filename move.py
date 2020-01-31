@@ -10,7 +10,7 @@ def forward(speed, time):
     #Move robot forward at speed(tacho counts per second) for time(milliseconds)
     fr.run_timed(speed_sp = speed, time_sp = time);
     fl.run_timed(speed_sp = speed, time_sp = time);
-    br.run_timed(speed_sp = -speed, time_sp = time);    
+    br.run_timed(speed_sp = -speed, time_sp = time);
     bl.run_timed(speed_sp = -speed, time_sp = time);
     return
 
@@ -44,5 +44,4 @@ def rotl(speed,time):
     #Rotate robot anticlockwise(left) at speed(tacho counts per second) for time(milliseconds)
     rotr(-speed,time)
     return
-
 
