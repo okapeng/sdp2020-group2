@@ -10,4 +10,6 @@
     <color name="disabledGrey">#FF8B8989</color>
     <color name="pressedGreen">#FF66F862</color>
     <color name="pressedYellow">#FFFFF200</color>
+    <color name="pressedBlue">#FF016AB6</color>
+    <color name="pressedPink">#FFFD719D</color>
 </resources>

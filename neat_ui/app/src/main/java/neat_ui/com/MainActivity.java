@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         final MediaPlayer mp_follow = MediaPlayer.create(this, R.raw.flick);
         final MediaPlayer mp_come = MediaPlayer.create(this, R.raw.trill);
         final MediaPlayer mp_lift = MediaPlayer.create(this, R.raw.coconuts);
-        boolean isFollowing = true;
-        boolean isComing = true;
+        boolean isFollowing = false;
+        boolean isComing = false;
 
 
-        Button button_manual = findViewById(R.id.manual_mode);
+        final Button button_manual = findViewById(R.id.manual_mode);
 
         button_manual.setOnClickListener(new View.OnClickListener() {
 
