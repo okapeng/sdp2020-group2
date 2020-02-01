@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                //TODO;
+                mp.start();
+                vibe.vibrate(100);
 
             }
 
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                //TODO;
+                mp.start();
+                vibe.vibrate(100);
 
             }
 
@@ -75,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
+                mp.start();
+                vibe.vibrate(100);
                 goToLiftMovementActivity();
 
             }
