@@ -22,78 +22,101 @@ public class LiftMovementActivity extends AppCompatActivity {
         final MediaPlayer mp_counter = MediaPlayer.create(this, R.raw.pipes);
         final MediaPlayer mp_table = MediaPlayer.create(this, R.raw.flick);
         final MediaPlayer mp_base = MediaPlayer.create(this, R.raw.trill);
+        int lift_height = 0;
 
         ImageButton button_up = findViewById(R.id.lift_up);
 
-        button_up.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
-                    vibe.vibrate(300000000);
-                } else
-                if(event.getAction() == android.view.MotionEvent.ACTION_UP){
-                    vibe.cancel();
+        if(lift_height == 80) {
+            button_up.setEnabled(false);
+            button_up.setBackgroundResource(R.drawable.disabled_round_corners);
+        } else {
+            button_up.setEnabled(true);
+            button_up.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                        vibe.vibrate(300000000);
+                    } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                        vibe.cancel();
+                    }
+                    return false;
                 }
-                return false;
-            }
-        });
+            });
+        }
 
         ImageButton button_down = findViewById(R.id.lift_down);
 
-        button_down.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
-                    vibe.vibrate(300000000);
-                } else
-                if(event.getAction() == android.view.MotionEvent.ACTION_UP){
-                    vibe.cancel();
+        if(lift_height == 0) {
+            button_down.setEnabled(false);
+            button_down.setBackgroundResource(R.drawable.disabled_round_corners);
+        } else {
+            button_down.setEnabled(true);
+            button_down.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                        vibe.vibrate(300000000);
+                    } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                        vibe.cancel();
+                    }
+                    return false;
                 }
-                return false;
-            }
-        });
+            });
+        }
 
         Button button_counter = findViewById(R.id.counter);
 
-        button_counter.setOnClickListener(new View.OnClickListener() {
+        if(lift_height == 80) {
+            button_counter.setEnabled(false);
+            button_counter.setBackgroundResource(R.drawable.disabled_round_corners);
+        } else {
+            button_counter.setEnabled(true);
+            button_counter.setOnClickListener(new View.OnClickListener() {
 
-            @Override
+                @Override
 
-            public void onClick(View v) {
+                public void onClick(View v) {
+                    mp_counter.start();
+                    vibe.vibrate(100);
+                }
 
-                mp_counter.start();
-                vibe.vibrate(100);
-
-            }
-
-        });
+            });
+        }
 
         Button button_table = findViewById(R.id.table);
 
-        button_table.setOnClickListener(new View.OnClickListener() {
+        if(lift_height == 40) {
+            button_table.setEnabled(false);
+            button_table.setBackgroundResource(R.drawable.disabled_round_corners);
+        } else {
+            button_table.setEnabled(true);
+            button_table.setOnClickListener(new View.OnClickListener() {
 
-            @Override
+                @Override
 
-            public void onClick(View v) {
+                public void onClick(View v) {
+                    mp_table.start();
+                    vibe.vibrate(100);
+                }
 
-                mp_table.start();
-                vibe.vibrate(100);
-
-            }
-
-        });
+            });
+        }
 
         Button button_base = findViewById(R.id.base);
 
-        button_base.setOnClickListener(new View.OnClickListener() {
+        if(lift_height == 0) {
+            button_base.setEnabled(false);
+            button_base.setBackgroundResource(R.drawable.disabled_round_corners);
+        } else {
+            button_base.setEnabled(true);
+            button_base.setOnClickListener(new View.OnClickListener() {
 
-            @Override
+                @Override
 
-            public void onClick(View v) {
+                public void onClick(View v) {
+                    mp_table.start();
+                    vibe.vibrate(100);
+                }
 
-                mp_base.start();
-                vibe.vibrate(100);
-
-            }
-
-        });
+            });
+        }
     }
 }
