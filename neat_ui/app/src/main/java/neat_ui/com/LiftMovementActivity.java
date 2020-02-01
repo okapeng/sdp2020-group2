@@ -24,7 +24,7 @@ public class LiftMovementActivity extends AppCompatActivity {
         final MediaPlayer mp_base = MediaPlayer.create(this, R.raw.trill);
         int lift_height = 0;
 
-        ImageButton button_up = findViewById(R.id.lift_up);
+        final ImageButton button_up = findViewById(R.id.lift_up);
 
         if(lift_height == 80) {
             button_up.setEnabled(false);
@@ -34,8 +34,10 @@ public class LiftMovementActivity extends AppCompatActivity {
             button_up.setOnTouchListener(new View.OnTouchListener() {
                 public boolean onTouch(View v, MotionEvent event) {
                     if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                        button_up.setBackgroundResource(R.drawable.pressed_green_button);
                         vibe.vibrate(300000000);
                     } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                        button_up.setBackgroundResource(R.drawable.green_rounded_corner);
                         vibe.cancel();
                     }
                     return false;
@@ -43,7 +45,7 @@ public class LiftMovementActivity extends AppCompatActivity {
             });
         }
 
-        ImageButton button_down = findViewById(R.id.lift_down);
+        final ImageButton button_down = findViewById(R.id.lift_down);
 
         if(lift_height == 0) {
             button_down.setEnabled(false);
@@ -53,8 +55,10 @@ public class LiftMovementActivity extends AppCompatActivity {
             button_down.setOnTouchListener(new View.OnTouchListener() {
                 public boolean onTouch(View v, MotionEvent event) {
                     if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                        button_down.setBackgroundResource(R.drawable.pressed_green_button);
                         vibe.vibrate(300000000);
                     } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                        button_down.setBackgroundResource(R.drawable.green_rounded_corner);
                         vibe.cancel();
                     }
                     return false;

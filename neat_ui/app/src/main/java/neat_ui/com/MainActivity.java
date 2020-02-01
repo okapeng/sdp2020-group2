@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         final MediaPlayer mp_follow = MediaPlayer.create(this, R.raw.flick);
         final MediaPlayer mp_come = MediaPlayer.create(this, R.raw.trill);
         final MediaPlayer mp_lift = MediaPlayer.create(this, R.raw.coconuts);
+        boolean isFollowing = true;
+        boolean isComing = true;
 
 
         Button button_manual = findViewById(R.id.manual_mode);
@@ -33,44 +35,50 @@ public class MainActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-
                 mp_manual.start();
                 vibe.vibrate(100);
                 goToManualMovementActivity();
-
             }
 
         });
 
         Button button_follow = findViewById(R.id.follow);
 
-        button_follow.setOnClickListener(new View.OnClickListener() {
+        if(isFollowing) {
+            button_follow.setEnabled(false);
+            button_follow.setBackgroundResource(R.drawable.disabled_round_corners);
+        } else {
+            button_follow.setEnabled(true);
+            button_follow.setOnClickListener(new View.OnClickListener() {
 
-            @Override
+                @Override
 
-            public void onClick(View v) {
+                public void onClick(View v) {
+                    mp_follow.start();
+                    vibe.vibrate(100);
+                }
 
-                mp_follow.start();
-                vibe.vibrate(100);
-
-            }
-
-        });
+            });
+        }
 
         Button button_come = findViewById(R.id.come_to_me);
 
-        button_come.setOnClickListener(new View.OnClickListener() {
+        if(isComing) {
+            button_come.setEnabled(false);
+            button_come.setBackgroundResource(R.drawable.disabled_round_corners);
+        } else {
+            button_come.setEnabled(true);
+            button_come.setOnClickListener(new View.OnClickListener() {
 
-            @Override
+                @Override
 
-            public void onClick(View v) {
+                public void onClick(View v) {
+                    mp_come.start();
+                    vibe.vibrate(100);
+                }
 
-                mp_come.start();
-                vibe.vibrate(100);
-
-            }
-
-        });
+            });
+        }
 
         Button button_lift = findViewById(R.id.lift_controls);
 
@@ -79,11 +87,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-
                 mp_lift.start();
                 vibe.vibrate(100);
                 goToLiftMovementActivity();
-
             }
 
         });

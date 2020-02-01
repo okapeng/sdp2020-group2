@@ -8,4 +8,6 @@
     <color name="ourYellow">#FFFABD00</color>
     <color name="ourPink">#E91E63</color>
     <color name="disabledGrey">#FF8B8989</color>
+    <color name="pressedGreen">#FF66F862</color>
+    <color name="pressedYellow">#FFFFF200</color>
 </resources>
