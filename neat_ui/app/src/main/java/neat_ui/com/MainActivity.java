@@ -20,7 +20,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Vibrator vibe = (Vibrator) MainActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.pipes);
+        final MediaPlayer mp_manual = MediaPlayer.create(this, R.raw.pipes);
+        final MediaPlayer mp_follow = MediaPlayer.create(this, R.raw.flick);
+        final MediaPlayer mp_come = MediaPlayer.create(this, R.raw.trill);
+        final MediaPlayer mp_lift = MediaPlayer.create(this, R.raw.coconuts);
 
 
         Button button_manual = findViewById(R.id.manual_mode);
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                mp.start();
+                mp_manual.start();
                 vibe.vibrate(100);
                 goToManualMovementActivity();
 
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                mp.start();
+                mp_follow.start();
                 vibe.vibrate(100);
 
             }
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                mp.start();
+                mp_come.start();
                 vibe.vibrate(100);
 
             }
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                mp.start();
+                mp_lift.start();
                 vibe.vibrate(100);
                 goToLiftMovementActivity();
 
