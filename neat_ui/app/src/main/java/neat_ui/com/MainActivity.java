@@ -3,6 +3,7 @@ package neat_ui.com;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Vibrator vibe = (Vibrator) MainActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.pipes);
 
 
         Button button = findViewById(R.id.manual_mode);
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
+                mp.start();
                 vibe.vibrate(100);
                 goToManualMovementActivity();
 
