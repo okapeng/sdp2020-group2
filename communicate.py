@@ -1,7 +1,8 @@
 #! /usr/bin/env python3
 import serial
 import time
-
+import move
+import lift
 import EV3BT
 
 EV3 = serial.Serial('/dev/rfcomm0')
@@ -11,8 +12,10 @@ try:
  n = EV3.inWaiting()
  if n != 0:
   s = EV3.read(n)
-  base, lift = EV3BT.decodeMessage(s, EV3BT.MessageType.Text)
-  print(base, lift) 
+  baseCommand, liftCommand = EV3BT.decodeMessage(s, EV3BT.MessageType.Text)
+  print(baseCommand, liftCommand) 
+  baseFunc = getattr(move, baseCommand)
+  liftFunc = getattr(lift, liftCommand)
  else:
   # No data is ready to be processed
   time.sleep(0.1)
