@@ -12,4 +12,5 @@
     <color name="pressedYellow">#FFFFF200</color>
     <color name="pressedBlue">#FF016AB6</color>
     <color name="pressedPink">#FFFD719D</color>
+    <color name="ourRed">#FFFC1101</color>
 </resources>
