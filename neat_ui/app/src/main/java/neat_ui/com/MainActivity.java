@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private final static int REQUEST_ENABLE_BT = 1;
     private BluetoothDevice mmDevice;
     private UUID deviceUUID;
-    ConnectedThread mConnectedThread;
+    static ConnectedThread mConnectedThread;
     private static final UUID mUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private String deviceName = "ev3dev";
     private final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    private BluetoothSocket mmSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,19 +162,21 @@ public class MainActivity extends AppCompatActivity {
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
         // If there are paired devices
         if (pairedDevices.size() > 0) {
-            System.out.println("im in the loop");
             // Loop through paired devices
             for (BluetoothDevice device : pairedDevices) {
-                // Add the name and address to an array adapter to show in a ListView
-                if (device.getName().equals(deviceName))
+                if (device.getName().equals(deviceName)) {
                     mmDevice = device;
-                else {
-                    Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T.",
+                    Toast.makeText(getApplicationContext(), "Paired with your N.E.A.T.",
                             Toast.LENGTH_LONG).show();
-                    return;
-                    // perhaps add in ability to discover here
+                    break;
                 }
             }
+        }
+        if (mmDevice == null) {
+            Toast.makeText(getApplicationContext(), "Not paired with your N.E.A.T.",
+                    Toast.LENGTH_LONG).show();
+            return;
+            // perhaps add in ability to discover here
         }
 
         ConnectThread connect = new ConnectThread(mmDevice, mUUID);
@@ -181,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class ConnectThread extends Thread {
-        private BluetoothSocket mmSocket;
 
         public ConnectThread(BluetoothDevice device, UUID uuid) {
             mmDevice = device;
@@ -189,10 +191,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void run(){
+            //cancelDiscovery just in case since it reduces likelihood of a successful connection
+            mBluetoothAdapter.cancelDiscovery();
             //Creating the socket.
             BluetoothSocket tmp = null;
             try {
-                // MY_UUID is the app's UUID string, also used by the server code
                 tmp = mmDevice.createRfcommSocketToServiceRecord(deviceUUID);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -201,14 +204,19 @@ public class MainActivity extends AppCompatActivity {
             //socket created, try to connect
             try {
                 mmSocket.connect();
+                System.out.println("Connected");
             } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Can't connect to socket");
                 try {
                     mmSocket.close();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+                } catch (IOException e2) {
+                    System.out.println("socket did not close");
+                    e2.printStackTrace();
                 }
+                return;
             }
-            //will talk about this in the 3rd video
+            //start a new thread for communications
             connected(mmSocket);
         }
 
@@ -224,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void connected(BluetoothSocket mmSocket) {
         // Start the thread to manage the connection and perform transmissions
-        ConnectedThread mConnectedThread = new ConnectedThread(mmSocket);
+        mConnectedThread = new ConnectedThread(mmSocket);
         mConnectedThread.start();
     }
 
@@ -270,7 +278,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        public void write(byte[] bytes) {
+        public void write(String message) {
+            byte[] bytes = message.getBytes(Charset.defaultCharset());
             try {
                 mmOutStream.write(bytes);
             } catch (IOException e) {
@@ -288,8 +297,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void SendMessage(String message) {
-        byte[] bytes = message.getBytes(Charset.defaultCharset());
-        mConnectedThread.write(bytes);
-    }
 }
