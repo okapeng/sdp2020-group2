@@ -24,7 +24,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_up.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_up.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -40,7 +40,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_down.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_down.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -56,7 +56,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_left.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_left.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -72,7 +72,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_right.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_right.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -88,7 +88,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_rotate_r.setBackgroundResource(R.drawable.pressed_yellow_circle);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_rotate_r.setBackgroundResource(R.drawable.yellow_circle);
@@ -104,7 +104,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_rotate_l.setBackgroundResource(R.drawable.pressed_yellow_circle);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_rotate_l.setBackgroundResource(R.drawable.yellow_circle);
@@ -120,7 +120,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_dtr.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_dtr.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -136,7 +136,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_dtl.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_dtl.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -152,7 +152,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_dbr.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_dbr.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -168,7 +168,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
                     button_dbl.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(300000000);
+                    vibe.vibrate(900000000);
                 } else
                 if(event.getAction() == android.view.MotionEvent.ACTION_UP){
                     button_dbl.setBackgroundResource(R.drawable.green_rounded_corner);
