@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
         boolean isComing = false;
         boolean isConnected = false;
 
+        if (mBluetoothAdapter == null) {
+            Toast.makeText(getApplicationContext(), "This device does not support Bluetooth",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
         checkWhetherConnected(isConnected);
         if (mBluetoothAdapter != null && !mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new
@@ -163,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                     mmDevice = device;
                 else {
                     Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T.",
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_LONG).show();
                     return;
                     // perhaps add in ability to discover here
                 }
