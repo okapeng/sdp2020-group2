@@ -3,6 +3,14 @@
     <color name="colorPrimary">#03A9F4</color>
     <color name="colorPrimaryDark">#FF055D88</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="backgroundBlue">#A5CFDD</color>
     <color name="greenButton">#44A741</color>
     <color name="ourYellow">#FFFABD00</color>
+    <color name="ourPink">#E91E63</color>
+    <color name="disabledGrey">#FF8B8989</color>
+    <color name="pressedGreen">#FF66F862</color>
+    <color name="pressedYellow">#FFFFF200</color>
+    <color name="pressedBlue">#FF016AB6</color>
+    <color name="pressedPink">#FFFD719D</color>
+    <color name="ourRed">#FFFC1101</color>
 </resources>
