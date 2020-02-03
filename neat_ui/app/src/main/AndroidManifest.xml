@@ -14,8 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".BluetoothActivity"></activity>
-        <activity
             android:name=".ManualMovementActivity"
             android:label="@string/manual_mode" />
         <activity
