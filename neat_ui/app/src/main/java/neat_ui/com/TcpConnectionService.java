@@ -4,8 +4,9 @@ package neat_ui.com;
 import android.os.AsyncTask;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -15,7 +16,6 @@ public class TcpConnectionService extends AsyncTask {
     private int port = 4445;
 
     private Socket socket;
-    private PrintWriter printWriter;
     private ExecutorService mExecutorService;
 
     public TcpConnectionService(String hostAddr, int port) {
@@ -24,8 +24,8 @@ public class TcpConnectionService extends AsyncTask {
     }
 
     public void send(String msg) {
-        mExecutorService.execute(new SendService(socket, msg));
         try {
+            mExecutorService.execute(new SendService(socket.getOutputStream(), msg));
             socket.getOutputStream().flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -36,6 +36,7 @@ public class TcpConnectionService extends AsyncTask {
     protected Object doInBackground(Object[] objects) {
         try {
             this.socket = new Socket(hostAddr, port);
+            this.socket.setKeepAlive(true);
 //            this.printWriter = new Psocket.getOutputStream());
 
             mExecutorService = Executors.newCachedThreadPool();
@@ -46,10 +47,10 @@ public class TcpConnectionService extends AsyncTask {
     }
 
     private class SendService implements Runnable {
-        private Socket s;
+        private OutputStream s;
         private String msg;
 
-        SendService(Socket s, String msg) {
+        SendService(OutputStream s, String msg) {
             this.s = s;
             this.msg = msg;
         }
@@ -57,10 +58,12 @@ public class TcpConnectionService extends AsyncTask {
         @Override
         public void run() {
             try {
-                OutputStreamWriter out = new OutputStreamWriter(s.getOutputStream());
+
+                OutputStreamWriter out = new OutputStreamWriter(s);
                 out.write(this.msg);
                 out.flush();
                 out.close();
+                s.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
