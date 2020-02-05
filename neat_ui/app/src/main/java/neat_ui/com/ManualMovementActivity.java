@@ -18,7 +18,7 @@ public class ManualMovementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual_movement);
 
-        //tcp.execute();
+        tcp.execute();
 
         final Vibrator vibe = (Vibrator) ManualMovementActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -43,6 +43,8 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcp.send("stop");
+                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -50,7 +52,7 @@ public class ManualMovementActivity extends AppCompatActivity {
 
             Runnable mAction = new Runnable() {
                 @Override public void run() {
-                    //tcp.send("forward");
+                    tcp.send("forward");
                     System.out.println("forward");
                     mHandler.postDelayed(this, 100);
                 }
@@ -79,6 +81,8 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcp.send("stop");
+                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -86,7 +90,7 @@ public class ManualMovementActivity extends AppCompatActivity {
 
             Runnable mAction = new Runnable() {
                 @Override public void run() {
-                    //tcp.send("back");
+                    tcp.send("back");
                     System.out.println("back");
                     mHandler.postDelayed(this, 100);
                 }
@@ -115,6 +119,8 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcp.send("stop");
+                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -122,7 +128,7 @@ public class ManualMovementActivity extends AppCompatActivity {
 
             Runnable mAction = new Runnable() {
                 @Override public void run() {
-                    //tcp.send("left");
+                    tcp.send("left");
                     System.out.println("left");
                     mHandler.postDelayed(this, 100);
                 }
@@ -151,6 +157,8 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcp.send("stop");
+                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -158,7 +166,7 @@ public class ManualMovementActivity extends AppCompatActivity {
 
             Runnable mAction = new Runnable() {
                 @Override public void run() {
-                    //tcp.send("right");
+                    tcp.send("right");
                     System.out.println("right");
                     mHandler.postDelayed(this, 100);
                 }
@@ -187,6 +195,8 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcp.send("stop");
+                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -194,7 +204,7 @@ public class ManualMovementActivity extends AppCompatActivity {
 
             Runnable mAction = new Runnable() {
                 @Override public void run() {
-                    //tcp.send("rotr");
+                    tcp.send("rotr");
                     System.out.println("rotr");
                     mHandler.postDelayed(this, 100);
                 }
@@ -223,6 +233,8 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcp.send("stop");
+                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -230,7 +242,7 @@ public class ManualMovementActivity extends AppCompatActivity {
 
             Runnable mAction = new Runnable() {
                 @Override public void run() {
-                    //tcp.send("rotl");
+                    tcp.send("rotl");
                     System.out.println("rotl");
                     mHandler.postDelayed(this, 100);
                 }
@@ -307,6 +319,8 @@ public class ManualMovementActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        System.out.println("disconnected");
+        tcp.send("disconnected");
         tcp.close();
     }
 }
