@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -47,9 +48,6 @@ public class ManualMovementActivity extends AppCompatActivity {
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
 //                        tcp.send("stop");
-                        if (mTcpClient != null) {
-                            mTcpClient.sendMessage("stop");
-                        }
                         System.out.println("stop");
                         break;
                 }
@@ -59,9 +57,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("forward");
-                    if (mTcpClient != null) {
-                        mTcpClient.sendMessage("forward");
-                    }
+                    new SendMessageTask().execute("left");
                     System.out.println("forward");
                     mHandler.postDelayed(this, 100);
                 }
@@ -103,9 +99,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("back");
-                    if (mTcpClient != null) {
-                        mTcpClient.sendMessage("back");
-                    }
+                    new SendMessageTask().execute("left");
                     System.out.println("back");
                     mHandler.postDelayed(this, 100);
                 }
@@ -144,9 +138,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("left");
-                    if (mTcpClient != null) {
-                        mTcpClient.sendMessage("left");
-                    }
+                    new SendMessageTask().execute("left");
                     System.out.println("left");
                     mHandler.postDelayed(this, 100);
                 }
@@ -185,9 +177,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("right");
-                    if (mTcpClient != null) {
-                        mTcpClient.sendMessage("right");
-                    }
+                    new SendMessageTask().execute("left");
                     System.out.println("right");
                     mHandler.postDelayed(this, 100);
                 }
@@ -227,9 +217,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                 @Override public void run() {
 //                    tcp.send("rotr");
                     System.out.println("rotr");
-                    if (mTcpClient != null) {
-                        mTcpClient.sendMessage("rotr");
-                    }
+                    new SendMessageTask().execute("left");
                     mHandler.postDelayed(this, 100);
                 }
             };
@@ -267,9 +255,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("rotl");
-                    if (mTcpClient != null) {
-                        mTcpClient.sendMessage("rotl");
-                    }
+                    new SendMessageTask().execute("left");
                     System.out.println("rotl");
                     mHandler.postDelayed(this, 100);
                 }
@@ -285,8 +271,57 @@ public class ManualMovementActivity extends AppCompatActivity {
         System.out.println("disconnected");
 //        tcp.send("disconnected");
 //        tcp.close();
-        if (mTcpClient != null) {
+        new DisconnectTask().execute();
+    }
+
+    /**
+     * Sends a message using a background task to avoid doing long/network operations on the UI thread
+     */
+    public class SendMessageTask extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... params) {
+
+            // send the message
+            mTcpClient.sendMessage(params[0]);
+
+            return null;
+        }
+    }
+
+    /**
+     * Disconnects using a background task to avoid doing long/network operations on the UI thread
+     */
+    public class DisconnectTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            // disconnect
             mTcpClient.stopClient();
+            mTcpClient = null;
+
+            return null;
+        }
+    }
+
+    public class ConnectTask extends AsyncTask<String, String, TcpClient> {
+
+        @Override
+        protected TcpClient doInBackground(String... message) {
+
+            //we create a TCPClient object and
+            mTcpClient = new TcpClient(new TcpClient.OnMessageReceived() {
+                @Override
+                //here the messageReceived method is implemented
+                public void messageReceived(String message) {
+                    //this method calls the onProgressUpdate
+                    publishProgress(message);
+                }
+            });
+            mTcpClient.run();
+
+            return null;
         }
     }
 }
