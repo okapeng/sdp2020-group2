@@ -57,7 +57,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("forward");
-                    new SendMessageTask().execute("left");
+                    new SendMessageTask().execute("forward");
                     System.out.println("forward");
                     mHandler.postDelayed(this, 100);
                 }
@@ -87,9 +87,6 @@ public class ManualMovementActivity extends AppCompatActivity {
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
 //                        tcp.send("stop");
-                        if (mTcpClient != null) {
-                            mTcpClient.sendMessage("stop");
-                        }
                         System.out.println("stop");
                         break;
                 }
@@ -99,7 +96,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("back");
-                    new SendMessageTask().execute("left");
+                    new SendMessageTask().execute("back");
                     System.out.println("back");
                     mHandler.postDelayed(this, 100);
                 }
@@ -177,7 +174,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("right");
-                    new SendMessageTask().execute("left");
+                    new SendMessageTask().execute("right");
                     System.out.println("right");
                     mHandler.postDelayed(this, 100);
                 }
@@ -217,7 +214,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                 @Override public void run() {
 //                    tcp.send("rotr");
                     System.out.println("rotr");
-                    new SendMessageTask().execute("left");
+                    new SendMessageTask().execute("rotr");
                     mHandler.postDelayed(this, 100);
                 }
             };
@@ -255,7 +252,7 @@ public class ManualMovementActivity extends AppCompatActivity {
             Runnable mAction = new Runnable() {
                 @Override public void run() {
 //                    tcp.send("rotl");
-                    new SendMessageTask().execute("left");
+                    new SendMessageTask().execute("rotl");
                     System.out.println("rotl");
                     mHandler.postDelayed(this, 100);
                 }
@@ -345,6 +342,7 @@ public class ManualMovementActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(String... params) {
+            System.out.println("im in send messsage");
 
             // send the message
             mTcpClient.sendMessage(params[0]);
@@ -360,6 +358,8 @@ public class ManualMovementActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+
+            System.out.println("im in disconnect");
 
             // disconnect
             mTcpClient.stopClient();
