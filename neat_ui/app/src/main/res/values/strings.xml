@@ -18,4 +18,8 @@
     <string name="counter_height">counter height</string>
     <string name="table_height">table height</string>
     <string name="base_height">base height</string>
+    <string name="diagonal_arrow_top_right">diagonal_arrow_top_right</string>
+    <string name="diagonal_arrow_bottom_left">diagonal_arrow_bottom_left</string>
+    <string name="diagonal_arrow_bottom_right">diagonal_arrow_bottom_right</string>
+    <string name="diagonal_arrow_top_left">diagonal_arrow_top_left</string>
 </resources>

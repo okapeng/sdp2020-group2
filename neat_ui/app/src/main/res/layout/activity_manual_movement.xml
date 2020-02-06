@@ -9,9 +9,9 @@
 
     <ImageButton
         android:id="@+id/up"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/green_rounded_corner"
         android:contentDescription="@string/arrow_pointing_upwards"
         android:padding="10dp"
@@ -23,9 +23,9 @@
 
     <ImageButton
         android:id="@+id/down"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginBottom="150dp"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginBottom="190dp"
         android:background="@drawable/green_rounded_corner"
         android:contentDescription="@string/arrow_pointing_downwards"
         android:padding="10dp"
@@ -37,11 +37,11 @@
 
     <ImageButton
         android:id="@+id/right"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="110dp"
         android:background="@drawable/green_rounded_corner"
         android:contentDescription="@string/arrow_pointing_right"
         android:cropToPadding="false"
@@ -54,11 +54,11 @@
 
     <ImageButton
         android:id="@+id/left"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="110dp"
         android:background="@drawable/green_rounded_corner"
         android:contentDescription="@string/arrow_pointing_left"
         android:padding="10dp"
@@ -99,5 +99,61 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_rotate_right" />
+
+    <ImageButton
+        android:id="@+id/dtr"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/green_rounded_corner"
+        android:contentDescription="@string/diagonal_arrow_top_right"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_diag_tr" />
+
+    <ImageButton
+        android:id="@+id/dtl"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/green_rounded_corner"
+        android:contentDescription="@string/diagonal_arrow_top_left"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_diag_tl" />
+
+    <ImageButton
+        android:id="@+id/dbl"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="190dp"
+        android:background="@drawable/green_rounded_corner"
+        android:contentDescription="@string/diagonal_arrow_bottom_left"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_diag_bl" />
+
+    <ImageButton
+        android:id="@+id/dbr"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="190dp"
+        android:background="@drawable/green_rounded_corner"
+        android:contentDescription="@string/diagonal_arrow_bottom_right"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_diag_br" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
