@@ -51,7 +51,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         vibe.vibrate(900000000);
                         if (mHandler != null) return true;
                         mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 100);
+                        mHandler.postDelayed(mAction, 20);
                         break;
                     case MotionEvent.ACTION_UP:
                         button_up.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -59,8 +59,6 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
-//                        tcp.send("stop");
-                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -70,7 +68,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     tcpClient.send("forward");
-                    mHandler.postDelayed(this, 100);
+                    mHandler.postDelayed(this, 20);
                 }
             };
 
@@ -90,7 +88,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         vibe.vibrate(900000000);
                         if (mHandler != null) return true;
                         mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 100);
+                        mHandler.postDelayed(mAction, 20);
                         break;
                     case MotionEvent.ACTION_UP:
                         button_down.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -98,8 +96,6 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
-//                        tcp.send("stop");
-                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -109,7 +105,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     tcpClient.send("back");
-                    mHandler.postDelayed(this, 100);
+                    mHandler.postDelayed(this, 20);
                 }
             };
 
@@ -129,7 +125,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         vibe.vibrate(900000000);
                         if (mHandler != null) return true;
                         mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 100);
+                        mHandler.postDelayed(mAction, 20);
                         break;
                     case MotionEvent.ACTION_UP:
                         button_left.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -137,8 +133,6 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
-//                        tcp.send("stop");
-                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -148,8 +142,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     tcpClient.send("left");
-                    System.out.println("left");
-                    mHandler.postDelayed(this, 100);
+                    mHandler.postDelayed(this, 20);
                 }
             };
 
@@ -169,7 +162,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         vibe.vibrate(900000000);
                         if (mHandler != null) return true;
                         mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 100);
+                        mHandler.postDelayed(mAction, 20);
                         break;
                     case MotionEvent.ACTION_UP:
                         button_right.setBackgroundResource(R.drawable.green_rounded_corner);
@@ -177,7 +170,6 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
-//                        tcp.send("stop");
                         break;
                 }
                 return false;
@@ -187,8 +179,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     tcpClient.send("right");
-                    System.out.println("right");
-                    mHandler.postDelayed(this, 100);
+                    mHandler.postDelayed(this, 20);
                 }
             };
 
@@ -208,7 +199,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         vibe.vibrate(900000000);
                         if (mHandler != null) return true;
                         mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 100);
+                        mHandler.postDelayed(mAction, 20);
                         break;
                     case MotionEvent.ACTION_UP:
                         button_rotate_r.setBackgroundResource(R.drawable.yellow_circle);
@@ -216,8 +207,6 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
-//                        tcp.send("stop");
-                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -227,7 +216,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     tcpClient.send("rotr");
-                    mHandler.postDelayed(this, 100);
+                    mHandler.postDelayed(this, 20);
                 }
             };
 
@@ -247,7 +236,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         vibe.vibrate(900000000);
                         if (mHandler != null) return true;
                         mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 100);
+                        mHandler.postDelayed(mAction, 20);
                         break;
                     case MotionEvent.ACTION_UP:
                         button_rotate_l.setBackgroundResource(R.drawable.yellow_circle);
@@ -255,8 +244,6 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
-//                        tcp.send("stop");
-                        System.out.println("stop");
                         break;
                 }
                 return false;
@@ -266,7 +253,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     tcpClient.send("rotl");
-                    mHandler.postDelayed(this, 100);
+                    mHandler.postDelayed(this, 20);
                 }
             };
 
