@@ -21,6 +21,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class ManualMovementActivity extends AppCompatActivity {
@@ -28,8 +30,8 @@ public class ManualMovementActivity extends AppCompatActivity {
     TcpClient mTcpClient;
     private final String TAG= TcpClient.class.getSimpleName();
     private String hostAddr = "192.168.105.101";
-    private int port = 4445;
-    private ThreadPoolExecutor mExecutorService;
+    private int port = 4444;
+    private ExecutorService mExecutorService = Executors.newCachedThreadPool();
     private String receiveMsg;
     private PrintWriter printWriter;
     private BufferedReader in;
@@ -285,14 +287,14 @@ public class ManualMovementActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         System.out.println("disconnected");
-//        tcp.send("disconnected");
+        send("disconnected");
 //        tcp.close();
 //        new DisconnectTask().execute();
         disconnect();
     }
 
     public void connect() {
-        mExecutorService.execute(new connectService());  //在一个新的线程中请求 Socket 连接
+        mExecutorService.execute(new connectService());
     }
 
     public void send(String msg) {
