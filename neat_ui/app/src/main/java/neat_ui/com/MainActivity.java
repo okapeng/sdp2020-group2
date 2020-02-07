@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         final MediaPlayer mp_lift = MediaPlayer.create(this, R.raw.coconuts);
         boolean isFollowing = false;
         boolean isComing = false;
-
+        boolean isConnected = false;
 
         final Button button_manual = findViewById(R.id.manual_mode);
 

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="neat_ui.com">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_logo"
@@ -9,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LiftMovementActivity" android:label="@string/lift_controls"></activity>
+        <activity
+            android:name=".LiftMovementActivity"
+            android:label="@string/lift_controls" />
         <activity
             android:name=".ManualMovementActivity"
             android:label="@string/manual_mode" />
@@ -23,7 +27,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.VIBRATE"/>
 
 </manifest>

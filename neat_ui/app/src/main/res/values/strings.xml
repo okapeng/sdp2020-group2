@@ -22,4 +22,5 @@
     <string name="diagonal_arrow_bottom_left">diagonal_arrow_bottom_left</string>
     <string name="diagonal_arrow_bottom_right">diagonal_arrow_bottom_right</string>
     <string name="diagonal_arrow_top_left">diagonal_arrow_top_left</string>
+    <string name="connect_to_your_n_e_a_t">Connect</string>
 </resources>
