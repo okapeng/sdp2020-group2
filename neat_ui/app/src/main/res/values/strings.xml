@@ -22,5 +22,7 @@
     <string name="diagonal_arrow_bottom_left">diagonal_arrow_bottom_left</string>
     <string name="diagonal_arrow_bottom_right">diagonal_arrow_bottom_right</string>
     <string name="diagonal_arrow_top_left">diagonal_arrow_top_left</string>
-    <string name="connect_to_your_n_e_a_t">Connect</string>
+    <string name="connect_to_your_n_e_a_t">Connect to your N.E.A.T.</string>
+    <string name="connect">Connect</string>
+    <string name="cancel">Cancel</string>
 </resources>

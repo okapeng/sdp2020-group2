@@ -1,6 +1,7 @@
 package neat_ui.com;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         boolean isFollowing = false;
         boolean isComing = false;
         boolean isConnected = false;
+
+        checkWhetherConnected(isConnected);
 
         final Button button_manual = findViewById(R.id.manual_mode);
 
@@ -109,5 +112,16 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(intent);
 
+    }
+
+    private void checkWhetherConnected(boolean isConnected) {
+        if(!isConnected) {
+            showConnectionPopup();
+        }
+    }
+
+    private void showConnectionPopup() {
+        DialogFragment newFragment = new ConnectionPopUp();
+        newFragment.show(getSupportFragmentManager(), "connect pop-up");
     }
 }
