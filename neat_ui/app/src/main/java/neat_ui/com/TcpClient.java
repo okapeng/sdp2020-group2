@@ -9,20 +9,22 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class TcpClient {
     private final String TAG = TcpClient.class.getSimpleName();
     private String hostAddr = "192.168.105.101";
     private int port = 4445;
-    private ThreadPoolExecutor mExecutorService;
+    //private ThreadPoolExecutor mExecutorService; //this could need to be updated to initialise this
+    private ExecutorService mExecutorService = Executors.newCachedThreadPool();
     private String receiveMsg;
     private PrintWriter printWriter;
     private BufferedReader in;
 
 
     public void connect() {
-        mExecutorService.execute(new connectService());  //在一个新的线程中请求 Socket 连接
+        mExecutorService.execute(new connectService());
     }
 
     public void send(String msg) {
