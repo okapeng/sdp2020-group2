@@ -75,6 +75,13 @@ def bright(speed,time):
     fleft(-speed,time)
     return
 
+def stop():
+    fr.stop();
+    fl.stop();
+    br.stop();
+    bl.stop();
+    return
+
 def square(speed,time):
     forward(speed,time)
     if(fr.wait_until('holding')):
