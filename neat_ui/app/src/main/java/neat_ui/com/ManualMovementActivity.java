@@ -19,8 +19,10 @@ public class ManualMovementActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual_movement);
+
         tcpClient = new TcpClient();
         tcpClient.connect();
+
         final Vibrator vibe = (Vibrator) ManualMovementActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
 
         final ImageButton button_up = findViewById(R.id.up);
@@ -248,65 +250,149 @@ public class ManualMovementActivity extends AppCompatActivity {
         final ImageButton button_dtr = findViewById(R.id.dtr);
 
         button_dtr.setOnTouchListener(new View.OnTouchListener() {
+
+            private Handler mHandler;
+
+            @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
-                    button_dtr.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(900000000);
-                } else
-                if(event.getAction() == android.view.MotionEvent.ACTION_UP){
-                    button_dtr.setBackgroundResource(R.drawable.green_rounded_corner);
-                    vibe.cancel();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        button_dtr.setBackgroundResource(R.drawable.pressed_green_button);
+                        vibe.vibrate(900000000);
+                        if (mHandler != null) return true;
+                        mHandler = new Handler();
+                        mHandler.postDelayed(mAction, 20);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        button_dtr.setBackgroundResource(R.drawable.green_rounded_corner);
+                        vibe.cancel();
+                        if (mHandler == null) return true;
+                        mHandler.removeCallbacks(mAction);
+                        mHandler = null;
+                        break;
                 }
                 return false;
             }
+
+            Runnable mAction = new Runnable() {
+                @Override
+                public void run() {
+                    tcpClient.send("dtr");
+                    mHandler.postDelayed(this, 20);
+                }
+            };
+
         });
 
         final ImageButton button_dtl = findViewById(R.id.dtl);
 
         button_dtl.setOnTouchListener(new View.OnTouchListener() {
+
+            private Handler mHandler;
+
+            @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
-                    button_dtl.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(900000000);
-                } else
-                if(event.getAction() == android.view.MotionEvent.ACTION_UP){
-                    button_dtl.setBackgroundResource(R.drawable.green_rounded_corner);
-                    vibe.cancel();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        button_dtl.setBackgroundResource(R.drawable.pressed_green_button);
+                        vibe.vibrate(900000000);
+                        if (mHandler != null) return true;
+                        mHandler = new Handler();
+                        mHandler.postDelayed(mAction, 20);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        button_dtl.setBackgroundResource(R.drawable.green_rounded_corner);
+                        vibe.cancel();
+                        if (mHandler == null) return true;
+                        mHandler.removeCallbacks(mAction);
+                        mHandler = null;
+                        break;
                 }
                 return false;
             }
+
+            Runnable mAction = new Runnable() {
+                @Override
+                public void run() {
+                    tcpClient.send("dtl");
+                    mHandler.postDelayed(this, 20);
+                }
+            };
+
         });
 
         final ImageButton button_dbr = findViewById(R.id.dbr);
 
         button_dbr.setOnTouchListener(new View.OnTouchListener() {
+
+            private Handler mHandler;
+
+            @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
-                    button_dbr.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(900000000);
-                } else
-                if(event.getAction() == android.view.MotionEvent.ACTION_UP){
-                    button_dbr.setBackgroundResource(R.drawable.green_rounded_corner);
-                    vibe.cancel();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        button_dbr.setBackgroundResource(R.drawable.pressed_green_button);
+                        vibe.vibrate(900000000);
+                        if (mHandler != null) return true;
+                        mHandler = new Handler();
+                        mHandler.postDelayed(mAction, 20);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        button_dbr.setBackgroundResource(R.drawable.green_rounded_corner);
+                        vibe.cancel();
+                        if (mHandler == null) return true;
+                        mHandler.removeCallbacks(mAction);
+                        mHandler = null;
+                        break;
                 }
                 return false;
             }
+
+            Runnable mAction = new Runnable() {
+                @Override
+                public void run() {
+                    tcpClient.send("dbr");
+                    mHandler.postDelayed(this, 20);
+                }
+            };
+
         });
 
         final ImageButton button_dbl = findViewById(R.id.dbl);
 
         button_dbl.setOnTouchListener(new View.OnTouchListener() {
+
+            private Handler mHandler;
+
+            @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
-                    button_dbl.setBackgroundResource(R.drawable.pressed_green_button);
-                    vibe.vibrate(900000000);
-                } else
-                if(event.getAction() == android.view.MotionEvent.ACTION_UP){
-                    button_dbl.setBackgroundResource(R.drawable.green_rounded_corner);
-                    vibe.cancel();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        button_dbl.setBackgroundResource(R.drawable.pressed_green_button);
+                        vibe.vibrate(900000000);
+                        if (mHandler != null) return true;
+                        mHandler = new Handler();
+                        mHandler.postDelayed(mAction, 20);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        button_dbl.setBackgroundResource(R.drawable.green_rounded_corner);
+                        vibe.cancel();
+                        if (mHandler == null) return true;
+                        mHandler.removeCallbacks(mAction);
+                        mHandler = null;
+                        break;
                 }
                 return false;
             }
+
+            Runnable mAction = new Runnable() {
+                @Override
+                public void run() {
+                    tcpClient.send("dbl");
+                    mHandler.postDelayed(this, 20);
+                }
+            };
+
         });
 
     }
