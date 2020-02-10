@@ -1,22 +1,54 @@
-from move import *
-#Iteration 1 of follow me
-ir = ev3.InfraredSensor('in3')#IR in port 3
+from BaseController import *
+
+usth = 200 #US threshold
+ir = ev3.InfraredSensor('in4')
 bs = ev3.BeaconSeeker(sensor = ir,channel = 1)
-us = ev3.UltrasonicSensor('in4')#US in port 4
-us.mode = 'US-DIST-CM'
+usm = ev3.UltrasonicSensor('in2') #Middle US 
+usm.mode = 'US-DIST-CM'
+usr = ev3.UltrasonicSensor('in1') #Right US
+usr.mode = 'US-DIST-CM'
+usl = ev3.UltrasonicSensor('in3') #Left US
+usl.mode = 'US-DIST-CM'
 #rs = ev3.RemoteControl(sensor = ir, channel = 1)
-while(True):
-    print('ir = '+str(bs.distance)+', us = '+str(us.value()))
-    if(us.value()<500):
-        stop()
-        ev3.Sound.beep(args = '-l 500')
-    #if(rs.red_down or rs.red_up or rs.blue_up or rs.blue_down):
-        #stop()
-        #break
-    if(bs.distance>30):
-        forward(500,1000)
+
+def follow():
+    while(True):
+        print('beacon distance='+str(bs.distance)+',bearing= '+str(bs.heading)+', us = '+str(usm.value()), end = ' ')
+        if(bs.distance<0):
+            stop()
+            print('BEACON NOT FOUND')
+        elif(bs.distance == 100):
+            stop()
+            print('OUT OF RANGE')
+        elif(usm.value()<usth or usr.value()<usth or usl.value()<usth):
+            print('OBJECT DETECTED')
+            object()
+        elif(bs.distance>30 and abs(bs.heading)<4):
+            forward(500,100)
+            print('FOLLOWING')
+        elif( bs.heading>4):
+            rotl(500,100)
+            print('TURNING')
+        elif(bs.heading<-4):
+            rotr(500,100)
+            print('TURNING')
+        else:
+            continue
+
+def object():
+    if(usm.value()<usth and usr.value()<usth and usl.value()<usth):
+        rotr(500,100)
+    elif(usm.value()<usth and usr.value()<usth):
+        left(500,100)
+    elif(usm.value()<usth and usl.value()<usth):
+        right(500,100)
+    elif(usr.value()<usth and usl.value()<usth):
+        rotr(500,100)
+    elif(usm.value()<usth):
+        rotl(500,100)
+    elif(usr.value()<usth):
+        left(500,100)
+    elif(usl.value()<usth):
+        right(500,100)
     else:
-        continue
-
-
-
+        return
