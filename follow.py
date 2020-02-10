@@ -1,13 +1,13 @@
 from BaseController import *
 
 usth = 200 #US threshold
-ir = ev3.InfraredSensor('in4')
+ir = ev3.InfraredSensor('in2')
 bs = ev3.BeaconSeeker(sensor = ir,channel = 1)
-usm = ev3.UltrasonicSensor('in2') #Middle US 
+usm = ev3.UltrasonicSensor('in3') #Middle US 
 usm.mode = 'US-DIST-CM'
 usr = ev3.UltrasonicSensor('in1') #Right US
 usr.mode = 'US-DIST-CM'
-usl = ev3.UltrasonicSensor('in3') #Left US
+usl = ev3.UltrasonicSensor('in4') #Left US
 usl.mode = 'US-DIST-CM'
 #rs = ev3.RemoteControl(sensor = ir, channel = 1)
 
