@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 
 public class TcpClient {
     private final String TAG = TcpClient.class.getSimpleName();
-    private String hostAddr = "192.168.105.101";
+    private String hostAddr = "192.168.105.152";
     private int port = 4445;
     //private ThreadPoolExecutor mExecutorService; //this could need to be updated to initialise this
     private ExecutorService mExecutorService = Executors.newCachedThreadPool();
