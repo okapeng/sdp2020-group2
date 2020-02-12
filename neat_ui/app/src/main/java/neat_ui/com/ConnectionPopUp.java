@@ -44,13 +44,13 @@ public class ConnectionPopUp extends DialogFragment {
         builder.setMessage(R.string.connect_to_your_n_e_a_t)
                 .setPositiveButton(R.string.connect, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        canConnect = true;
+                        listener.onDialogPositiveClick(ConnectionPopUp.this);
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User cancelled the dialog
-                        canConnect = false;
+                        listener.onDialogNegativeClick(ConnectionPopUp.this);
                     }
                 });
         // Create the AlertDialog object and return it

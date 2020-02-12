@@ -11,11 +11,12 @@ import android.content.Intent;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements ConnectionPopUp.NoticeDialogListener{
     TcpClient mTcpClient;
-    boolean isConnected = true;
+    boolean isConnected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,35 +33,35 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
         final Button button_manual = findViewById(R.id.manual_mode);
 
-        if(!isConnected) {
-            button_manual.setEnabled(false);
-            button_manual.setBackgroundResource(R.drawable.disabled_round_corners);
-        } else {
-            button_manual.setEnabled(true);
-            button_manual.setOnClickListener(new View.OnClickListener() {
-                @Override
+        button_manual.setOnClickListener(new View.OnClickListener() {
+            @Override
 
-                public void onClick(View v) {
+            public void onClick(View v) {
+                if (!isConnected) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
+                    toast.show();
+                    showConnectionPopup();
+                } else {
                     mp_manual.start();
                     vibe.vibrate(100);
                     goToManualMovementActivity();
                 }
-            });
-        }
+            }
+        });
 
         final Button button_follow = findViewById(R.id.follow);
 
-        if(!isConnected) {
-            button_follow.setEnabled(false);
-            button_follow.setBackgroundResource(R.drawable.disabled_round_corners);
-        } else {
-            button_follow.setEnabled(true);
-            button_follow.setOnClickListener(new View.OnClickListener() {
-                boolean isFollowing = false;
+        button_follow.setOnClickListener(new View.OnClickListener() {
+            boolean isFollowing = false;
 
-                @Override
+            @Override
 
-                public void onClick(View v) {
+            public void onClick(View v) {
+                if (!isConnected) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
+                    toast.show();
+                    showConnectionPopup();
+                } else {
                     if (!isFollowing) {
                         mp_follow.start();
                         vibe.vibrate(100);
@@ -75,23 +76,23 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
                         isFollowing = false;
                     }
                 }
+            }
 
-            });
-        }
+        });
 
         final Button button_come = findViewById(R.id.come_to_me);
 
-        if(!isConnected) {
-            button_come.setEnabled(false);
-            button_come.setBackgroundResource(R.drawable.disabled_round_corners);
-        } else {
-            button_come.setEnabled(true);
-            button_come.setOnClickListener(new View.OnClickListener() {
-                boolean isComing = false;
+        button_come.setOnClickListener(new View.OnClickListener() {
+            boolean isComing = false;
 
-                @Override
+            @Override
 
-                public void onClick(View v) {
+            public void onClick(View v) {
+                if (!isConnected) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
+                    toast.show();
+                    showConnectionPopup();
+                } else {
                     if (!isComing) {
                         mp_come.start();
                         vibe.vibrate(100);
@@ -106,27 +107,26 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
                         isComing = false;
                     }
                 }
-
-            });
-        }
+            }
+        });
 
         final Button button_lift = findViewById(R.id.lift_controls);
 
-        if(!isConnected) {
-            button_lift.setEnabled(false);
-            button_lift.setBackgroundResource(R.drawable.disabled_round_corners);
-        } else {
-            button_lift.setEnabled(true);
-            button_lift.setOnClickListener(new View.OnClickListener() {
+        button_lift.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
+                if (!isConnected) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
+                    toast.show();
+                    showConnectionPopup();
+                } else {
                     mp_lift.start();
                     vibe.vibrate(100);
                     goToLiftMovementActivity();
                 }
-            });
-        }
+            }
+        });
     }
 
     private void goToManualMovementActivity() {
@@ -152,8 +152,8 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
     }
 
     private void showConnectionPopup() {
-        DialogFragment newFragment = new ConnectionPopUp();
-        newFragment.show(getSupportFragmentManager(), "connect pop-up");
+        DialogFragment dialog = new ConnectionPopUp();
+        dialog.show(getSupportFragmentManager(), "connect pop-up");
     }
 
     // The dialog fragment receives a reference to this Activity through the
