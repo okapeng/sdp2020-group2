@@ -20,8 +20,7 @@ public class ManualMovementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual_movement);
 
-        tcpClient = new TcpClient();
-        tcpClient.connect();
+        tcpClient = TcpClient.getInstance();
 
         final Vibrator vibe = (Vibrator) ManualMovementActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -47,6 +46,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -84,6 +84,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -121,6 +122,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -158,6 +160,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -195,6 +198,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -232,6 +236,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -269,6 +274,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -306,6 +312,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -343,6 +350,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -380,6 +388,7 @@ public class ManualMovementActivity extends AppCompatActivity {
                         if (mHandler == null) return true;
                         mHandler.removeCallbacks(mAction);
                         mHandler = null;
+                        tcpClient.send("stop");
                         break;
                 }
                 return false;
@@ -397,9 +406,9 @@ public class ManualMovementActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        tcpClient.disconnect();
-    }
+    //@Override
+    //protected void onDestroy() {
+      //  super.onDestroy();
+        //tcpClient.disconnect();
+    //}
 }

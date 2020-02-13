@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
 
+import android.os.Handler;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
         button_follow.setOnClickListener(new View.OnClickListener() {
             boolean isFollowing = false;
+            private Handler mHandler;
 
             @Override
 
@@ -65,18 +67,31 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
                     if (!isFollowing) {
                         mp_follow.start();
                         vibe.vibrate(100);
+                        mHandler = new Handler();
+                        mHandler.postDelayed(mAction, 20);
                         button_follow.setBackgroundResource(R.drawable.red_rounded_corners);
                         button_follow.setText("Stop following");
                         isFollowing = true;
                     } else {
                         mp_follow.start();
                         vibe.vibrate(100);
+                        mHandler.removeCallbacks(mAction);
+                        mHandler = null;
+                        mTcpClient.send("stop following");
                         button_follow.setBackgroundResource(R.drawable.yellow_rounded_corner);
                         button_follow.setText("Follow me");
                         isFollowing = false;
                     }
                 }
             }
+
+            Runnable mAction = new Runnable() {
+                @Override
+                public void run() {
+                    mTcpClient.send("follow");
+                    mHandler.postDelayed(this, 20);
+                }
+            };
 
         });
 
@@ -162,8 +177,8 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         // User touched the dialog's positive button
-        //mTcpClient = new TcpClient();
-        //mTcpClient.connect();
+        mTcpClient = TcpClient.getInstance();
+        mTcpClient.connect();
         isConnected = true;
     }
 
@@ -172,4 +187,10 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
         // User touched the dialog's negative button
         isConnected = false;
     }
+
+    //@Override
+    //protected void onDestroy() {
+      //  super.onDestroy();
+        //mTcpClient.disconnect();
+    //}
 }
