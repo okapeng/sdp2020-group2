@@ -15,7 +15,6 @@ from threading import Thread
 import socket
 import time
 import sys
-import queue
 
 TCPCOM_VERSION = "1.26 - Jan. 17, 2018"
 
@@ -64,7 +63,7 @@ class TCPServer(Thread):
     TERMINATED = "TERMINATED"
     MESSAGE = "MESSAGE"
 
-    def __init__(self, port, stateChanged, commPool, endOfBlock=b'\0', isVerbose=False):
+    def __init__(self, port, stateChanged, endOfBlock=b'\0', isVerbose=False):
         '''
         Creates a TCP socket server that listens on TCP port
         for a connecting client. The server runs in its own thread, so the
@@ -85,7 +84,6 @@ class TCPServer(Thread):
         self.isClientConnected = False
         self.terminateServer = False
         self.isServerRunning = False
-        self.commPool = commPool
         self.start()
 
     def setTimeout(self, timeout):
@@ -144,7 +142,7 @@ class TCPServer(Thread):
                 continue
             self.conn = conn
             self.isClientConnected = True
-            self.socketHandler = ServerHandler(self, self.commPool, self.endOfBlock)
+            self.socketHandler = ServerHandler(self, self.endOfBlock)
             self.socketHandler.setDaemon(True)  # necessary to terminate thread
             self.socketHandler.start()
             try:
@@ -263,10 +261,9 @@ class TCPServer(Thread):
 
 # ---------------------- class ServerHandler ------------------------
 class ServerHandler(Thread):
-    def __init__(self, server, commPool, endOfBlock=b'\0'):
+    def __init__(self, server, endOfBlock=b'\0'):
         Thread.__init__(self)
         self.server = server
-        self.commPool = commPool
         self.endOfBlock = endOfBlock
 
     def run(self):
@@ -275,7 +272,7 @@ class ServerHandler(Thread):
         if self.server.timeout > 0:
             timeoutThread = TimeoutThread(self.server, self.server.timeout)
             timeoutThread.start()
-        bufSize = 4096
+        bufSize = 1024
         try:
             while True:
                 data = ""
@@ -291,9 +288,6 @@ class ServerHandler(Thread):
                         TCPServer.debug("conn.recv() returned None")
                         isRunning = False
                         break
-                    if str(reply.decode()) != "disconnect":
-                        self.commPool.put(str(reply.decode()))
-                        self.server.sendMessage(str(reply.decode()))
                     data += reply.decode()
                 if not isRunning:
                     break
@@ -303,7 +297,7 @@ class ServerHandler(Thread):
                 for i in range(len(junk) - 1):
                     try:
                         TCPServer.debug("Returning message to state changer")
-                        self.server.stateChanged(TCPServer.MESSAGE, junk[i])
+                        self.server.stateChanged(TCPServer.MESSAGE, junk[i].strip())
                     except Exception as e:
                         print("Caught exception in TCPServer.MESSAGE:", e)
                 if not self.server.isClientConnected:
@@ -313,7 +307,7 @@ class ServerHandler(Thread):
                     return
                 if timeoutThread is not None:
                     timeoutThread.reset()
-                return
+            return
         except:  # May happen if client peer is resetted
             TCPServer.debug("Exception from blocking conn.recv(), Msg: " +
                             str(sys.exc_info()[0]) +
@@ -375,7 +369,7 @@ class TCPClient():
         reply = None
         try:
             msg += "\0"  # Append \0
-            # self.sock.sendall(msg.encode())
+            self.sock.sendall(msg.encode())
             if responseTime > 0:
                 reply = self._waitForReply(responseTime)  # Blocking
         except:
