@@ -188,9 +188,9 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
         isConnected = false;
     }
 
-    //@Override
-    //protected void onDestroy() {
-      //  super.onDestroy();
-        //mTcpClient.disconnect();
-    //}
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mTcpClient.disconnect();
+    }
 }
