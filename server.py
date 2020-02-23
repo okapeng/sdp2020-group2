@@ -5,39 +5,52 @@ import queue
 import threading
 
 # connection configuration settings
-tcp_ip = ""
-tcp_port = 4445
-tcp_reply = "Server message"
+IP = ""
+PORT = 4445
+REPLY = "Server message"
 
 # base controller configuration settings
-EV3_CONNECTED = False
+EV3_CONNECTED = True
 DEFAULT_SPEED = 500
 DEFAULT_TIME = 100
 DISCONNECTED = "disconnect"
 STOP = "stop"
 FOLLOW = "follow"
 
-class BaseCtrl(threading.Thread):
+if EV3_CONNECTED:
+    usth = 300 #US threshold
+    ir = ev3.InfraredSensor('in4') #IR port 2
+    bs = ev3.BeaconSeeker(sensor = ir,channel = 1)
+    usm = ev3.UltrasonicSensor('in3') #Middle US port 3
+    usm.mode = 'US-DIST-CM'
+    # usr = ev3.UltrasonicSensor('in1') #Right US
+    # usr.mode = 'US-DIST-CM'
+    # usl = ev3.UltrasonicSensor('in4') #Left US
+    # usl.mode = 'US-DIST-CM'
+
+class BaseCtrlThread(threading.Thread):
     def __init__(self,t_name,commPool):
         threading.Thread.__init__(self,name=t_name)
         self.commPool = commPool
-        self.followMode = FollowMode() if EV3_CONNECTED else None
+        self.followThread = AutoFollowThread("follow thread") if EV3_CONNECTED else None
     
     def run(self):
         while True:
             command = self.commPool.get(1)
-            print("execute command:", command)
+            # print("execute command:", command)
             if command == DISCONNECTED:
                 break
-            if command == STOP:
-                print("command pool is empty: " + str(commPool.empty()))
             if not EV3_CONNECTED:
                 continue
             if command == STOP:
-                self.followMode.stop()
                 stop()
             if command == FOLLOW:
-                self.followMode.start()
+                if self.followThread.is_alive():
+                    continue
+                else:
+                    self.followThread.start()
+            if command == "not follow":
+                self.followThread.stop()
             if command == "forward":
                 forward(DEFAULT_SPEED, DEFAULT_TIME)
             if command == "back":
@@ -58,8 +71,40 @@ class BaseCtrl(threading.Thread):
                 bleft(DEFAULT_SPEED, DEFAULT_TIME)
             if command == "dbr":
                 bright(DEFAULT_SPEED, DEFAULT_TIME)
+        clear_pool()
         print("Base control stop")
 
+class AutoFollowThread(threading.Thread):
+    def __init__(self, t_name):
+        threading.Thread.__init__(name=t_name)
+        self.running = True
+
+    def run(self):
+        self.running = True
+        while(self.running):
+            if(bs.distance<0):
+                stop()
+                print('BEACON NOT FOUND')
+            elif(bs.distance == 100):
+                stop()
+                print('OUT OF RANGE')
+            elif(usm.value()<usth or usr.value()<usth or usl.value()<usth):
+                print('OBJECT DETECTED')
+                object()
+            elif(bs.distance>30 and abs(bs.heading)<4):
+                forward(500,100)
+                print('FOLLOWING')
+            elif( bs.heading>2):
+                rotl(500,100)
+                print('TURNING')
+            elif(bs.heading<-2):
+                rotr(500,100)
+                print('TURNING')
+            else:
+                continue
+    
+    def stop(self):
+        self.running = False
 
 def onStateChanged(state, msg):
     global isConnected
@@ -82,16 +127,15 @@ def clear_pool():
 def main():
     global server, commPool, baseCtrlThread
     commPool = queue.Queue()
-    baseCtrlThread = BaseCtrl("Base controller", commPool)
+    baseCtrlThread = BaseCtrlThread("Base controller", commPool)
     baseCtrlThread.start()
 
-    server = TCPServer(tcp_port, stateChanged=onStateChanged, endOfBlock=b'\n', isVerbose=False)
+    server = TCPServer(PORT, stateChanged=onStateChanged, endOfBlock=b'\n', isVerbose=False)
     baseCtrlThread.join()
-
+    server.join()
 
 
 if __name__ == '__main__':
     if EV3_CONNECTED:
         from BaseController import *
-        from FollowMode import *
     main()
