@@ -1,7 +1,9 @@
+
+
 from BaseController import *
 
 usth = 300 #US threshold
-ir = ev3.InfraredSensor('in4') #IR port 2
+ir = ev3.InfraredSensor('in4') #IR port 4
 bs = ev3.BeaconSeeker(sensor = ir,channel = 1)
 usm = ev3.UltrasonicSensor('in3') #Middle US port 3
 usm.mode = 'US-DIST-CM'
@@ -15,7 +17,7 @@ def follow(flag):
     if(flag):
         if(bs.distance<0):
             stop()
-            #print('BEACON NOT FOUND')
+            print('BEACON NOT FOUND')
         elif(bs.distance == 100):
             stop()
             print('OUT OF RANGE')
@@ -24,7 +26,7 @@ def follow(flag):
     #    object()
             stop()
         elif(bs.distance>30 and abs(bs.heading)<4):
-            forward(500,100)
+            forward(750,100)
             #print('FOLLOWING')
         elif( bs.heading>2):
             rotl(500,100)
@@ -37,4 +39,35 @@ def follow(flag):
     else:
         stop()
         return
+
+
+#def object():
+#    if(usm.value()<usth and usr.value()<usth and usl.value()<usth):
+#        rotr(500,100)
+#        print('all three')
+#        return
+#    elif(usm.value()<usth and usr.value()<usth):
+#        left(500,100)
+#        print('middle, right')
+#        return
+#    elif(usm.value()<usth and usl.value()<usth):
+#        right(500,100)
+#        print('middle, left')
+#        return
+#    elif(usr.value()<usth and usl.value()<usth):
+#        rotr(500,100)
+#        print('right, left')
+#        return
+#    elif(usm.value()<usth):
+#        rotl(500,100)
+#        print('middle')
+#        return
+#    elif(usr.value()<usth):
+#        left(500,100)
+#        print('right')
+#        return
+#    elif(usl.value()<usth):
+#        right(500,100)
+#        print('left')
+#        return
 

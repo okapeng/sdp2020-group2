@@ -12,12 +12,16 @@ REPLY = "Server message"
 # base controller configuration settings
 EV3_CONNECTED = True
 DEFAULT_SPEED = 500
-DEFAULT_TIME = 100
+DEFAULT_TIME = 200
 DISCONNECTED = "disconnect"
 STOP = "stop"
 FOLLOW = "follow"
+STOP_FOLLOW = "stop-follow"
 
 if EV3_CONNECTED:
+    import ev3dev.ev3 as ev3
+    from BaseController import *
+
     usth = 300 #US threshold
     ir = ev3.InfraredSensor('in4') #IR port 2
     bs = ev3.BeaconSeeker(sensor = ir,channel = 1)
@@ -49,8 +53,12 @@ class BaseCtrlThread(threading.Thread):
                     continue
                 else:
                     self.followThread.start()
-            if command == "not follow":
+            if command == STOP_FOLLOW:
+                print("stop follow")
                 self.followThread.stop()
+                self.followThread.join()
+                self.followThread = AutoFollowThread("follow thread") if EV3_CONNECTED else None
+                stop()
             if command == "forward":
                 forward(DEFAULT_SPEED, DEFAULT_TIME)
             if command == "back":
@@ -71,37 +79,35 @@ class BaseCtrlThread(threading.Thread):
                 bleft(DEFAULT_SPEED, DEFAULT_TIME)
             if command == "dbr":
                 bright(DEFAULT_SPEED, DEFAULT_TIME)
-        clear_pool()
+        clearCommPool()
         print("Base control stop")
 
 class AutoFollowThread(threading.Thread):
     def __init__(self, t_name):
-        threading.Thread.__init__(name=t_name)
+        threading.Thread.__init__(self, name=t_name)
         self.running = True
 
     def run(self):
-        self.running = True
         while(self.running):
             if(bs.distance<0):
                 stop()
-                print('BEACON NOT FOUND')
-            elif(bs.distance == 100):
+                # print('BEACON NOT FOUND')
+            elif(bs.distance >= 100):
                 stop()
-                print('OUT OF RANGE')
-            elif(usm.value()<usth or usr.value()<usth or usl.value()<usth):
-                print('OBJECT DETECTED')
-                object()
+                # print('OUT OF RANGE')
+            elif(usm.value()<usth): # or usr.value()<usth or usl.value()<usth):
+                # print('OBJECT DETECTED')
+        #    object()
+                stop()
             elif(bs.distance>30 and abs(bs.heading)<4):
-                forward(500,100)
-                print('FOLLOWING')
-            elif( bs.heading>2):
+                forward(750,100)
+            elif(bs.heading>2):
                 rotl(500,100)
-                print('TURNING')
             elif(bs.heading<-2):
                 rotr(500,100)
-                print('TURNING')
             else:
-                continue
+                # print()
+                pass
     
     def stop(self):
         self.running = False
@@ -112,30 +118,25 @@ def onStateChanged(state, msg):
         print("Server:-- Listening...")
     elif state == "CONNECTED":
         isConnected = True
+        baseCtrlThread = BaseCtrlThread("Base controller", commPool)
+        baseCtrlThread.start()
         print("Server:-- Connected to " + msg)
     elif state == "MESSAGE":
-        print("Server:-- Manual command received: ", msg)
-        if msg == "follow" or msg == "come" or msg == "stop":
-            clear_pool()
+        # print("Server:-- Manual command received: ", msg)
+        if msg == FOLLOW or msg == "come" or msg == STOP or msg == STOP_FOLLOW:
+            clearCommPool()
         commPool.put(msg)
         
-    
-def clear_pool():
+def clearCommPool():
     with commPool.mutex:
         commPool.queue.clear()
 
 def main():
-    global server, commPool, baseCtrlThread
+    global serverThread, commPool, baseCtrlThread
     commPool = queue.Queue()
-    baseCtrlThread = BaseCtrlThread("Base controller", commPool)
-    baseCtrlThread.start()
-
-    server = TCPServer(PORT, stateChanged=onStateChanged, endOfBlock=b'\n', isVerbose=False)
-    baseCtrlThread.join()
-    server.join()
+    serverThread = TCPServer(PORT, stateChanged=onStateChanged, endOfBlock=b'\n', isVerbose=False)
+    serverThread.join()
 
 
 if __name__ == '__main__':
-    if EV3_CONNECTED:
-        from BaseController import *
     main()
