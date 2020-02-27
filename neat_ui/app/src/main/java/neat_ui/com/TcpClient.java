@@ -65,13 +65,13 @@ public class TcpClient {
             }
         } catch (IOException e) {
             Log.e(TAG, "receiveMsg: ");
-            e.printStackTrace();
         }
     }
 
     public void receiveMsg(RobotHandler handler) {
         try {
             while (true) {
+                e.printStackTrace();
                 if ((receiveMsg = in.readLine()) != null) {
                     Robot.getInstance().callBack(handler, receiveMsg);
                     Log.d(TAG, "receiveMsg:" + receiveMsg);

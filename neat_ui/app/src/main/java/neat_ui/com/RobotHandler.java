@@ -19,7 +19,7 @@ public abstract class RobotHandler extends Handler {
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
-//        System.out.println("handleMessage: " + (String) msg.obj);
+//        super.handleMessage(msg);dleMessage: " + (String) msg.obj);
 //        handleException((String) msg.obj);
         switch (msg.what) {
             case BATTERY: handleException("Robot battery is low");
