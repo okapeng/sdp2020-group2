@@ -14,8 +14,8 @@ import java.util.concurrent.Executors;
 
 public class TcpClient {
     private final String TAG = TcpClient.class.getSimpleName();
-//    private String HOST = "192.168.105.101";
-    private final String HOST = "192.168.105.86";
+    private String HOST = "172.20.10.9";
+//    private final String HOST = "192.168.105.86";
     private final int PORT = 4445;
 
     private ExecutorService mExecutorService = Executors.newCachedThreadPool();
@@ -31,6 +31,10 @@ public class TcpClient {
             instance = new TcpClient();
         }
         return instance;
+    }
+
+    public boolean isConnected(){
+        return socket != null && socket.isConnected();
     }
 
     public void connect() {
@@ -50,6 +54,7 @@ public class TcpClient {
         try {
             while (true) {
                 if ((receiveMsg = in.readLine()) != null) {
+                    Robot.getInstance().callBack(receiveMsg);
                     Log.d(TAG, "receiveMsg:" + receiveMsg);
                 }
             }
@@ -71,6 +76,7 @@ public class TcpClient {
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
                 receiveMsg();
             } catch (Exception e) {
+                e.printStackTrace();
                 Log.e(TAG, ("connectService:" + e.getMessage()));
             }
         }

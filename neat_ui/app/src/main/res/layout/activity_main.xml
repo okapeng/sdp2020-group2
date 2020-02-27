@@ -41,7 +41,7 @@
         android:layout_height="70dp"
         android:layout_marginBottom="18dp"
         android:background="@drawable/green_rounded_corner"
-        android:text="@string/come_to_me"
+        android:text="@string/about_robot"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/manual_mode"
