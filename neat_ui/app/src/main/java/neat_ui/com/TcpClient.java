@@ -23,6 +23,7 @@ public class TcpClient {
     private String receiveMsg;
     private PrintWriter printWriter;
     private BufferedReader in;
+    private RobotHandler robotHandler;
 
     private static TcpClient instance = null;
 
@@ -35,6 +36,10 @@ public class TcpClient {
 
     public boolean isConnected(){
         return socket != null && socket.isConnected();
+    }
+
+    public void setRobotHandler(RobotHandler robotHandler) {
+        this.robotHandler = robotHandler;
     }
 
     public void connect() {
@@ -64,6 +69,20 @@ public class TcpClient {
         }
     }
 
+    public void receiveMsg(RobotHandler handler) {
+        try {
+            while (true) {
+                if ((receiveMsg = in.readLine()) != null) {
+                    Robot.getInstance().callBack(handler, receiveMsg);
+                    Log.d(TAG, "receiveMsg:" + receiveMsg);
+                }
+            }
+        } catch (IOException e) {
+            Log.e(TAG, "receiveMsg: ");
+            e.printStackTrace();
+        }
+    }
+
 
     private class connectService implements Runnable {
         @Override
@@ -74,7 +93,8 @@ public class TcpClient {
                 printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
                         socket.getOutputStream(), "UTF-8")), true);
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
-                receiveMsg();
+//                receiveMsg();
+                receiveMsg(robotHandler);
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.e(TAG, ("connectService:" + e.getMessage()));

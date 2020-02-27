@@ -14,6 +14,9 @@
     <string name="follow_me">follow me</string>
     <string name="come_to_me">come to me</string>
     <string name="about_robot">about robot</string>
+    <string name="connect_robot">connect to robot</string>
+    <string name="exception_alert">Robot status alert</string>
+    <string name="positive">OK</string>
     <string name="lift_controls">Lift Controls</string>
     <string name="logo">logo</string>
     <string name="counter_height">counter height</string>

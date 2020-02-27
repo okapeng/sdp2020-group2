@@ -12,13 +12,21 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements ConnectionPopUp.NoticeDialogListener{
     TcpClient mTcpClient = TcpClient.getInstance();
     boolean isConnected = false;
-    DialogFragment dialog = new ConnectionPopUp();
+    RobotHandler robotHandler = new RobotHandler(this) {
+        @Override
+        public void handleException(String exception) {
+            ExceptionPopup exceptionPopup = new ExceptionPopup(MainActivity.this);
+            exceptionPopup.showPopup(exception);
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
     }
 
     private void showConnectionPopup() {
-//        DialogFragment dialog = new ConnectionPopUp();
+        DialogFragment dialog = new ConnectionPopUp();
         dialog.show(getSupportFragmentManager(), "connect pop-up");
     }
 
@@ -182,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
     public void onDialogPositiveClick(DialogFragment dialog) {
         // User touched the dialog's positive button
         mTcpClient = TcpClient.getInstance();
+        mTcpClient.setRobotHandler(robotHandler);
         mTcpClient.connect();
         isConnected = true;
     }
