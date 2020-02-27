@@ -14,8 +14,8 @@ import java.util.concurrent.Executors;
 
 public class TcpClient {
     private final String TAG = TcpClient.class.getSimpleName();
-    private String HOST = "172.20.10.9";
-//    private final String HOST = "192.168.105.86";
+   // private String HOST = "172.20.10.9";
+    private final String HOST = "192.168.105.86";
     private final int PORT = 4445;
 
     private ExecutorService mExecutorService = Executors.newCachedThreadPool();
@@ -71,7 +71,7 @@ public class TcpClient {
     public void receiveMsg(RobotHandler handler) {
         try {
             while (true) {
-                e.printStackTrace();
+                //e.printStackTrace();
                 if ((receiveMsg = in.readLine()) != null) {
                     Robot.getInstance().callBack(handler, receiveMsg);
                     Log.d(TAG, "receiveMsg:" + receiveMsg);
