@@ -12,13 +12,12 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupWindow;
 import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements ConnectionPopUp.NoticeDialogListener{
     TcpClient mTcpClient = TcpClient.getInstance();
-    boolean isConnected = false;
+    //boolean isConnected = false;
     RobotHandler robotHandler = new RobotHandler(this) {
         @Override
         public void handleException(String exception) {
@@ -63,46 +62,21 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
         final Button button_follow = findViewById(R.id.follow);
 
         button_follow.setOnClickListener(new View.OnClickListener() {
-            boolean isFollowing = false;
-            private Handler mHandler;
 
             @Override
 
             public void onClick(View v) {
-                if (!mTcpClient.isConnected()) {
+                //if (!mTcpClient.isConnected()) {
                 //if (!isConnected) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
-                    toast.show();
-                    showConnectionPopup();
-                } else {
-                    if (!isFollowing) {
-                        mp_follow.start();
-                        vibe.vibrate(100);
-                        mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 20);
-                        button_follow.setBackgroundResource(R.drawable.red_rounded_corners);
-                        button_follow.setText("Stop following");
-                        isFollowing = true;
-                    } else {
-                        mp_follow.start();
-                        vibe.vibrate(100);
-                        mHandler.removeCallbacks(mAction);
-                        mHandler = null;
-                        mTcpClient.send("stop-follow");
-                        button_follow.setBackgroundResource(R.drawable.yellow_rounded_corner);
-                        button_follow.setText("Follow me");
-                        isFollowing = false;
-                    }
-                }
+                  //  Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
+                    //toast.show();
+                   // showConnectionPopup();
+                //} else {
+                    mp_follow.start();
+                    vibe.vibrate(100);
+                    goToFollowActivity();
+                //}
             }
-
-            Runnable mAction = new Runnable() {
-                @Override
-                public void run() {
-                    mTcpClient.send("follow");
-                    mHandler.postDelayed(this, 20);
-                }
-            };
 
         });
 
@@ -164,6 +138,14 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
     private void goToManualMovementActivity() {
 
         Intent intent = new Intent(this, ManualMovementActivity.class);
+
+        startActivity(intent);
+
+    }
+
+    private void goToFollowActivity() {
+
+        Intent intent = new Intent(this, FollowActivity.class);
 
         startActivity(intent);
 
