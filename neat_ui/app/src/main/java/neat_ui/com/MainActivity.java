@@ -8,7 +8,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
 
-import android.os.Handler;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
@@ -62,20 +61,33 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
         final Button button_follow = findViewById(R.id.follow);
 
         button_follow.setOnClickListener(new View.OnClickListener() {
+            boolean isFollowing = false;
 
             @Override
 
             public void onClick(View v) {
-                //if (!mTcpClient.isConnected()) {
+                if (!mTcpClient.isConnected()) {
                 //if (!isConnected) {
-                  //  Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
-                    //toast.show();
-                   // showConnectionPopup();
-                //} else {
-                    mp_follow.start();
-                    vibe.vibrate(100);
-                    goToFollowActivity();
-                //}
+                    Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
+                    toast.show();
+                    showConnectionPopup();
+                } else {
+                    if (!isFollowing) {
+                        mp_follow.start();
+                        vibe.vibrate(100);
+                        mTcpClient.send("follow");
+                        button_follow.setBackgroundResource(R.drawable.red_rounded_corners);
+                        button_follow.setText("Stop following");
+                        isFollowing = true;
+                    } else {
+                        mp_follow.start();
+                        vibe.vibrate(100);
+                        mTcpClient.send("stop-follow");
+                        button_follow.setBackgroundResource(R.drawable.yellow_rounded_corner);
+                        button_follow.setText("Follow me");
+                        isFollowing = false;
+                    }
+                }
             }
 
         });
@@ -138,14 +150,6 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
     private void goToManualMovementActivity() {
 
         Intent intent = new Intent(this, ManualMovementActivity.class);
-
-        startActivity(intent);
-
-    }
-
-    private void goToFollowActivity() {
-
-        Intent intent = new Intent(this, FollowActivity.class);
 
         startActivity(intent);
 
