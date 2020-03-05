@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:key="@string/settings">
+
+    <PreferenceCategory android:title="General"
+        app:iconSpaceReserved="false">
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"
+            android:key="notification"
+            android:title="@string/enable_notification"/>
+
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"
+            android:key="vibrate"
+            android:title="@string/enable_vibrate"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:iconSpaceReserved="false"
+        android:title="Robot">
+        <EditTextPreference
+            app:iconSpaceReserved="false"
+            android:title="Speed"
+            android:key="@string/speed"
+            android:summary="Please set the robot moving speed"/>
+
+        <Preference
+            app:iconSpaceReserved="false"
+            android:key="@string/battery"
+            android:summary="Robot battery info"
+            android:title="Robot power"/>
+
+        <Preference
+            app:iconSpaceReserved="false"
+            android:key="guidance"
+            android:summary="Check out our user guidance"
+            android:title="User guidance"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Application"
+        app:iconSpaceReserved="false">
+        <Preference
+            app:iconSpaceReserved="false"
+            android:key="feedback"
+            android:summary="We appreciate your feedback. What did you like or dislike ?"
+            android:title="Send Feedback"/>
+        <Preference
+            app:iconSpaceReserved="false"
+            android:key="version"
+            android:summary="1.0"
+            android:title="Version"/>
+
+        <Preference
+            app:iconSpaceReserved="false"
+            android:key="copyright"
+            android:summary="AndreiD © 2020. All rights reserved."
+            android:title="Copyright"/>
+    </PreferenceCategory>
+</PreferenceScreen>
