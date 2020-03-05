@@ -8,17 +8,15 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
 
-import android.os.Handler;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupWindow;
 import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements ConnectionPopUp.NoticeDialogListener{
     TcpClient mTcpClient = TcpClient.getInstance();
-    boolean isConnected = false;
+    //boolean isConnected = false;
     RobotHandler robotHandler = new RobotHandler(this) {
         @Override
         public void handleException(String exception) {
@@ -39,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
         final MediaPlayer mp_come = MediaPlayer.create(this, R.raw.trill);
         final MediaPlayer mp_lift = MediaPlayer.create(this, R.raw.coconuts);
 
-        checkWhetherConnected(isConnected);
+        checkWhetherConnected();
 
         final Button button_manual = findViewById(R.id.manual_mode);
 
@@ -48,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
             public void onClick(View v) {
                 if (!mTcpClient.isConnected()) {
+                //if (!isConnected) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
                     toast.show();
                     showConnectionPopup();
@@ -63,12 +62,12 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
         button_follow.setOnClickListener(new View.OnClickListener() {
             boolean isFollowing = false;
-            private Handler mHandler;
 
             @Override
 
             public void onClick(View v) {
                 if (!mTcpClient.isConnected()) {
+                //if (!isConnected) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
                     toast.show();
                     showConnectionPopup();
@@ -76,16 +75,13 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
                     if (!isFollowing) {
                         mp_follow.start();
                         vibe.vibrate(100);
-                        mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 20);
+                        mTcpClient.send("follow");
                         button_follow.setBackgroundResource(R.drawable.red_rounded_corners);
                         button_follow.setText("Stop following");
                         isFollowing = true;
                     } else {
                         mp_follow.start();
                         vibe.vibrate(100);
-                        mHandler.removeCallbacks(mAction);
-                        mHandler = null;
                         mTcpClient.send("stop-follow");
                         button_follow.setBackgroundResource(R.drawable.yellow_rounded_corner);
                         button_follow.setText("Follow me");
@@ -93,14 +89,6 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
                     }
                 }
             }
-
-            Runnable mAction = new Runnable() {
-                @Override
-                public void run() {
-                    mTcpClient.send("follow");
-                    mHandler.postDelayed(this, 20);
-                }
-            };
 
         });
 
@@ -113,12 +101,14 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
             public void onClick(View v) {
                 if (!mTcpClient.isConnected()) {
+                //if (!isConnected) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
                     toast.show();
                     showConnectionPopup();
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            String.format("Batter info:%d", Robot.getInstance().getBattery()), Toast.LENGTH_LONG);
+                            String.format("Current battery power: %d", Robot.getInstance().getBattery()), Toast.LENGTH_LONG);
+                            //String.format("Current battery power: %d", 100), Toast.LENGTH_LONG);
                     toast.show();
 //                    if (!isComing) {
 //                        mp_come.start();
@@ -144,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
             @Override
             public void onClick(View v) {
                 if (!mTcpClient.isConnected()) {
+                //if (!isConnected) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
                     toast.show();
                     showConnectionPopup();
@@ -172,8 +163,9 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
     }
 
-    private void checkWhetherConnected(boolean isConnected) {
-        if(!mTcpClient.isConnected()) {
+    private void checkWhetherConnected() {
+        if (!mTcpClient.isConnected()) {
+        //if (!isConnected) {
             showConnectionPopup();
         }
     }
@@ -192,13 +184,13 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
         mTcpClient = TcpClient.getInstance();
         mTcpClient.setRobotHandler(robotHandler);
         mTcpClient.connect();
-        isConnected = true;
+        //isConnected = true;
     }
 
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
         // User touched the dialog's negative button
-        isConnected = false;
+        //isConnected = false;
     }
 
     @Override
