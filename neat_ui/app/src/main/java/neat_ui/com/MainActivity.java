@@ -4,26 +4,51 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
 
+import android.os.Handler;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.xiasuhuei321.loadingdialog.view.LoadingDialog;
+import net.steamcrafted.loadtoast.LoadToast;
 
-public class MainActivity extends AppCompatActivity implements ConnectionPopUp.NoticeDialogListener{
+
+
+public class MainActivity extends AppCompatActivity implements ConnectionPopUp.NoticeDialogListener {
     TcpClient mTcpClient = TcpClient.getInstance();
-    //boolean isConnected = false;
+    boolean isConnected = false;
     RobotHandler robotHandler = new RobotHandler(this) {
         @Override
         public void handleException(String exception) {
+            System.out.println("handle exception " + exception);
             ExceptionPopup exceptionPopup = new ExceptionPopup(MainActivity.this);
             exceptionPopup.showPopup(exception);
         }
+
+        @Override
+        public void handleConnection(boolean isConnected) {
+            System.out.println("Connection: "+isConnected);
+            if (isConnected) {
+//                lt.success();
+                ld.loadSuccess();
+                lt.hide();
+            } else {
+//                lt.error();
+                ld.loadFailed();
+            }
+
+        }
     };
+
+    LoadToast lt;
+    LoadingDialog ld;
 
 
     @Override
@@ -37,7 +62,24 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
         final MediaPlayer mp_come = MediaPlayer.create(this, R.raw.trill);
         final MediaPlayer mp_lift = MediaPlayer.create(this, R.raw.coconuts);
 
-        checkWhetherConnected();
+        lt = new LoadToast(this)
+                .setProgressColor(Color.RED)
+                .setTranslationY(100)
+                .setBorderColor(Color.LTGRAY);
+
+        if (!mTcpClient.isConnected()) {
+            showConnectionPopup();
+        }
+        final ImageView button_setting = findViewById(R.id.setting);
+
+        button_setting.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                vibe.vibrate(100);
+                goToSettingActivity();
+            }
+        });
 
         final Button button_manual = findViewById(R.id.manual_mode);
 
@@ -46,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
             public void onClick(View v) {
                 if (!mTcpClient.isConnected()) {
-                //if (!isConnected) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
                     toast.show();
                     showConnectionPopup();
@@ -62,12 +103,12 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
         button_follow.setOnClickListener(new View.OnClickListener() {
             boolean isFollowing = false;
+            private Handler mHandler;
 
             @Override
 
             public void onClick(View v) {
                 if (!mTcpClient.isConnected()) {
-                //if (!isConnected) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
                     toast.show();
                     showConnectionPopup();
@@ -101,28 +142,23 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
             public void onClick(View v) {
                 if (!mTcpClient.isConnected()) {
-                //if (!isConnected) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
                     toast.show();
                     showConnectionPopup();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            String.format("Current battery power: %d", Robot.getInstance().getBattery()), Toast.LENGTH_LONG);
-                            //String.format("Current battery power: %d", 100), Toast.LENGTH_LONG);
-                    toast.show();
-//                    if (!isComing) {
-//                        mp_come.start();
-//                        vibe.vibrate(100);
-//                        button_come.setBackgroundResource(R.drawable.red_rounded_corners);
-//                        button_come.setText("Stop coming");
-//                        isComing = true;
-//                    } else {
-//                        mp_come.start();
-//                        vibe.vibrate(100);
-//                        button_come.setBackgroundResource(R.drawable.green_rounded_corner);
-//                        button_come.setText("Come to me");
-//                        isComing = false;
-//                    }
+                    if (!isComing) {
+                        mp_come.start();
+                        vibe.vibrate(100);
+                        button_come.setBackgroundResource(R.drawable.red_rounded_corners);
+                        button_come.setText("Stop coming");
+                        isComing = true;
+                    } else {
+                        mp_come.start();
+                        vibe.vibrate(100);
+                        button_come.setBackgroundResource(R.drawable.green_rounded_corner);
+                        button_come.setText("Come to me");
+                        isComing = false;
+                    }
                 }
             }
         });
@@ -134,7 +170,6 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
             @Override
             public void onClick(View v) {
                 if (!mTcpClient.isConnected()) {
-                //if (!isConnected) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Not connected to your N.E.A.T", Toast.LENGTH_LONG);
                     toast.show();
                     showConnectionPopup();
@@ -148,11 +183,13 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
     }
 
     private void goToManualMovementActivity() {
-
         Intent intent = new Intent(this, ManualMovementActivity.class);
-
         startActivity(intent);
+    }
 
+    private void goToSettingActivity() {
+        Intent intent = new Intent(this, SettingPreference.class);
+        startActivity(intent);
     }
 
     private void goToLiftMovementActivity() {
@@ -161,13 +198,6 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
 
         startActivity(intent);
 
-    }
-
-    private void checkWhetherConnected() {
-        if (!mTcpClient.isConnected()) {
-        //if (!isConnected) {
-            showConnectionPopup();
-        }
     }
 
     private void showConnectionPopup() {
@@ -180,17 +210,23 @@ public class MainActivity extends AppCompatActivity implements ConnectionPopUp.N
     // defined by the NoticeDialogFragment.NoticeDialogListener interface
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
-        // User touched the dialog's positive button
+//        lt.setText("Connecting to robot").show();
+        ld = new LoadingDialog(this);
+        ld.setLoadingText("connecting")
+                .setSuccessText("connected to robot")
+                .setFailedText("failed to connect")
+                .setLoadSpeed(LoadingDialog.Speed.SPEED_TWO)
+                .setShowTime(1)
+                .show();
         mTcpClient = TcpClient.getInstance();
         mTcpClient.setRobotHandler(robotHandler);
         mTcpClient.connect();
-        //isConnected = true;
     }
 
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
-        // User touched the dialog's negative button
-        //isConnected = false;
+        lt.setText("Please connect to robot before any operation").show();
+//        lt.error();
     }
 
     @Override

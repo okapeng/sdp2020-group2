@@ -5,11 +5,11 @@ import android.os.Handler;
 import android.os.Message;
 
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Method;
 
 public abstract class RobotHandler extends Handler {
-    private final int BATTERY = 1;
-    private final int EXCEPTION = 2;
+    public static final int BATTERY = 1;
+    public static final int EXCEPTION = 2;
+    public static final int CONNECTION = 3;
     private WeakReference<Activity > mActivityReference;
 
     RobotHandler(Activity activity) {
@@ -19,11 +19,19 @@ public abstract class RobotHandler extends Handler {
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
+        System.out.println(msg.obj);
 //        super.handleMessage(msg);dleMessage: " + (String) msg.obj);
 //        handleException((String) msg.obj);
         switch (msg.what) {
-            case BATTERY: handleException("Robot battery is low");
-            case EXCEPTION: handleException((String) msg.obj);
+            case BATTERY:
+                handleException("Robot battery is low");
+                break;
+            case EXCEPTION:
+                handleException((String) msg.obj);
+                break;
+            case CONNECTION:
+                handleConnection((Boolean) msg.obj);
+                break;
         }
 //        try {
 //            String[] tokens = ((String) msg.obj).split(":");
@@ -35,5 +43,6 @@ public abstract class RobotHandler extends Handler {
     }
 
     public abstract void handleException(String exception);
+    public abstract void handleConnection(boolean isConnected);
 
 }

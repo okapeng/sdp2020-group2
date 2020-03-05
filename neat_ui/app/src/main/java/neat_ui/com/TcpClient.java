@@ -1,5 +1,6 @@
 package neat_ui.com;
 
+import android.os.Message;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -12,10 +13,12 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static neat_ui.com.RobotHandler.EXCEPTION;
+
 public class TcpClient {
     private final String TAG = TcpClient.class.getSimpleName();
-   // private String HOST = "172.20.10.9";
-    private final String HOST = "192.168.105.86";
+    private String HOST = "172.20.10.9";
+//    private final String HOST = "192.168.105.86";
     private final int PORT = 4445;
 
     private ExecutorService mExecutorService = Executors.newCachedThreadPool();
@@ -71,13 +74,16 @@ public class TcpClient {
     public void receiveMsg(RobotHandler handler) {
         try {
             while (true) {
-                //e.printStackTrace();
                 if ((receiveMsg = in.readLine()) != null) {
                     Robot.getInstance().callBack(handler, receiveMsg);
                     Log.d(TAG, "receiveMsg:" + receiveMsg);
                 }
             }
         } catch (IOException e) {
+            Message msg = new Message();
+            msg.what = EXCEPTION;
+            msg.obj = "Connection lost, please reconnect!";
+            robotHandler.sendMessage(msg);
             Log.e(TAG, "receiveMsg: ");
             e.printStackTrace();
         }
@@ -87,17 +93,23 @@ public class TcpClient {
     private class connectService implements Runnable {
         @Override
         public void run() {
+            Message handlerMsg = new Message();
+            handlerMsg.what = RobotHandler.CONNECTION;
             try {
                 socket = new Socket(HOST, PORT);
                 socket.setSoTimeout(60000);
                 printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
                         socket.getOutputStream(), "UTF-8")), true);
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
+                handlerMsg.obj = isConnected();
+                robotHandler.sendMessage(handlerMsg);
 //                receiveMsg();
                 receiveMsg(robotHandler);
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.e(TAG, ("connectService:" + e.getMessage()));
+                handlerMsg.obj = isConnected();
+                robotHandler.sendMessage(handlerMsg);
             }
         }
     }
@@ -111,7 +123,14 @@ public class TcpClient {
 
         @Override
         public void run() {
-            printWriter.println(this.msg);
+            if (printWriter != null) {
+                printWriter.println(this.msg);
+            } else {
+                Message handlerMsg = new Message();
+                handlerMsg.what = EXCEPTION;
+                handlerMsg.obj = "Lost connection to robot";
+                robotHandler.sendMessage(handlerMsg);
+            }
         }
     }
 
