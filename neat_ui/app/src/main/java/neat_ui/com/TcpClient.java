@@ -17,7 +17,8 @@ import static neat_ui.com.RobotHandler.EXCEPTION;
 
 public class TcpClient {
     private final String TAG = TcpClient.class.getSimpleName();
-    private String HOST = "172.20.10.9";
+//    private String HOST = "172.20.10.9";
+    private String HOST = "172.20.10.12";
 //    private final String HOST = "192.168.105.86";
     private final int PORT = 4445;
 
@@ -103,8 +104,7 @@ public class TcpClient {
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
                 handlerMsg.obj = isConnected();
                 robotHandler.sendMessage(handlerMsg);
-//                receiveMsg();
-                receiveMsg(robotHandler);
+                    receiveMsg(robotHandler);
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.e(TAG, ("connectService:" + e.getMessage()));
