@@ -207,7 +207,7 @@ class TCPServer(Thread):
             TCPServer.debug("Not connected")
             return
         try:
-            msg += "\0"  # Append \0
+            msg += "\n"  # Append \0
             self.conn.sendall(msg.encode())
         except:
             TCPClient.debug("Exception in sendMessage()")
