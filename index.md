@@ -1,2 +1,2 @@
-##N.E.A.T##
-###No Effort Automated Transporter###
+## N.E.A.T
+### No Effort Automated Transporter
