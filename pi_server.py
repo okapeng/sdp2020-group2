@@ -36,13 +36,13 @@ class BaseCtrlThread(threading.Thread):
     def run(self):
         while True:
             command = self.commPool.get(1)
-            # print("execute command:", command)
+            print("execute command:", command)
             if command == DISCONNECT:
                 break
             if command == STOP:
-                self.piMove.stop()
+                piMove.stop()
             if command in COMMAND_LIST:
-                self.piMove.move(DEFAULT_SPEED, DEFAULT_DISTANCE)
+                piMove.move(command, DEFAULT_SPEED, DEFAULT_DISTANCE)
             # if command == "dtl":
             #     self.piMove.fleft(DEFAULT_SPEED, DEFAULT_DISTANCE)
             # if command == "dtr":
@@ -64,7 +64,7 @@ class StatusUpdateThread(threading.Thread):
         while(self.running):
             self.battery = self.battery - 1
             appServer.sendMessage("Battery:{}".format(self.battery))
-            time.sleep(4)
+            # time.sleep(4)
 
     def stop(self):
         self.running = False
@@ -80,8 +80,8 @@ class AutoFollowThread(threading.Thread):
             if(ev3Status['bc_dist']<0 or ev3Status['bc_dist'] >= 100):
                 piMove.stop()
                 appServer.sendMessage('Exception:Beacon lost')
-                while ev3Status['bc_dist']<0 or ev3Status['bc_dist'] >= 100
-                appServer.sendMessage('Exception:Beacon found')
+                while ev3Status['bc_dist']<0 or ev3Status['bc_dist'] >= 100:
+                    appServer.sendMessage('Exception:Beacon found')
             elif(usm.value() < MIN_DIS): # or usr.value()<usth or usl.value()<usth):
                 piMove.stop()
             elif(ev3Status['bc_dist']>30 and abs(ev3Status['bc_heading'])<4):
@@ -107,13 +107,15 @@ def onStateChangedApp(state, msg):
         statusUpdateThread.start()
         print("Server:-- Connected to " + msg)
     elif state == "MESSAGE":
-        print("Server:-- Manual command received: ", msg)
+        # print("Server:-- Manual command received: ", msg)
+        msg = msg.decode()
         if msg == FOLLOW or msg == STOP or msg == STOP_FOLLOW:
             clearCommPool()
         commPool.put(msg)
 
 def onStateChangedEV3(state, msg):
-    global ev3Status = dict()
+    global ev3Status
+    ev3Status = dict()
     if state == "LISTENING":
         print("Server:-- Listening...")
     elif state == "CONNECTED":
@@ -131,8 +133,8 @@ def main():
     global appServer, ev3Server, commPool, piMove
     piMove = OurPiMove()
     commPool = Queue.Queue()
-    appServer = TCPServer(PORT, stateChanged=onStateChangedApp, endOfBlock=b'\n', isVerbose=True)
-    ev3Server = TCPServer(EV3_PORT, stateChanged=onStateChangedEV3, endOfBlock=b'\n', isVerbose=True)
+    appServer = TCPServer(PORT, stateChanged=onStateChangedApp, endOfBlock=b'\n', isVerbose=False)
+    ev3Server = TCPServer(EV3_PORT, stateChanged=onStateChangedEV3, endOfBlock=b'\n', isVerbose=False)
     ev3Server.join()
     appServer.join()
 

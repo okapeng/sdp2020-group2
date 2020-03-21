@@ -10,7 +10,7 @@ import threading
 from ev3dev2.sensor.lego import UltrasonicSensor, InfraredSensor
 from time import sleep
 
-server_ip = "192.168.105.28"
+server_ip = "192.168.0.2"
 server_port = 4444
 
 

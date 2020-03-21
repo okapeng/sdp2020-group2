@@ -10,7 +10,7 @@ PORT = 4445
 REPLY = "Server message"
 
 # base controller configuration settings
-EV3_CONNECTED = True
+EV3_CONNECTED = False
 DEFAULT_SPEED = 500
 DEFAULT_TIME = 200
 DISCONNECTED = "disconnect"
@@ -20,17 +20,11 @@ STOP_FOLLOW = "stop-follow"
 
 if EV3_CONNECTED:
     import ev3dev.ev3 as ev3
-    from BaseController import *
-
     usth = 300 #US threshold
     ir = ev3.InfraredSensor('in4') #IR port 2
     bs = ev3.BeaconSeeker(sensor = ir,channel = 1)
     usm = ev3.UltrasonicSensor('in3') #Middle US port 3
     usm.mode = 'US-DIST-CM'
-    # usr = ev3.UltrasonicSensor('in1') #Right US
-    # usr.mode = 'US-DIST-CM'
-    # usl = ev3.UltrasonicSensor('in4') #Left US
-    # usl.mode = 'US-DIST-CM'
 
 class BaseCtrlThread(threading.Thread):
     def __init__(self,t_name,commPool):
@@ -42,8 +36,8 @@ class BaseCtrlThread(threading.Thread):
         while True:
             command = self.commPool.get(1)
             # print("execute command:", command)
-            if command == DISCONNECTED:
-                break
+            # if command == DISCONNECTED:
+            #     break
             if not EV3_CONNECTED:
                 continue
             if command == STOP:
@@ -52,6 +46,7 @@ class BaseCtrlThread(threading.Thread):
                 if self.followThread.is_alive():
                     continue
                 else:
+                    # self.followThread = AutoFollowThread("follow thread") if EV3_CONNECTED else None
                     self.followThread.start()
             if command == STOP_FOLLOW:
                 print("stop follow")
@@ -101,10 +96,13 @@ class AutoFollowThread(threading.Thread):
                 stop()
             elif(bs.distance>30 and abs(bs.heading)<4):
                 forward(750,100)
+                #print('FOLLOWING')
             elif(bs.heading>2):
                 rotl(500,100)
+                #print('TURNING')
             elif(bs.heading<-2):
                 rotr(500,100)
+                #print('TURNING')
             else:
                 # print()
                 pass
@@ -118,15 +116,14 @@ def onStateChanged(state, msg):
         print("Server:-- Listening...")
     elif state == "CONNECTED":
         isConnected = True
-        baseCtrlThread = BaseCtrlThread("Base controller", commPool)
-        baseCtrlThread.start()
         print("Server:-- Connected to " + msg)
     elif state == "MESSAGE":
-        # print("Server:-- Manual command received: ", msg)
-        if msg == FOLLOW or msg == "come" or msg == STOP or msg == STOP_FOLLOW:
+        print("Server:--  received: ", msg)
+        if msg == "follow" or msg == "come" or msg == "stop":
             clearCommPool()
         commPool.put(msg)
         
+    
 def clearCommPool():
     with commPool.mutex:
         commPool.queue.clear()
@@ -134,9 +131,15 @@ def clearCommPool():
 def main():
     global serverThread, commPool, baseCtrlThread
     commPool = queue.Queue()
-    serverThread = TCPServer(PORT, stateChanged=onStateChanged, endOfBlock=b'\n', isVerbose=False)
+    baseCtrlThread = BaseCtrlThread("Base controller", commPool)
+    baseCtrlThread.start()
+
+    serverThread = TCPServer(PORT, stateChanged=onStateChanged, endOfBlock=b'\n', isVerbose=True)
+    baseCtrlThread.join()
     serverThread.join()
 
 
 if __name__ == '__main__':
+    if EV3_CONNECTED:
+        from BaseController import *
     main()
