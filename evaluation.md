@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Evaluation"
-permalink: /evaluation.md
+permalink: /evaluation/
 ---
 
 # Evaluation 
