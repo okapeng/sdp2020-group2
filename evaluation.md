@@ -1,5 +1,5 @@
 ---
 layout: page
 title: "Evaluation"
-permalink: /evaluation
+permalink: https://proj.neatrobot.site/evaluation.md
 ---
