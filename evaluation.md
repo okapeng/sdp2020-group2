@@ -1,3 +1,5 @@
+---
 layout: page
 title: "Evaluation"
-permalink: /
+permalink: /evaluation
+---

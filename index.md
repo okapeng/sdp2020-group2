@@ -3,6 +3,6 @@
 
 ![neat][logo]
 
-[logo]: https://proj.neatrobot.site/Logo.png
+[logo]: images/Logo.png
 
 [evaluation](https://proj.neatrobot.site/evaluation.md)
