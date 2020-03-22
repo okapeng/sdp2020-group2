@@ -1,0 +1,10 @@
+theme: jekyll-theme-slate
+title: N.E.A.T. (no effort automated transporter
+logo: https://proj.neatrobot.site/images/Logo.png
+
+owner:
+  name: SDP_2020_Group2
+  email: sdpgroup2-group@uoe.onmicrosoft.com
+
+inlcude:
+        - _pages
