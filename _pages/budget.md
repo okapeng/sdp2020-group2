@@ -6,3 +6,24 @@ permalink: /budget/
 
 Ideally, include both the actual costs and an estimate of what it might
 cost in reality if your system was to go into production
+
+Total cost for a N.E.A.T. robot is **£ 1766.66**
+
+1. Base
+    * EV3 Kit (EV3 block+2 large motors + cable + Lego pieces) @_£371.99_
+    * 2x EV3 large motors @_£32.39 each_
+    * Mecanum wheels @_£66.00 for a set of 4 wheels_
+2. Lift
+    * Lift motor @_£1100_
+    * 6mm+8mm Bright Steel Round Bar @_£15_
+    * MDF (per 8ft x 6ft x 12mm sheet) @_£11_
+    * 12mm Thk T6 Aluminium Plate @_£10_
+    * 3D printed material (5p per gram) @_£2.50_
+    * Total cost of lift @_£1138.50_
+3. Miscellaneous
+    * 3x Ultrasonic sensor @_£32.39 each_
+    * 1x Infrared Sensor @_£35_
+    * 1x Infrared Beacon @_£28_
+    * Raspberry Pi @_£30_
+4. Website
+    * Domain @_£3 per year_
