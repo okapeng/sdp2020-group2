@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Team
+permalink: /team/
 ---
 #### Team members and roles: 
   explain who did what
