@@ -26,7 +26,7 @@
           {% endif %}
         {% endif %}
       {% endfor %}
-
+      <a class="sidebar-nav-item{% if page.url== site.commentsurl %} active{% endif %}" href="{{ site.commentsurl }}">Comments</a>
       <a class="sidebar-nav-item" href="{{ site.github }}">GitHub project</a>
     </nav>
 
