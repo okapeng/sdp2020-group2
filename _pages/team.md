@@ -11,3 +11,5 @@ permalink: /team/
   How did you distribute your work? 
   Which development tools did you use? Did you use git? Asana etc? 
   This section might contain your Gantt chart or other similar diagrams.
+
+[Download meeting notes](/archive/meeting_notes.zip)
