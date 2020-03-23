@@ -7,7 +7,7 @@ permalink: /budget/
 Ideally, include both the actual costs and an estimate of what it might
 cost in reality if your system was to go into production
 
-Total cost for a N.E.A.T. robot is **£ 1766.66**
+Total cost for a N.E.A.T. robot is **£ 1769.66**
 
 1. Base
     * EV3 Kit (EV3 block+2 large motors + cable + Lego pieces) @_£371.99_
