@@ -3,13 +3,10 @@ layout: page
 title: How does it work
 ---
 
-#### Evaluation Tests: 
-  Show the results of testing where available. This can include tables, graphs, videos etc. Be careful to present data in an appropriate manner and be clear about the conclusions drawn from whatever it is you present
+#### Methods: 
+  Explain the key methods of how you got your system to work
 
-#### User Tests: 
-  Present any user testing you have performed for your product. 
-  The same advice about presenting data should be used as above
-
-#### Main Areas of Improvement: 
-  What did you learn from your testing? 
-  How did your evaluation/user testing change your system, or would change any future iteration?
+#### System Diagrams: 
+  You should include images (where available) which illustrate the methods you used, how the system works etc. This can include system diagrams, images of your system in certain states etc.
+  
+  ![state-diagram](images/state_diagram.png)
