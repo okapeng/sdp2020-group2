@@ -1,7 +1,6 @@
 ---
 layout: page
 title: How does it work
-permalink: /how/
 ---
 
 #### Evaluation Tests: 

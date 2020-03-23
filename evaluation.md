@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Evaluation
-permalink: /evaluation/
 ---
 #### Evaluation Tests: 
   Show the results of testing where available. This can include tables, graphs, videos etc. 
