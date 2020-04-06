@@ -11,7 +11,7 @@ permalink: /team/
   | Daniel Tee       | ![Daniel's Picture](/images/daniels_picture.jpg) | Lift Hardware    |         
   | :--------------: | :----------------------------------------------: | :--------------: |
   | Sean Train       | ![Sean's Picture](/images/seans_picture.jpg)     | Base Hardware &  |
-  |                                                                       Robot Testing    |          
+                                                                          Robot Testing              
   | :--------------: | :----------------------------------------------: | :--------------: |
 
 #### Team management: 
