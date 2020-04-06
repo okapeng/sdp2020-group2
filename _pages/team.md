@@ -8,8 +8,11 @@ permalink: /team/
   
   | Team Member Name | Team Member Picture                              | Team Member Role |
   | :--------------: | :----------------------------------------------: | :--------------: |
-  | Daniel Tee       | ![Daniel's Picture](/images/daniels_picture.jpg) | Lift hardware    |         
-  
+  | Daniel Tee       | ![Daniel's Picture](/images/daniels_picture.jpg) | Lift Hardware    |         
+  | :--------------: | :----------------------------------------------: | :--------------: |
+  | Sean Train       | ![Sean's Picture](/images/seans_picture.jpg)     | Base Hardware &  |
+  |                  |                                                  | Testing          |          
+  | :--------------: | :----------------------------------------------: | :--------------: |
 
 #### Team management: 
   Use this section to demonstrate how your team was organised. 
