@@ -4,7 +4,11 @@ title: Team
 permalink: /team/
 ---
 #### Team members and roles: 
-  explain who did what
+  <!-- Add your own picture and role in the table below -->
+  | Team Member Name | Team Member Picture                              | Team Member Role |
+  | :--------------: | :----------------------------------------------: | :--------------: |
+  | Daniel Tee       | ![Daniel's Picture](/images/daniels_picture.jpg) | Lift hardware    |         
+  
 
 #### Team management: 
   Use this section to demonstrate how your team was organised. 
