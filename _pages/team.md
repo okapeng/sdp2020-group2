@@ -5,6 +5,7 @@ permalink: /team/
 ---
 #### Team members and roles: 
   <!-- Add your own picture and role in the table below -->
+  
   | Team Member Name | Team Member Picture                              | Team Member Role |
   | :--------------: | :----------------------------------------------: | :--------------: |
   | Daniel Tee       | ![Daniel's Picture](/images/daniels_picture.jpg) | Lift hardware    |         
