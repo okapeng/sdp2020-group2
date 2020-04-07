@@ -8,6 +8,7 @@ permalink: /team/
   
   | Team Member Name | Team Member Picture                              | Team Member Role |
   | :--------------: | :----------------------------------------------: | :--------------: |
+  | Barnabas Ujvari  | ![Barna's Picture](/images/barnas_picture.jpg) | Raspberry pi code for movement, base design and construction    |       
   | Daniel Tee       | ![Daniel's Picture](/images/daniels_picture.jpg) | Lift hardware    |         
   
 
