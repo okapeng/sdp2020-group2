@@ -12,9 +12,8 @@ permalink: /team/
   | :--------------: | :----------------------------------------------: | :--------------: |
   | Sean Train       | ![Sean's Picture](/images/seans_picture.jpg)     | Base Hardware & Robot Testing |        
   | :--------------: | :----------------------------------------------: | :--------------: |
-  | Barnabas Ujvari  | ![Barna's Picture](/images/barnas_picture.jpg)   | Raspberry pi code for movement & Base design and construction |        
+  | Barnabas Ujvari  | ![Barna's Picture](/images/barnas_picture.jpg)   | Raspberry pi code for movement & Base design and construction | 
   | :--------------: | :----------------------------------------------: | :--------------: |
-Raspberry pi code for movement, base design and construction 
 #### Team management: 
   Use this section to demonstrate how your team was organised. 
   How did you distribute your work? 
