@@ -4,8 +4,8 @@ body {
     /* background: rgb(230,230,230); */
     
     color: rgb(50,50,50);
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6em;
+    /* font-family: 'Open Sans', sans-serif; */
+    /* line-height: 1.6em; */
   }
   .column {
     float: left;
