@@ -71,11 +71,12 @@ The final interation of the robot base entailed creating housing under the robot
 ![Seventh Lego Base](/images/lego_base7.jpg)   ![Eighth Lego Base](/images/lego_base8.png)
 
 #### Base Features
-1. Provides a strong reinforced base that wholed the rest of final product.
-2. Has the means for directional travel in up to 6 direction.
+1. Provides a strong reinforced base that supports the rest of final product.
+2. Has the means for directional travel in up to 8 directions.
 3. Securely houses the brains of the N.E.A.T. (EV3 and Raspberry Pi).
-4. Contains on-board object detection and avoidance.
+4. Contains on-board object detection and avoidance using ultrasonic sensors.
 5. Provides power to the EV3, Raspberry Pi and Lift.
+6. Presents a platform for the infrared sensor to be seated for "follow me" mode
 ### Lift Feature Highlight
 #### Lift Hardware Design
 The lift’s design was developed using the SOLIDWORKS CAD modelling package. SOLIDWORKS includes several useful features which were used in the development of the system. Some of these features include motion studies to detect collision between components through the lifts range of motion, mass property evaluation to estimate the weight of the lift, and clearance verification to determine if there’s enough clearance between components.
