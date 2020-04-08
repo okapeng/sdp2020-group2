@@ -19,9 +19,9 @@ permalink: /evaluation/
   
   Aim: To gain a realisitic estimation of the robot's battery life.
   
-  Method: The fully built robot had 1.25kg (the average weight of a standard meal containing plate of food, water and cutlery) placed on top. The batteries of the robot were checked to be 100% charged. The robot carried out continous rotation movements on the spot for 5 minutes. The charge of the batteries were then extrapolated to get an overall battery life estimation.
+  Method: The fully built robot had a load of 1.25kg (to represent a standard meal containing plate of food, water and cutlery) placed on top. The batteries were fully charged before the test was carried out. The robot was then made to complete continuous cycles of a 2 metre square formation for 5 minutes. The charge left on the batteries were then extrapolated to get an estimate for the battery life.
   
-  Evaluation: The reason for rotation movement was that was found to be more power consuming movement when the robot was bearing weight and is by far the most used movement during the robots general function. The battery estimate was 17 minutes and 21 seconds which is a sufficient battery life for the robot to carry out several short to medium length jobs without the performance depreciating significantly. The user of the robot must keep in mind that reusable battery charge hold depreciates over time as general use takes place and therefore, should take the battery life test results purely as an estimation.
+  Evaluation: The reason for rotation movement was that was found to be more power consuming movement when the robot was bearing weight and is by far the most used movement during the robots general function. The battery estimate was **17 minutes and 21 seconds** which is a sufficient battery life for the robot to carry out several short to medium length jobs without the performance depreciating significantly. The user of the robot must keep in mind that reusable battery charge hold depreciates over time as general use takes place and therefore, should take the battery life test results purely as an estimation.
   
   **Raspberry Pi vs EV3 Test:**
   
