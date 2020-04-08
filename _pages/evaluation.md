@@ -41,4 +41,4 @@ permalink: /evaluation/
   The same advice about presenting data should be used as above
 
 ### Main Areas of Improvement: 
-  The tests conducted on the robot base found several areas of improvement, with the base drop tests uncovering structural weakpoints that required redesigning to resolve these problems. The Rasbperry Pi vs EV3 test uncovered that switching from the EV3 to the Raspberry Pi wouldn't compromise the robot's performance levels and gave the green light to implement the Rasbperry Pi with its significantly increased processing capabilities for the likes of object avoidance implementation.
+  The tests conducted on the robot base found several areas of improvement. The drop tests uncovered structural weakpoints that sometimes required significant redesigning of the base in order to address. The Raspberry Pi vs EV3 test uncovered that switching from the EV3 to the Raspberry Pi wouldn't compromise the robot's performance levels and gave the green light to implement the Raspberry Pi with its significantly increased processing capabilities for the likes of object avoidance.
