@@ -3,8 +3,8 @@ layout: page
 title: Evaluation
 permalink: /evaluation/
 ---
-#### Evaluation Tests: 
-### Base Testing:
+### Evaluation Tests: 
+#### Base Testing:
   Throughout the development of the N.E.A.T. we carried out numerous base related tests that were designed to uncover the robots weight capacity, battery life, structural integrity and the efficiency comparison of different hardware controllers.
   
   **Lift with Weight Test:**
@@ -25,10 +25,10 @@ permalink: /evaluation/
   **Base Development Drop Tests:**
   Throughout the development of the N.E.A.T. base structure, several drop tests were conducted in a safe and controlled environment to prevent harm to those around the robot. These tests were carried out to identify structural weaknesses and ways to increase structural integrity of the robot. These tests were not carried out in an offical manner like the previous tests mentioned above, but were rather done incrementally as the base development iterations went on. The heights dropped from were no higher than 50cm and were always conducted on the lab floor, with advanced warnings given to surrounding groups to make them aware of what was taking place. 
 
-#### User Tests: 
+### User Tests: 
   Present any user testing you have performed for your product. 
   The same advice about presenting data should be used as above
 
-#### Main Areas of Improvement: 
+### Main Areas of Improvement: 
   What did you learn from your testing? 
   How did your evaluation/user testing change your system, or would change any future iteration?
