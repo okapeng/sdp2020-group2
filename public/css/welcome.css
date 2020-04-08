@@ -2,6 +2,7 @@
 div.two_columns{
     display: flex;
     justify-content: flex-start;
+    flex-direction: row;
 
 }
 div.one_column{
@@ -23,6 +24,11 @@ p.intro{
     animation: rotation 10s infinite linear;
 }
 
+
+div.system_img{
+}
+div.system_funct{
+}
 
 
 @keyframes rotation {
