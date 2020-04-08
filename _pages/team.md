@@ -9,10 +9,9 @@
   | Team Member Name | Team Member Picture                              | Team Member Role |
   | :--------------: | :----------------------------------------------: | :--------------: |
   | Daniel Tee       | ![Daniel's Picture](/images/daniels_picture.jpg) | Lift Hardware    |         
-  | :--------------: | :----------------------------------------------: | :--------------: |
   | Sean Train       | ![Sean's Picture](/images/seans_picture.jpg)     | Base Hardware & Robot Testing |        
-  | :--------------: | :----------------------------------------------: | :--------------: |
   | Barnabas Ujvari  | ![Barna's Picture](/images/barnas_picture.jpg)   | Raspberry pi code for movement & Base design and construction | 
+
 #### Team management: 
   Use this section to demonstrate how your team was organised. 
   How did you distribute your work? 
