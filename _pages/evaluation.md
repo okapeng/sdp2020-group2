@@ -9,11 +9,11 @@ permalink: /evaluation/
   
   **Lift with Weight Test:**
   
-  Aim: To monitor how load weight affects lift performance in terms of completion time and the integrity of the lift in motion in order to get an understanding of the upper bound for the load weight
+  Aim: Since the lift is expected to carry out its function routinely, it is important to monitor how load weight affects lift performance in terms of completion time and the integrity of the lift in motion.
   
   Method: Lift was operated independently, with different masses placed onto the lift, ranging from 0kg to 2.2kg. The time it took the lift to reach 75cm was recorded as well as the time for it to return to base height (0 cm).
   ![Lift Weight Test](/images/lift_test.png)
-  Evaluation: The results indicate that the varying weights from 0kg to 2.2kg had little to no effect on the raising and lowering time taken by the lift, which averages at approximately 1 min 55s. The average mass of a meal (1.25kg) can be easily accommodated by the current system and this test was carried out to understand the maximum weight load of the robot.
+  Evaluation: The results indicate that the varying weights from 0kg to 2.2kg had little to no effect on the raising and lowering time taken by the lift, which averages at approximately 1 min 55s. The average mass of a meal (1.25kg) can be easily accommodated by the current system.
   
   **Battery Life Test:**
   
