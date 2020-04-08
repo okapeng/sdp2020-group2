@@ -7,8 +7,9 @@ permalink: /how-it-work/
 <body>
     <link rel="stylesheet" href="/public/css/extra.css"> 
     <link rel="stylesheet" href="/public/css/timeline.css">
+
     <style>.tab { margin-left: 40px; }</style>
-    <div id="hexagons">
+    <div id="hexagons" >
         <ul id="categories" class="clr">
         <li>
             <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
@@ -20,9 +21,8 @@ permalink: /how-it-work/
                 </div>
                 </div>
                 <div class="back">
-                    
-                        <img src="/images/lego_base777777.jpg"/>
-                    <!-- <a href="#">read more <i class="fa fa-arrow-circle-right"></i></a> -->
+                    <img src="/images/lego_base777777.jpg"/>
+                    <a href="/index.html"></a>
                 </div>
             </div>
             </div>
@@ -41,7 +41,7 @@ permalink: /how-it-work/
                 <div class="flip-content">
                     <p></p>
                     <p>
-                    <a href="#">read more <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#base">read more <i class="fa fa-arrow-circle-right"></i></a>
                     </p>
                 </div>
                 </div>
@@ -61,7 +61,7 @@ permalink: /how-it-work/
                 <div class="flip-content lg">
                     <p></p>
                     <p>
-                    <a href="#">read more <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#lift">read more <i class="fa fa-arrow-circle-right" ></i></a>
                     </p>
                 </div>
                 </div>
@@ -109,9 +109,21 @@ permalink: /how-it-work/
         <li>
         </ul>
     </div>
+    <div></div>
 
-  
-    <h2>Robot base design timeline</h2>
+    <hr style="height:3px;border:none;color:#333;background-color:#333;">
+    <a name="base"></a>
+    <center><h1>Robot base</h1></center>
+    <h3>Base Features</h3>
+      <ul>
+          <li>Provides a strong reinforced base that wholed the rest of final product.</li>
+          <li>Has the means for directional travel in up to 6 direction.</li>
+          <li>Securely houses the brains of the N.E.A.T. (EV3 and Raspberry Pi).</li>
+          <li>Contains on-board object detection and avoidance.</li>
+          <li>Provides power to the EV3, Raspberry Pi and Lift.</li>
+      </ul>
+    <h3>Robot base design timeline</h3>
+
     <ul class="timeline">
     <li>
         <div class="direction-r">
@@ -217,16 +229,11 @@ permalink: /how-it-work/
 
     </ul>
 
-    <h3>Base Features</h3>
-      <ul>
-          <li>Provides a strong reinforced base that wholed the rest of final product.</li>
-          <li>Has the means for directional travel in up to 6 direction.</li>
-          <li>Securely houses the brains of the N.E.A.T. (EV3 and Raspberry Pi).</li>
-          <li>Contains on-board object detection and avoidance.</li>
-          <li>Provides power to the EV3, Raspberry Pi and Lift.</li>
-      </ul>
+    <hr style="height:3px;border:none;color:#333;background-color:#333;">
+    <a name="lift"></a>
+    <center><h1>Robot Lift</h1></center>
+    <h4>Lift Hardware Design</h4>
 
-    <h3>Lift Hardware Design</h3>
     <p class="tab"> The lift’s design was developed using the SOLIDWORKS CAD modelling package. SOLIDWORKS includes several useful features which were used in the development
           of the system. Some of these features include motion studies to detect collision between components through the lifts range of motion, mass property evaluation to 
           estimate the weight of the lift, and clearance verification to determine if there’s enough clearance between components.
