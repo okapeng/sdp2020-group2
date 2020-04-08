@@ -15,7 +15,7 @@ Utilising these features allowed us to present a design which required minimal m
 Below is a video of the completed SOLIDWORKS design:
 
 <video width="480" height="371" controls>
-  <source src="/videos/Finsihed_Side_Profile.mp4" type="video/mp4">
+  <source src="/videos/Finished_Side_Profile.mp4" type="video/mp4">
 </video>
 
 And here you can see the completed product:
