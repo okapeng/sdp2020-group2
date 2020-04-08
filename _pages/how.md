@@ -68,7 +68,7 @@ This iteration was less to do with design changes but rather implemented the Ras
 
 The final interation of the robot base entailed creating housing under the robot base to hold the Rasbperry Pi and the EV3 in order to make the base top as flat as possible for the arrival of the lift. The lift was intergrated into the robot base and secured, making this iteration the final product.
 
-<img src="/images/lego_base7.jpg" alt="Seventh Lego Base" height ="400" width="400"/>   ![Eighth Lego Base](/images/lego_base8.png)
+<img src="/images/lego_base777777.jpg" alt="Seventh Lego Base" height ="400" width="400"/>   ![Eighth Lego Base](/images/lego_base8.png)
 
 #### Base Features
 1. Provides a strong reinforced base that supports the rest of final product.
