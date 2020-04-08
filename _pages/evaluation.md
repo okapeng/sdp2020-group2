@@ -34,11 +34,11 @@ permalink: /evaluation/
   
   **Base Development Drop Tests:**
   
-  Throughout the development of the N.E.A.T. base structure, several drop tests were conducted in a safe and controlled environment to prevent harm to those around the robot. These tests were carried out to identify structural weaknesses and ways to increase structural integrity of the robot. These tests were not carried out in an offical manner like the previous tests mentioned above, but were rather done incrementally as the base development iterations went on. The heights dropped from were no higher than 50cm and were always conducted on the lab floor, with advanced warnings given to surrounding groups to make them aware of what was taking place. 
+  Throughout the development of the N.E.A.T. base structure, several drop tests were conducted to identify areas of structural weaknesses and aid design changes. The tests were carried out in a safe environment (lab floor) with advanced warnings given to surrounding groups to make them aware of what was taking place and prevent harm. The heights dropped from were no higher than 50 cm and were always conducted in a controller manner to avoid serious equipment damage. These tests were not carried out in an offical manner like the previous tests mentioned above, but were rather done incrementally throughtout the base development process.
 
 ### User Tests: 
   Present any user testing you have performed for your product. 
   The same advice about presenting data should be used as above
 
 ### Main Areas of Improvement: 
-  The tests conducted on the robot base found several areas of improvement with the base drop tests uncovering structural problems that required redesigning and changing the base to answer these problems. The Rasbperry Pi vs EV3 test uncovered that switching from the EV3 to the Rasbperry Pi wouldnt comprimise the robots performance levels and gave the green light for implementing the Rasbperry Pi with its significantly increased processing capabilities for the likes of object avoidance implementation.
+  The tests conducted on the robot base found several areas of improvement, with the base drop tests uncovering structural weakpoints that required redesigning to resolve these problems. The Rasbperry Pi vs EV3 test uncovered that switching from the EV3 to the Raspberry Pi wouldn't compromise the robot's performance levels and gave the green light to implement the Rasbperry Pi with its significantly increased processing capabilities for the likes of object avoidance implementation.
