@@ -50,7 +50,7 @@ The base was taken apart and the length was increased to align the wheels correc
 
 *Iteration 9: Febuary 7th*
 
-The base was completely disassembled with a new design being implemented, mainly the addition of using Z-shaped lego clips that would hold the corners and middle struts in place instead relying solely on interleaved lego blocks. This partially improved the weight issues from the previous iteration but the base was still bending under weight. Two more ultrasonic sensors were added (front left and front right) to increase the object avoidance capabilities.
+The base was completely disassembled with a new design being implemented, mainly the addition of using L-shaped lego clips that would hold the corners and middle struts in place instead relying solely on interleaved lego blocks. This partially improved the weight issues from the previous iteration but the base was still bending under weight. Two more ultrasonic sensors were added (front left and front right) to increase the object avoidance capabilities.
 
 *Iteration 10: Febuary 15th*
 
