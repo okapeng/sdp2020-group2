@@ -1,0 +1,17 @@
+
+div.two_columns{
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+div.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5%;
+
+}
+p.intro{
+    text-align: justify;
+}
