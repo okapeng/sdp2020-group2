@@ -1,33 +1,4 @@
-/* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-  }
-  
-  /* Style the submit button with a specific background color etc */
-  input[type=submit] {
-    background-color:	#6495ed;
-    /* #191970; */
-     /* #4CAF50; */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  /* When moving the mouse over the submit button, add a darker green color */
-  input[type=submit]:hover {
-    background-color: #191970;
-    /* #45a049; */
-  }
-
+  /* For profile card */
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
@@ -53,7 +24,390 @@ input[type=text], select, textarea {
     font-size: 18px;
   }
   
-  
+  /* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+
+  #hexagons{
+  max-width: 893px;
+  margin: 1em auto 16em;
+  font: normal 16px/20px Helvetica, Arial, sans-serif;
+  padding-top: 4em;
+  position: relative;
+  }
+  #categories{
+  overflow:hidden;
+  width: 100%;
+  }
+  .clr:after{
+  content:"";
+  display:block;
+  clear:both;
+  }
+  #categories li{
+  position:relative;
+  list-style-type:none;
+  width:32.33333333%; /* = (100- 3) / 3 */
+  padding-bottom: 37.33641263%; /* =  width /0.866 */
+  float:left;
+  overflow:hidden;
+  visibility:hidden;
+  margin-left:0.5%;
+  margin-right:0.5%;
+  -webkit-transform: rotate(-60deg) skewY(30deg);
+  -ms-transform: rotate(-60deg) skewY(30deg);
+  transform: rotate(-60deg) skewY(30deg);
+  cursor:pointer;
+  }
+  @media (min-width: 768px){
+  #categories li:nth-child(5n+4){
+  margin-left: 1%;
+  }
+  #categories li:nth-child(5n+4),
+  #categories li:nth-child(5n+5){
+  margin-top: -8.083333333%;  /* = w / 4 */
+  margin-bottom: -8.083333333%; /* = w / 4 */
+  -webkit-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  -ms-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  }
+  #categories li:nth-child(5n+6){
+  clear: left;		
+  transform: translateX(0) rotate(-60deg) skewY(30deg);
+  }
+  #categories li:nth-child(5n+4):last-child,
+  #categories li:nth-child(5n+5):last-child{
+  margin-bottom: 0%;
+  }
+  }
+  @media( max-width: 767px){
+  #categories li{
+  width: 48.75%; /* = (100 -2.5) / 2 */
+  padding-bottom: 56.29330254%; /* =  width /0.866 */
+  }
+  #categories li:nth-child(3n+3){
+  margin-left: 25.5%;
+  clear: both;
+  margin-top: -12.1875%; /* = w / 4 */
+  margin-bottom: -12.1875%; /* = w / 4 */
+  }
+  #categories li:nth-child(3n+2){
+  float: right;			  
+  }
+  #categories li:nth-child(3n+3):last-child{
+  margin-bottom: 0%;
+  }
+  #categories li:nth-child(3n+4){
+  clear: left;
+  transform: translateX(0) rotate(-60deg) skewY(30deg);
+  }
+  }
+  #categories li *{
+  position:absolute;
+  visibility:visible;
+  overflow: hidden;
+  }
+  #categories li > div{
+  width:100%;
+  height:100%;
+  text-align:center;
+  color:#fff;
+  overflow:hidden;
+  -webkit-transform: skewY(-30deg) rotate(60deg);
+  -ms-transform: skewY(-30deg) rotate(60deg);
+  transform: skewY(-30deg) rotate(60deg);
+  -webkit-backface-visibility:hidden;
+  }
+  /* HEX CONTENT */
+  #categories li img{
+  left: 50%;
+  top: 50%;
+  width: auto;
+  margin: 0 auto;
+  transform: translate(-50%,-50%);
+  -webkit-border-radius: 20px; 
+  -moz-border-radius: 20px; 
+  border-radius:20px;
+  }
+  #categories li .flip-content{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #000;
+  text-align: center;
+  width: 100%;
+  padding: 20px 3px;
+  }
+  #categories li .front .flip-content{
+  font-size: 21px;
+  }
+  #categories li .flip-content *{
+  position: static;
+  }
+  #categories li .flip-content{
+  font-size: 19px; 
+  line-height: 1.2;
+  }
+  #categories li .front{
+  background-repeat: repeat;
+  background-position: center;
+  }
+  #categories li .flip-content p{
+  color: #666666;
+  padding-bottom: 10px;
+  }
+  #categories li .flip-content.lg{
+  font-size: 27px;
+  }
+  #categories li .flip-content.md{
+  font-size: 24px;
+  }
+  #categories li .flip-content.title-xs{
+  font-size: 38px;
+  }
+  #categories li .front .flip-content,
+  #categories li .front .flip-content p{
+  color: #fff;
+  }
+  #categories li .flip-content p:last-child{
+  padding-bottom: 0;
+  }
+  #categories li .back .flip-content p a{
+  background: #df5d53;
+  display: inline-block;
+  -webkit-border-radius: 18px; 
+  -moz-border-radius: 18px; 
+  border-radius: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 4px 6px 4px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration:none;
+  }
+  #categories li .back  .flip-content p a i{
+  font-size: 21px;
+  vertical-align: middle;
+  padding-left: 3px;
+  }
+  @media (max-width: 1024px){
+  #news-month.style2{
+  overflow: hidden;
+  }
+  #hexagons{
+  margin-bottom: 15em;
+  }
+  }
+  @media (max-width: 991px){
+  #categories li .front .flip-content.title-xs{
+  font-size: 29px;
+  }
+  #categories li .front .flip-content{
+  font-size: 17px;
+  }
+  #categories li .flip-content.lg{
+  font-size: 22px;
+  }
+  #categories li .flip-content.md{
+  font-size: 18px;
+  }
+  #categories li .flip-content{
+  font-size: 16px;
+  }
+  .initiative.style2 .initiative--title{
+  font-size: 19px;
+  }
+  #hexagons{
+  overflow: hidden;
+  margin: 1em auto 0;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  }
+  #categories{
+  width: auto;
+  padding: 0 12px;
+  }
+  #hexagons .el-bg.bg-11{
+  top: 996px;
+  }
+  #hexagons .el-bg.bg-12{
+  top: 1152px;
+  }
+  .page-template-our-impact .header{
+  max-height: none;
+  }
+  }
+  @media (max-width: 767px){
+  #categories li .front .flip-content.title-xs{
+  font-size: 32px;
+  }
+  #categories li .front .flip-content{
+  font-size: 23px;
+  }
+  #categories li .flip-content.lg{
+  font-size: 27px;
+  }
+  #categories li .flip-content.md{
+  font-size: 26px;
+  }
+  #categories li .flip-content{
+  font-size: 23px;
+  }
+  #hexagons .el-bg.bg-14{
+  top: 1751px;
+  }
+  #categories li img{
+  height: 100%;
+  }
+  .initiative.style2 a{
+  padding-bottom: 20px;
+  padding-top: 10px;
+  }
+  #news-month.style2 .news-figure{
+  background-position:  0 0;
+  padding: 20px 16px 20px;
+  }
+  .initiative.style2{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  }
+  .page-template-our-impact .header{
+  background-position: -62px;
+  }
+  }
+  @media (max-width: 560px){
+  #categories li .front .flip-content.title-xs{
+  font-size: 22px;
+  }
+  #categories li .front .flip-content{
+  font-size: 13px;
+  }
+  #categories li .flip-content.lg{
+  font-size: 17px;
+  }
+  #categories li .flip-content.md{
+  font-size: 16px;
+  }
+  #categories li .flip-content{
+  font-size: 13px;
+  }
+  #categories{
+  padding:0 8px;
+  }
+  #categories li .back .flip-content p a{
+  font-size: 11px;
+  padding: 0px 6px 0px 11px;
+  }
+  #categories li .back .flip-content p a i{
+  font-size: 15px;
+  line-height: 1.5;
+  }
+  }
+  @media( max-width: 375px){
+  .page-template-our-impact .header{
+  background-position: -87px;
+  }
+  }
+  @media (max-width: 320px){
+  #categories li .front .flip-content.title-xs{
+  font-size: 19px;
+  }
+  #categories li .front .flip-content{
+  font-size: 12px;
+  }
+  #categories li .flip-content.lg{
+  font-size: 13px;
+  }
+  #categories li .flip-content.md{
+  font-size: 12px;
+  }
+  #categories li .flip-content{
+  font-size: 11px;
+  }
+  #categories li .flip-content p{
+  padding-bottom: 5px;
+  }
+  .page-template-our-impact .header{
+  background-position: -104px;
+  }
+  }
+  /* Flip EFFECT  */
+  .flip-container {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -ms-transform: perspective(1000px);
+  -moz-transform: perspective(1000px);
+  -moz-transform-style: preserve-3d; 
+  -ms-transform-style: preserve-3d; 
+  }
+  /*  UPDATED! flip the pane when hovered */
+  .flip-container:hover{
+  }
+  .flip-container:hover .back {
+  transform: rotateY(0deg);
+  }
+  .flip-container:hover .front {
+  transform: rotateY(180deg);
+  }
+  .flip-container, .front, .back {
+  width: 100%;
+  height: 100%;
+  }
+  /* flip speed goes here */
+  .flipper {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -ms-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -moz-transform: perspective(1000px);
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative!important;
+  }
+  /* hide back of pane during swap */
+  .front, .back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateY(0deg);
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+  -moz-transform: rotateY(0deg);
+  -o-transition: 0.6s;
+  -o-transform-style: preserve-3d;
+  -o-transform: rotateY(0deg);
+  -ms-transition: 0.6s;
+  -ms-transform-style: preserve-3d;
+  -ms-transform: rotateY(0deg);
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  }
+  /*  UPDATED! front pane, placed above back */
+  .front {
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  z-index: 2;
+  }
+  /* back, initially hidden pane */
+  .back {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  background: #eeeeee;
+  }
   /* a {
     text-decoration: none;
     font-size: 22px;

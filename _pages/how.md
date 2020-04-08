@@ -1,8 +1,8 @@
----
+<!-- ---
 layout: page
 title: How does it work
 permalink: /how-it-work/
----
+--- -->
 
 The NEAT robot is made of three main subsytems. These are the robot base, lift, and app. The main features of these will be discussed in a bit more detail in this section.
 
