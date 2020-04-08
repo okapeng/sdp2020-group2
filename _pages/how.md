@@ -4,7 +4,7 @@ title: How does it work
 permalink: /how-it-work/
 ---
 
-The NEAT robot is made of three main subsytems. These are the robot base, lift, and app. The main features of these will be discussed in a bit more detail in this section.
+The NEAT robo comprises of three main subsytems. These are the robot base, the lift, and the application. The main features of these will be discussed in more detail in this section.
 
 ### Base
 #### Base Design
@@ -22,7 +22,7 @@ The next iterations consisted of a simple sketch of the robot and a more extensi
 
 *Iteration 4: January 21st*
 
-The base by this point consisted of a small, flat lego platform with two wheels attached, controlled by 2 lego motors and the EV3.
+The base by this point consisted of a small, flat lego platform with the wheels attached, controlled by 2 lego motors and the EV3.
 
 *Iteration 5: January 27th*
 
@@ -32,19 +32,19 @@ This iteration was similar to the previous iteration with the exception of the a
 
 *Iteration 6: January 30th*
 
-The base has increaase in size significantly with considerable structural improvement. This base helped develop the EV3 code to control directional movements as well as rotation on the spot. A single ultrasound sensor was added to aid development testing of the object detection and avoidance code.
+The base has increased in size significantly with considerable structural improvement. This base helped develop the EV3 code to control directional movements as well as rotation on the spot. A single ultrasound sensor was added to aid development testing of the object detection and avoidance code.
 
 <img src="/images/lego_base2.png" alt="Second Lego Base" height ="300" width="300"/>
 
 *Iteration 7: Febuary 1st*
 
-Issues with the previous iteration of the robot base such as structural intregrity under weight resulted in this iteration being heavily reinforced with several layers of interleaving lego blocks. Furthermore, lego struts were placed along the inside to provide stability and support for the EV3 block to rest on during functionality. However, a major design flaw was discovered after completion, in that the wheels were not aligned and therefore, rotational and diagonal movement was subpar.
+Issues with the previous iteration of the robot base such as structural intregrity under weight resulted in this iteration being heavily reinforced with several layers of lego blocks. Furthermore, lego struts were placed along the inside to provide stability and support for the EV3 block to rest on during functionality. However, a major design flaw was discovered after completion, in that the wheels were not aligned and therefore rotational and diagonal movement was subpar.
 
 <img src="/images/lego_base3.png" alt="Third Lego Base" height ="400" width="400"/>
 
 *Iteration 8: Febuary 2nd*
 
-The base was taken apart and the length was increased to align the wheels correctly and fix the issue of the of the previous iteration. Upon weight testing, the base still showed significant signs of weakness, especially the corner sections which were susceptible to breaking under reasonable weight.
+The base was taken apart and the length was increased to align the wheels correctly and fix the issue of the of the previous iteration. Upon weight testing, the base still showed significant signs of weakness, especially the corner sections, which were susceptible to breaking under reasonable weight.
 
 <img src="/images/lego_base4.png" alt="Fourth Lego Base" height ="400" width="400"/>
 
@@ -54,7 +54,7 @@ The base was completely disassembled with a new design being implemented, mainly
 
 *Iteration 10: Febuary 15th*
 
-The most radical and ivotal design change took place here, resulting in the wheels which used to be situated on the side of the robot now being directly underneath the robot base. This meant that the weight of the robot was bearing directly on the wheels and no longer on the base resulting in drastic weight bearing capabilities and prevented the lego base from bending. A byproduct of the wheel placement change resulted in increasing the bases ground clearance to 9cm. Another change was the addition of an infrared sensor which was attached to the front of the robot and allowed for the testing of the "follow me" functionality.
+The most radical and pivotal design change took place here, resulting in the wheels which used to be situated on the side of the robot now being directly underneath the robot base. This meant that the weight of the robot was bearing directly on the wheels and no longer on the base resulting in drastic weight bearing capabilities and prevented the lego base from bending. A byproduct of the wheel placement change resulted in increasing the bases ground clearance to 9cm. Another change was the addition of an infrared sensor which was attached to the front of the robot and allowed for the testing of the "follow me" functionality.
 
 <img src="/images/lego_base5.jpg" alt="Fifth Lego Base" height ="350" width="400"/>
 
@@ -72,7 +72,7 @@ The final interation of the robot base entailed creating housing under the robot
 
 #### Base Features
 1. Provides a strong reinforced base that supports the rest of final product.
-2. Has the means for directional travel in up to 8 directions.
+2. Has the means for directional travel in up to 8 directions and rotation on the spot.
 3. Securely houses the brains of the N.E.A.T. (EV3 and Raspberry Pi).
 4. Contains on-board object detection and avoidance using ultrasonic sensors.
 5. Provides power to the EV3, Raspberry Pi and Lift.
