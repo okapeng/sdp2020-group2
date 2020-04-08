@@ -5,7 +5,7 @@ permalink: /evaluation/
 ---
 ### Evaluation Tests: 
 #### Base Testing:
-  Throughout the development of the N.E.A.T. we carried out numerous base related tests that were designed to uncover the robots weight capacity, battery life, structural integrity and the efficiency comparison of different hardware controllers.
+  Throughout the development process of N.E.A.T. we carried out numerous base related tests that were designed to uncover the robots weight capacity, battery life, structural integrity and the efficiency comparison of different hardware controllers.
   
   **Lift with Weight Test:**
   
