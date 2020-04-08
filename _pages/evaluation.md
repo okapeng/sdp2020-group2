@@ -30,5 +30,4 @@ permalink: /evaluation/
   The same advice about presenting data should be used as above
 
 ### Main Areas of Improvement: 
-  What did you learn from your testing? 
-  How did your evaluation/user testing change your system, or would change any future iteration?
+  The tests conducted on the robot base found several areas of improvement with the base drop tests uncovering structural problems that required redesigning and changing the base to answer these problems. The Rasbperry Pi vs EV3 test uncovered that switching from the EV3 to the Rasbperry Pi wouldnt comprimise the robots performance levels and gave the green light for implementing the Rasbperry Pi with its significantly increased processing capabilities for the likes of object avoidance implementation.
