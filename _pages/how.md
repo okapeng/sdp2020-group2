@@ -8,11 +8,11 @@ The NEAT robot is made of three main subsytems. These are the robot base, lift, 
 
 ### Base
 #### Base Design
-The base final design was developed through an iterative development process in which 12 base iterations took place from graphical design to the final product you see today.
+The base final design was developed through an iterative development process in which 12 base iterations took place; from a graphical design to the final product you see today.
 
 *Iteration 1: January 15th*
 
-The first iteration of the robot was a simple lego base which had 4 wheels and a very fragile frame that spanned roughly 20cm by 20cm. It was created during the Robot Building Workshop.
+The first iteration of the robot was a simple Lego base which had 4 wheels and a very fragile frame that spanned roughly 20cm by 20cm. It was created during the Robot Building Workshop.
 
 *Iterations 2 and 3: January 16-20th*
 
