@@ -18,7 +18,7 @@ The first iteration of the robot was a simple Lego base which had 4 wheels and a
 
 The next iterations consisted of a simple sketch of the robot and a more extensive graphical design. This iteration in the design project gave us a projection of how we would like the final product to look and allowed us to explore a more realistic view of the final product.
 
-![Ivy_sketch](/images/ivy_sketch.png) ![Barna Design](/images/barna_design.png)
+<img src="/images/ivy_sketch.png" alt="Ivy Sketch" height ="300" width="300"/> <img src="/images/barna_design.png" alt="Graphic Design" height ="300" width="400"/>
 
 *Iteration 4: January 21st*
 
@@ -28,25 +28,25 @@ The base by this point consisted of a small, flat lego platform with two wheels 
 
 This iteration was similar to the previous iteration with the exception of the arrival of the Mechanum wheels which saw the base vastly improve through providing a testing platform for the development of the EV3 movement code.
 
-![First Lego Base](/images/lego_base1.png)
+<img src="/images/lego_base1.png" alt="First Lego Base" height ="300" width="300"/>
 
 *Iteration 6: January 30th*
 
 The base has increaase in size significantly with considerable structural improvement. This base helped develop the EV3 code to control directional movements as well as rotation on the spot. A single ultrasound sensor was added to aid development testing of the object detection and avoidance code.
 
-![Second Lego Base](/images/lego_base2.png)
+<img src="/images/lego_base2.png" alt="Second Lego Base" height ="300" width="300"/>
 
 *Iteration 7: Febuary 1st*
 
 Issues with the previous iteration of the robot base such as structural intregrity under weight resulted in this iteration being heavily reinforced with several layers of interleaving lego blocks. Furthermore, lego struts were placed along the inside to provide stability and support for the EV3 block to rest on during functionality. However, a major design flaw was discovered after completion, in that the wheels were not aligned and therefore, rotational and diagonal movement was subpar.
 
-![Third Lego Base](/images/lego_base3.png)
+<img src="/images/lego_base3.png" alt="Third Lego Base" height ="400" width="400"/>
 
 *Iteration 8: Febuary 2nd*
 
 The base was taken apart and the length was increased to align the wheels correctly and fix the issue of the of the previous iteration. Upon weight testing, the base still showed significant signs of weakness, especially the corner sections which were susceptible to breaking under reasonable weight.
 
-![Fourth Lego Base](/images/lego_base4.png)
+<img src="/images/lego_base4.png" alt="Fourth Lego Base" height ="400" width="400"/>
 
 *Iteration 9: Febuary 7th*
 
@@ -56,19 +56,19 @@ The base was completely disassembled with a new design being implemented, mainly
 
 The most radical and ivotal design change took place here, resulting in the wheels which used to be situated on the side of the robot now being directly underneath the robot base. This meant that the weight of the robot was bearing directly on the wheels and no longer on the base resulting in drastic weight bearing capabilities and prevented the lego base from bending. A byproduct of the wheel placement change resulted in increasing the bases ground clearance to 9cm. Another change was the addition of an infrared sensor which was attached to the front of the robot and allowed for the testing of the "follow me" functionality.
 
-![Fifth Lego Base](/images/lego_base5.jpg)
+<img src="/images/lego_base5.jpg" alt="Fifth Lego Base" height ="350" width="400"/>
 
 *Iteration 11: March 1st*
 
 This iteration was less to do with design changes but rather implemented the Raspberry Pi onto the robot base after a testing comparison between the EV3 and Raspberry Pi showed that the Pi controlling the motors would not impact the robots performance drastically. The EV3 is still used for reading sensor data, but the Pi will be processing that data and controlling the robot as a whole.
 
-![Sixth Lego Base](/images/lego_base6.jpg)
+<img src="/images/lego_base6.jpg" alt="Sixth Lego Base" height ="350" width="400"/>
 
 *Iteration 12: March 8th*
 
 The final interation of the robot base entailed creating housing under the robot base to hold the Rasbperry Pi and the EV3 in order to make the base top as flat as possible for the arrival of the lift. The lift was intergrated into the robot base and secured, making this iteration the final product.
 
-![Seventh Lego Base](/images/lego_base7.jpg)   ![Eighth Lego Base](/images/lego_base8.png)
+<img src="/images/lego_base7.jpg" alt="Seventh Lego Base" height ="400" width="400"/>   ![Eighth Lego Base](/images/lego_base8.png)
 
 #### Base Features
 1. Provides a strong reinforced base that supports the rest of final product.
