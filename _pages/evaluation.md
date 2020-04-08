@@ -34,7 +34,7 @@ permalink: /evaluation/
   
   **Base Development Drop Tests:**
   
-  Throughout the development of the N.E.A.T. base structure, several drop tests were conducted to identify areas of structural weaknesses and aid design changes. The heights dropped from were no higher than 50 cm and were always conducted in a controller manner in a safe environment (lab floor), with advanced warnings given to surrounding groups to make them aware of what was taking place and prevent harm to those around the robot. These tests were not carried out in an offical manner like the previous tests mentioned above, but were rather done incrementally throughtout the base development process.
+  Throughout the development of the N.E.A.T. base structure, several drop tests were conducted to identify areas of structural weaknesses and aid design changes. The tests were carried out in a safe environment (lab floor) with advanced warnings given to surrounding groups to make them aware of what was taking place and prevent harm. The heights dropped from were no higher than 50 cm and were always conducted in a controller manner to avoid serious equipment damage. These tests were not carried out in an offical manner like the previous tests mentioned above, but were rather done incrementally throughtout the base development process.
 
 ### User Tests: 
   Present any user testing you have performed for your product. 
