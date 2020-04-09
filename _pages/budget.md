@@ -7,7 +7,7 @@ permalink: /budget/
 **Disclaimer:**Our budget page includes the price of our robot at the current point in time. This sum does not account for assembly, profit, delivery and other potential cost occuring in case the product was to be manufactured and sold.
 
 <h4>Total cost for a N.E.A.T. robot currently  is £1822.73 </h4>
-<h2>With out Alternatrive lift motor that goes down to  £742.28</h2>
+<h2>With our Alternative lift motor that goes down to  £742.28</h2>
 
 <h3>1. Base</h3>
 
