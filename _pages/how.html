@@ -238,6 +238,22 @@ permalink: /how-it-work/
     <hr style="height:3px;border:none;color:#333;background-color:#333;">
     <a name="lift"></a>
     <center><h1>Robot Lift</h1></center>
+    <h4>Lift Design Process</h4>
+
+    <p class="tab">We decided to implement a scissor lift design into our robot, as we felt this was the best sort of design for a lift which required high reach, stability, and strength. Using the scissor lift design also means only one motor was required to move the whole lift assembly.</p>
+    <p class="tab">After the design had been chosen, the SOLIDWORKS CAD package was used to model the desired lift design. The chosen specification the lift had to meet was the following:</p>
+
+    <ol>
+        <li>The lift should have enough space on its platform, such that it can fit a standard size canteen tray. The dimensions for this standard canteen tray were 415mm×305mm.</li>
+        <li>The lift should be able to reach the height of a standard worktop in a kitchen. Having the lift extend up to one metre in height would allow it to comfortably reach this height.</li>
+        <li> The lift should be strong enough to carry a full meal, including lowering and raising the platform. This includes utensils as well as the food.</li>
+    </ol>
+
+    <p class="tab">Taking these into account, a design was drawn up in SOLIDWORKS. The implemented design had a platform that matched the dimensions required in the spec and reached a height of one metre when at fifty percent extension. The drive mechanism was also designed such that the lift could be moved up and down with minimum effort, by utilising a threaded rod to move the bottom support rod.</p>
+    <p class="tab">The final lift prototype was constructed out of MDF and aluminium which, while heavy, allowed the structure to stay strong when carrying loads. The heavy base plate for the lift also acted to keep the centre of gravity lower when the platform was loaded with food, helping to stop the lift toppling over. The final design also featured minor changes from the CAD design, including the use of spacers to reduce friction between components.</p>
+    <p class="tab">The control of the lift from the app was achieved by using a custom designed H-bridge circuit. This is a circuit consisting of a specific arrangement of transistors, such that two control signals can control whether the lift is off, moving up, or moving down. The circuit design was simulated in the LTspice simulation software, with transistor model parameters imported to ensure the simulations would be accurate.</p>
+
+
     <h4>Lift Hardware Design</h4>
 
     <p class="tab"> The lift’s design was developed using the SOLIDWORKS CAD modelling package. SOLIDWORKS includes several useful features which were used in the development of the system. Some of these features include motion studies to detect collision between components through the lift's range of motion, mass property evaluation to estimate the weight of the lift, and clearance verification to determine if there’s enough clearance between components.
