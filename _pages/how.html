@@ -22,8 +22,13 @@ permalink: /how-it-work/
                 </div>
                 </div>
                 <div class="back">
-                    <img src="/images/lego_base777777.jpg"/>
-                    <a href="/index.html"></a>
+                    <!-- <img src="/images/Logo.png"/> -->
+                    <div class="flip-content">
+                        <p></p>
+                        <p>
+                        <a href="/archive/user_guide.pdf">Download user guide <i class="fa fa-arrow-circle-right"></i></a>
+                        </p>
+                    </div>
                 </div>
             </div>
             </div>
@@ -81,7 +86,7 @@ permalink: /how-it-work/
                 <div class="flip-content md">
                     <p></p>
                     <p>
-                    <a href="#">read more <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#pi_ev3">read more <i class="fa fa-arrow-circle-right"></i></a>
                     </p>
                 </div>
                 </div>
@@ -268,6 +273,63 @@ permalink: /how-it-work/
     <img src="/images/H-Bridge_Revised.PNG">
 
     <hr style="height:3px;border:none;color:#333;background-color:#333;">
+    <a name="pi_ev3"></a>
+    <center><h1>Raspberry pi and EV3</h1></center>
+    <div class="tab">Our design separates robot control on Raspberry pi from sensor reading on EV3 brick. 
+        This decision is made based on the fact that EV3 has a more compatible interface to hardware components like sensors, but meanwhile constrained by limited computation power. On the other hand, Raspberry pi 
+        not only is capable of concurrent multitasking but also has an independent power supply for the motors resulting in more powerful motor control. Therefore, by isolating the tasks 
+        on two devices, our robot achieves better weight capacity, simpler design and smoother robot control. </div>
+    <h4>Raspberry pi</h4>
+    <div class="tab">
+        Raspberry pi is the center of control for the robot. It runs a TCP server connecting with the mobile app and EV3. Based on the sensor data from EV3, it interprets the command 
+        issued by the mobile app and changes the state of the robot accordingly. 
+    </div>
+    <ul>
+        <li><b>Set up stage</b><br>
+            When the user turns on the robot, the program on Raspberry pi will be invoked automatically on system boot and listen on TCP connection from EV3 brick.
+            The robot's set up time is essential the time for Raspberry pi's operating system to finish booting plus the time for EV3 connecting to Raspberry pi's server.
+            Once it's done, the server will decode the message received, conver it to sensor data and temporarily store in local variable.
+            The processing of data received from EV3 is done in background without disrupting the normal control flow of the robot to maximize its performance. 
+            Rather than initiatively request for sensor data from EV3, it will be updated on new data’s arrival. This guarantees the control of the motors is
+             always smooth and continuous and reduces the communication overhead for sensor data to be propagated from EV3 to Raspberry pi.
+        </li>
+        <li><b>Idle mode</b><br>
+            Without blocking on EV3's data, the server will proceed to listen on connection from mobile app. If there's no connection, it will stop at this stage until the connection is 
+            established. Indeed, it is usually not the case that the user use the robot immediately after turning it on, but as long as the robot is swiched on without any exception intervene the normal flow of the program, 
+            it can react to incoming connection right away. Once it is connected with mobile app, Raspberry pi is ready to carry out commands from app. Depends on the type of commands, the robot 
+            will enter into three different mode of control.
+        </li>
+        <li><b>Manual control mode</b><br>
+            If the command is an explicit direction, i.e. one of “forward”, ”backward”, ”right”, ”left”, “forward-right”, “forward-left”, “backward-right” and “backward-left”, the wheel’s 
+            motor controller will rotate motors at a given speed in combination to move the robot in that direction. It will keep moving until either the app issues a “stop” command or 
+            there are objects in front of the robot.
+        </li>
+        <li><b>Follow mode</b><br>
+            If the command is “follow”, the controller will examine the infrared sensor data to determine the user’s orientation relative to the robot and rotate the robot to face the user. 
+            It then moves towards that direction until its distance with respect to the infrared beacon is less than 30 cm. While approaching the user, it keeps checking whether there are 
+            obstacles blocking its path. If there exists any object within 50 cm in front of the robot, the controller will trigger the object avoidance mechanism to move around that object. 
+            To be specific, the robot will rotate either right or left depending on which side doesn’t detect objects based on the data from auxiliary ultrasonic sensors on both sides. 
+            <br>If the object blocks the whole range of area the robot’s sensors cover, the robot will stop and send a message to the app. If the user moves too fast for the robot to follow resulting 
+            in the infrared sensor losing the beacon’s signal, the robot will also stop and raise an exception to the app. The controller on Raspberry pi will stop automatic following if the 
+            user issues a “stop following” command.
+        </li>
+        <li><b>Lift control mode</b><br>
+            For the sake of safety, the robot is only allowed to move when the lift is at base height, i.e. fully folded. When the user opens the lift control panel on the app, Raspberry pi 
+            will receive a notification on it and unlock the control of the lift motor. Depending on the command, it moves the lift up or down. Once the app relays that the user exits from 
+            lift control mode, it will check whether the lift is in base height. If not, it will automatically fold the lift before switching to another mode.
+        </li>
+    </ul>
+    <h4>EV3 brick</h4>
+    <div class="tab">EV3 brick is connected to four sensors: an infrared sensor and three ultrasonic sensors. </div> 
+    <ul>
+        <li>
+            The program on EV3 continuously reads the distance-from-object data from the ultrasonic sensors as well as angle and distance to the portable beacon from the infrared sensor.
+        </li>
+        <li>It also runs a TCP client connected to the server on Raspberry pi. The sensor data is organised into a package and sent to the server continuously.
+            </li>
+    </ul>
+
+    <hr style="height:3px;border:none;color:#333;background-color:#333;">
     <a name="app"></a>
     <center><h1>Mobile Application</h1></center>
 
@@ -290,10 +352,10 @@ permalink: /how-it-work/
             user can identify which button they have pressed. The buttons are large and differently coloured, to help to identify them. The large text makes it easy to read, and those buttons 
             which lead to a new screen on the app have an arrow icon to indicate this to a user.
         </p>
-        <div style="margin-bottom: 10px;">
-            <img src="/images/connect_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
-            <img src="/images/menu_app.jpg" style="width: 25%; float: left;"/>
-        </div>
+        <center><div class="row">
+            <div class="column"><img src="/images/connect_app.jpg" width="55%"/></div>
+            <div class="column"><img src="/images/menu_app.jpg" width="55%"/></div>
+        </div></center>
     </div>
     <div style="float: left;">
         <h4>Voice Controls</h4>
@@ -321,11 +383,10 @@ permalink: /how-it-work/
             once they have reached their destination. The robot will then follow the user to their destination until the user taps the “stop following” button, which reverts to showing “follow me” 
             once the robot has stopped.
         </p>
-        <div style="margin-bottom: 10px;">
-            <img src="/images/menu_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
-            <img src="/images/stop_follow_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
-        </div>
-    </div>
+        <center><div class="row">
+            <div class="column"><img src="/images/menu_app.jpg" width="55%"/></div>
+            <div class="column"><img src="/images/stop_follow_app.jpg" width="55%"/></div>
+        </div></center>
     <div style="float: left;">
         <h4>Lift Controls</h4>
         <p class="tab" style="width: 60%; float: left; margin-right: 20px;">
@@ -344,10 +405,11 @@ permalink: /how-it-work/
             robot is following a user, or the robot finding itself unable to avoid an obstacle in its path. In both cases, a pop-up appears on the app to inform the user and offer guidance on how 
             to resolve it. When the beacon is lost, the pop-up suggests the user move within range of the infrared sensor, or offers the option to briefly switch to manual control to bring the robot closer to the user. In the case of an unavoidable obstacle, the pop-up encourages the user to either manually remove the obstacle or switch to manual control to guide the robot around the object.
         </p>
-        <div style="margin-bottom: 10px;"></div>
-            <img src="/images/beacon_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
-            <img src="/images/obstacle_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
-        </div>
+        <center>
+        <div class="row">
+            <div class="column"><img src="/images/beacon_app.jpg" width="55%"/></div>
+            <div class="column"><img src="/images/obstacle_app.jpg" width="55%"/></div>
+        </div></center>
     </div>
     
 </body>
