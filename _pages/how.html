@@ -300,10 +300,7 @@ permalink: /how-it-work/
             always smooth and continuous and reduces the communication overhead for sensor data to be propagated from EV3 to Raspberry pi.
         </li>
         <li><a name="idle"></a><b>Idle mode</b><br>
-            Without blocking on EV3's data, the server will proceed to listen on connection from mobile app. If there's no connection, it will stop at this stage until the connection is 
-            established. Indeed, it is usually not the case that the user use the robot immediately after turning it on, but as long as the robot is swiched on without any exception intervene the normal flow of the program, 
-            it can react to incoming connection right away. Once it is connected with mobile app, Raspberry pi is ready to carry out commands from app. Depends on the type of commands, the robot 
-            will enter into three different mode of control.
+            Without blocking on EV3's data, the server will proceed to listen on the connection from the mobile app. If there's no connection, it will stop at this stage until the connection is established. Indeed, it is usually not the case that the user uses the robot immediately after turning it on, but as long as the robot is switched on without any exception intervene the normal flow of the program, it can react to incoming connection right away. Once it is connected with mobile app, Raspberry pi is ready to carry out commands from app. Depends on the type of commands, the robot will enter into three different modes of control.
         </li>
         <li><a name="control"></a><b>Manual control mode</b><br>
             If the command is an explicit direction, i.e. one of “forward”, ”backward”, ”right”, ”left”, “forward-right”, “forward-left”, “backward-right” and “backward-left”, the wheel’s 
