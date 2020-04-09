@@ -4,33 +4,46 @@ title: Budget
 permalink: /budget/
 ---
 
-Ideally, include both the actual costs and an estimate of what it might
-cost in reality if your system was to go into production
+**Disclaimer:**Our budget page includes the price of our robot at the current point in time. This sum does not account for assembly, profit, delivery and other potential cost occuring in case the product was to be manufactured and sold.
 
 Total cost for a N.E.A.T. robot is **£1774.17**
 
-1. Base
-    * EV3 Kit (EV3 block+2 large motors + cable + Lego pieces) @_£371.99_
-    * 2x EV3 large motors @_£32.39 each_
-    * Mecanum wheels @_£66.00 for a set of 4 wheels_
-    * **Base Total: £502.77**
-2. Lift
-    * Lift motor @_£1100_
-    * 6mm+8mm Bright Steel Round Bar @_£15_
-    * MDF (per 8ft x 6ft x 12mm sheet) @_£11_
-    * 12mm Thk T6 Aluminium Plate @_£10_
-    * 3D printed material (5p per gram) @_£2.50_
-    * ON Semi PN2222ATA NPN Transistor (4 of) @_£0.80_
-    * ON Semi 2N4403TA PNP Transistor (2 of) @_£0.16_
-    * Nichicon 1μF Electrolytic Capacitor (1 of) @_£0.75_
-    * Vishay 50V 1A, Diode 1N4001-E3/54 (4 of) @_£0.80_
-    * Custom PCB (1 of) @ _£2.00_
-    * **Lift Total: £1143.01**
-3. Miscellaneous
-    * 3x Ultrasonic sensor @_£32.39 each_
-    * 1x Infrared Sensor @_£35_
-    * 1x Infrared Beacon @_£28_
-    * Raspberry Pi @_£30_
-    * **Total: £125.39**
-4. Website
-    * Domain @_£3 per year_
+*price is multiplied by quantity already
+<h3>1. Base</h3>
+
+| Name | Quantity| Price|
+|--|--|--|
+|EV3 Kit (EV3 block+2 large motors + cable + Lego pieces)  | 1|_£371.99_ |
+|EV3 large motors  | 2|_£64.78_ |
+|Mecanum wheels  | 4|_£66.00_ |
+|**Base Total:**  | |**£502.77** |
+
+<h3>2. Lift</h3>
+
+| Name | Quantity| Price|
+|--|--|--|
+|Lift motor (Overkill, ~£200 motor would be enough, Uni had no other) | 1| _£1100_ |
+|6mm+8mm Bright Steel Round Bar | 1|_£15_ |
+|MDF (per 8ft x 6ft x 12mm sheet)  | 1|_£11_ |
+|12mm Thk T6 Aluminium Plate  | 1|_£10_ |
+|3D printed material (5p per gram)  | 1| _£2.50_ |
+|ON Semi PN2222ATA NPN Transistor  | 4|_£0.80_ |
+|ON Semi 2N4403TA PNP Transistor   | 2|_£0.16_ |
+|Nichicon 1μF Electrolytic Capacitor | 1|_£0.75_ |
+|Vishay 50V 1A, Diode 1N4001-E3/54  | 4| _£0.80_ |
+|Custom PCB| 1|_£2.00_ |
+|**Current Lift Total:**  | |**£1143.01** |
+|**Estimated Optimised Lift Total:**  | |**£243.01** |
+
+
+<h3>3. Miscellaneous</h3>
+
+|Ultrasonic sensor  | 3|_£89.97_ |
+|Infrared Sensor  | 1|_£25.99_ |
+|Infrared Beacon  | 1|_£28_ |
+|Raspberry Pi v3  | 1|_£30_ |
+|**Total:**  | |**£173.96** |
+
+<h3>4. Website</h3>
+
+|Domain | 1|_£3/year_ |
