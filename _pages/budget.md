@@ -21,7 +21,7 @@ permalink: /budget/
 
 | Name | Quantity| Price|
 |--|--|--|
-|Current Lift motor (Overkill, but we only had this availale) | 1| _£1100_ |
+|Current Lift motor (Overkill, but we only had this available) | 1| _£1100_ |
 |Lift motor  <a href="https://uk.rs-online.com/web/p/dc-geared-motors/2389670/">**Alternative**</a>| 1| _£22.54_ |
 |6mm+8mm Bright Steel Round Bar | 1|_£15_ |
 |MDF (per 8ft x 6ft x 12mm sheet)  | 1|_£11_ |
