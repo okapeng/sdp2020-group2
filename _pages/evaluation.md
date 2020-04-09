@@ -40,8 +40,8 @@ permalink: /evaluation/
 
 ### Main Areas of Improvement: 
 
-  * **More sensors**, 360 degree vision for improved object avoidance. General rule: Detect,Turn, Clear, Continue
-  * Use **better** infrared **sensor-beacon combination** for longer range following possibly with wider(360 degree?) range
+  * **More sensors**, 360 degree vision for improved object avoidance. General rule: Detect, Turn, Clear, Continue
+  * Use **better** infrared **sensor-beacon combination** for longer range following possibly with wider (360 degree) range
   * **Better materials**, structural improvements would help improve the weight limit and make it usable for heavier objects
-  * **Greater weight bearing** mechanum wheels (4kg is what our wheels are meant to take at maximum)
+  * **Greater weight bearing** mecanum wheels (4kg is what our current wheels are meant to take at maximum)
   
