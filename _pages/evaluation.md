@@ -20,11 +20,7 @@ permalink: /evaluation/
   
   **Aim**: To gain a realistic estimation of the robot's battery life.
   
-<<<<<<< HEAD
   **Method**: The fully built robot had a load of 1.25kg (to represent a standard meal containing a plate of food, water and cutlery) placed on top. The batteries were fully charged before the test was carried out. The robot was then made to complete continuous cycles of a 2 metre square formation for 5 minutes using only the forward and rotation motions. The charge left on the batteries were then extrapolated to get an estimate for the battery life.
-=======
-  **Method**: The fully built robot had a load of 1.25kg (to represent a standard meal containing a plate of food, water and cutlery) placed on top. The batteries were fully charged before the test was carried out. The robot was then made to complete continuous cycles of a 2 metre square formation for 5 minutes. The charge left on the batteries was then extrapolated to get an estimate for the battery life.
->>>>>>> small changes to phrasing on how, eval and team pages
   
   **Evaluation**: The square formation was achieved using only the forward and rotation movements instead of a forward, right, back, left sequence. This was because rotation is the most power consuming movement when the robot is bearing weight and it is also by far the most used motion during the robot's general function. The battery life estimate was **17 minutes and 21 seconds** which is sufficient battery life for the robot to carry out several short to medium length jobs without the performance depreciating significantly. 
   However, the user of the robot must bear in mind that reusable battery charge hold depreciates with time as general use takes place. Therefore, they should take this battery life purely as an estimation and recharge the batteries long before the usage time approaches the battery life estimate. 
