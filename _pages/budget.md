@@ -22,7 +22,8 @@ Total cost for a N.E.A.T. robot is **£1822.73**
 
 | Name | Quantity| Price|
 |--|--|--|
-|Lift motor (Overkill, ~£200 motor would be enough, Uni had no other) | 1| _£1100_ |
+|Current Lift motor (Overkill, but we only had this availale) | 1| _£1100_ |
+|Lift motor  **Alternative**\*| 1| _£22.54_ |
 |6mm+8mm Bright Steel Round Bar | 1|_£15_ |
 |MDF (per 8ft x 6ft x 12mm sheet)  | 1|_£11_ |
 |12mm Thk T6 Aluminium Plate  | 1|_£10_ |
@@ -32,9 +33,10 @@ Total cost for a N.E.A.T. robot is **£1822.73**
 |Nichicon 1μF Electrolytic Capacitor | 1|_£0.75_ |
 |Vishay 50V 1A, Diode 1N4001-E3/54  | 4| _£0.80_ |
 |Custom PCB| 1|_£2.00_ |
-|**Current Lift Total:**  | |**£1143.01** |
-|**Estimated Optimised Lift Total:**  | |**£243.01** |
+|**Current Lift Total:**  | |_£1143.01_ |
+|**Estimated Neccessary Lift Total:**  | |**£65.55** |
 
+*https://uk.rs-online.com/web/p/dc-geared-motors/2389670/
 
 <h3>3. Miscellaneous</h3>
 
