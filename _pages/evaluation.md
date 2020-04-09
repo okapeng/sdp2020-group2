@@ -5,9 +5,9 @@ permalink: /evaluation/
 ---
 <style>.tab { text-indent: 40px; }</style>
 <center><h2>Testing Summary</h2></center>
-  Throughout the development process of N.E.A.T. we carried out numerous base related tests that were designed to uncover the robots weight capacity, battery life, structural integrity and the efficiency comparison of different hardware controllers.
+  Throughout the development process of N.E.A.T. we carried out numerous base related tests that were designed to uncover the robot's weight capacity, battery life, structural integrity and the efficiency comparison of different hardware controllers.
   
-> ##### 1. How load weight affects lift performance?
+> ##### 1. How does load weight affect lift performance?
 
   **Aim**: Since the lift is expected to carry out its function routinely, it is important to monitor how load weight affects lift performance in terms of completion time and the integrity of the lift in motion.
   
