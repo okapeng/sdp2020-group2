@@ -22,7 +22,9 @@ p.intro{
 #logotop{
     animation: rotation 10s infinite linear;
 }
-
+.tag{
+    text-indent: 40px;
+}
 
 
 @keyframes rotation {
