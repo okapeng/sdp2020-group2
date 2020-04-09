@@ -287,8 +287,8 @@ permalink: /how-it-work/
 
     <center>
         <h4>Raspberry pi system diagram</h4>
-        <div>Click on rectangle regions for more details</div>
-        <img class="sticky" src="/images/server_diagram.png" alt="server" usemap="#systemmap">
+        <div>Click on the image's rectanglar region for more details on each mode</div>
+        <img src="/images/server_diagram.png" alt="server" usemap="#systemmap">
     </center>
     <map name="systemmap">
         <area shape="rect" coords="0,0,400,360" href="#setup">
@@ -337,10 +337,25 @@ permalink: /how-it-work/
     </ul>
     <h4>EV3 brick</h4>
     <div class="tab">EV3 brick is connected to four sensors: an infrared sensor and three ultrasonic sensors. </div> 
+    <div class="two_columns">
+        <div class="column">
+            <ul>
+                <li>
+                    The program on EV3 continuously reads the distance-from-object data from the ultrasonic sensors as well as angle and distance to the portable beacon from the infrared sensor.
+                </li>
+                <li>The TCP client running on EV3 automatically connected to the server on Raspberry pi when EV3 is turned on. Then, it organises sensor data into a package and sends to the
+                     server continuously.
+                    </li>
+            </ul>
+          </div>
+      <div class="column">
+      </div>
     <center>
         <h4>EV3 system diagram</h4>
-        <img src="/images/client_diagram.png" alt="client" usemap="#clientmap" width="20%">
+        <div>click to zoom in</div>
+        <a href="/images/client_diagram.png"><img src="/images/client_diagram.png" alt="client" usemap="#clientmap" width="15%" height="10%"></a>
     </center>
+    </div>
     <ul>
         <li>
             The program on EV3 continuously reads the distance-from-object data from the ultrasonic sensors as well as angle and distance to the portable beacon from the infrared sensor.
