@@ -9,7 +9,7 @@ permalink: /evaluation/
   
 > ##### 1. How load weight affects lift performance?
 
-  : **Aim**: Since the lift is expected to carry out its function routinely, it is important to monitor how load weight affects lift performance in terms of completion time and the integrity of the lift in motion.
+  **Aim**: Since the lift is expected to carry out its function routinely, it is important to monitor how load weight affects lift performance in terms of completion time and the integrity of the lift in motion.
   
   **Method**: The lift was operated independently, with different masses placed onto the lift, ranging from 0kg to 2.2kg. The time it took the lift to reach 75cm was recorded as well as the time for it to return to base height (0 cm).
   ![Lift Weight Test](/images/lift_test.png)
