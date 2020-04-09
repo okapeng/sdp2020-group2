@@ -122,7 +122,7 @@ permalink: /how-it-work/
     <center><h1>Robot base</h1></center>
     <h3>Base Features</h3>
       <ul>
-          <li>Provides a strong reinforced base that holds the rest of final product.</li>
+          <li>Provides a strong reinforced base that holds the rest of the final product.</li>
           <li>Has the means for directional travel in up to 8 directions and can rotate on the spot.</li>
           <li>Securely houses the brains of the N.E.A.T. (EV3 and Raspberry Pi).</li>
           <li>Contains on-board object detection and avoidance.</li>
@@ -147,7 +147,7 @@ permalink: /how-it-work/
                 <span class="flag">Iterations 2 and 3</span>
                 <span class="time-wrapper"><span class="time">January 16-20th</span></span>
             </div>
-            <div class="desc"><img src="/images/ivy_sketch.png"/> <img src="/images/barna_design.png"/>The next iterations consisted of a simple sketch of the robot and a more extensive graphical design. This iteration in the design project gave 
+            <div class="desc"><img src="/images/ivy_sketch.png"/> <img src="/images/barna_design.png"/>The next iterations consisted of a simple sketch of the robot and a more extensive graphical design. This iteration in the design process gave 
                 us a projection of how we would like the final product to look and allowed us to explore a more realistic view of the final product.</div>
         </div>
     </li>
@@ -157,7 +157,7 @@ permalink: /how-it-work/
                 <span class="flag">Iteration 4</span>
                 <span class="time-wrapper"><span class="time">January 21st</span></span>
             </div>
-            <div class="desc">The base by this point consisted of a small, flat lego platform with the wheels attached, controlled by 2 lego motors and the EV3.</div>
+            <div class="desc">The base by this point consisted of a small, flat Lego platform with the wheels attached, controlled by 2 Lego motors and the EV3.</div>
         </div>
     </li>
     <li>
@@ -166,7 +166,7 @@ permalink: /how-it-work/
                 <span class="flag">Iteration 5</span>
                 <span class="time-wrapper"><span class="time">January 27th</span></span>
             </div>
-            <div class="desc"><img src="/images/lego_base1.png"/> This iteration was similar to the previous iteration with the exception of the arrival of the Mechanum wheels which saw the base vastly improve by providing a testing platform for the development of the EV3 movement code.</div>
+            <div class="desc"><img src="/images/lego_base1.png"/> This iteration was similar to the previous iteration with the exception of the arrival of the Mecanum wheels which saw the base vastly improve by providing a testing platform for the development of the EV3 movement code.</div>
         </div>
     </li>
     <li>
@@ -211,7 +211,7 @@ permalink: /how-it-work/
                 <span class="flag">Iteration 10</span>
                 <span class="time-wrapper"><span class="time">Febuary 15th</span></span>
             </div>
-            <div class="desc"><img src="/images/lego_base5.jpg"/> The most radical and pivotal design change took place here, resulting in the wheels which used to be situated on the side of the robot now being directly underneath the robot base. This meant that the weight of the robot was bearing directly on the wheels and no longer on the base resulting in drastic weight bearing capabilities and prevented the lego base from bending. A byproduct of the wheel placement change resulted in increasing the bases ground clearance to 9cm. Another change was the addition of an infrared sensor which was attached to the front of the robot and allowed for the testing of the “follow me” functionality.</div>
+            <div class="desc"><img src="/images/lego_base5.jpg"/> The most radical and pivotal design change took place here, resulting in the wheels which used to be situated on the side of the robot now being directly underneath the robot base. This meant that the weight of the robot was bearing directly on the wheels and no longer on the base resulting in drastic weight bearing capabilities and prevented the lego base from bending. A byproduct of the wheel placement change resulted in increasing the bases ground clearance to 7cm. Another change was the addition of an infrared sensor which was attached to the front of the robot and allowed for the testing of the “follow me” functionality.</div>
         </div>
     </li>
     <li>
@@ -229,7 +229,7 @@ permalink: /how-it-work/
                 <span class="flag">Iteration 12</span>
                 <span class="time-wrapper"><span class="time">March 8th</span></span>
             </div>
-            <div class="desc"><img src="/images/lego_base777777.jpg"/> The final iteration of the robot base entailed creating housing under the robot base to hold the Rasbperry Pi and the EV3 in order to make the base top as flat as possible for the arrival of the lift. The lift was intergrated into the robot base and secured, making this iteration the final product.</div>
+            <div class="desc"><img src="/images/lego_base777777.jpg"/> The final iteration of the robot base entailed creating housing under the robot base to hold the Rasbperry Pi and the EV3 in order to make the base top as flat as possible for the arrival of the lift. The lift was integrated onto the robot base and secured, making this iteration the final product.</div>
         </div>
     </li>
 
@@ -286,18 +286,23 @@ permalink: /how-it-work/
 
     <hr style="height:3px;border:none;color:#333;background-color:#333;">
     <a name="pi_ev3"></a>
-    <center><h1>Raspberry pi and EV3</h1></center>
-    <div class="tab">Our design separates robot control on Raspberry pi from sensor reading on EV3 brick. 
-        This decision is made based on the fact that EV3 has a more compatible interface to hardware components like sensors, but meanwhile constrained by limited computation power. On the other hand, Raspberry pi not only is capable of concurrent multitasking but also has an independent power supply for the motors resulting in more powerful motor control. Therefore, by isolating the tasks 
+    <center><h1>Raspberry Pi and EV3</h1></center>
+    <div class="tab">Our design separates robot control on Raspberry Pi from sensor reading on EV3 brick. 
+        This decision is made based on the fact that EV3 has a more compatible interface to hardware components such as sensors, however is constrained by limited computation power. On the other hand, Raspberry Pi is not only capable of concurrent multitasking but also has an independent power supply for the motors resulting in more powerful motor control. Therefore, by isolating the tasks 
         on two devices, our robot achieves better weight capacity, simpler design and smoother robot control. </div>
     <h4>Raspberry pi</h4>
     <div class="tab">
-        Raspberry pi is the centre of control for the robot. It runs a TCP server connecting with the mobile app and EV3. Based on the sensor data from EV3, it interprets the command issued by the mobile app and changes the state of the robot accordingly. 
+        Raspberry Pi is the centre of control for the robot. It runs a TCP server connecting with the mobile app and EV3. Based on the sensor data from EV3, it interprets the command issued by the mobile app and changes the state of the robot accordingly. 
     </div>
 
     <center>
+<<<<<<< HEAD
         <h4>Raspberry pi system diagram</h4>
         <div>Click on the image's rectanglar region to learn more</div>
+=======
+        <h4>Raspberry Pi system diagram</h4>
+        <div>Click on the image's rectanglar region for more details on each mode</div>
+>>>>>>> small changes to phrasing on how, eval and team pages
         <img src="/images/server_diagram.png" alt="server" usemap="#systemmap">
     </center>
     <map name="systemmap">
@@ -308,18 +313,18 @@ permalink: /how-it-work/
     </map>
     <ul>
         <li><a name="setup"></a><b>Set up stage</b><br>
-            When the user turns on the robot, the program on Raspberry pi will be invoked automatically on system boot and listen on TCP connection from EV3 brick.
-            The robot's set up time is essential the time for Raspberry pi's operating system to finish booting plus the time for EV3 connecting to Raspberry pi's server.
+            When the user turns on the robot, the program on Raspberry Pi will be invoked automatically on system boot and listen on TCP connection from EV3 brick.
+            The robot's set up time is essential: the time for Raspberry Pi's operating system to finish booting plus the time for EV3 connecting to Raspberry Pi's server.
             Once it's done, the server will decode the message received, convert it to sensor data and temporarily store in a local variable.
             The processing of data received from EV3 is done in the background without disrupting the normal control flow of the robot to maximize its performance. 
-            Rather than initiatively request for sensor data from EV3, it will be updated on new data’s arrival. This guarantees the control of the motors is
-            always smooth and continuous and reduces the communication overhead for sensor data to be propagated from EV3 to Raspberry pi.
+            Rather than manually requesting sensor data from EV3, it will be updated on new data’s arrival. This guarantees the control of the motors is
+            always smooth and continuous and reduces the communication overhead for sensor data to be propagated from EV3 to Raspberry Pi.
         </li>
         <li><a name="idle"></a><b>Idle mode</b><br>
-            Without blocking on EV3's data, the server will proceed to listen on the connection from the mobile app. If there's no connection, it will stop at this stage until the connection is established. Indeed, it is usually not the case that the user uses the robot immediately after turning it on, but as long as the robot is switched on without any exception intervene the normal flow of the program, it can react to incoming connection right away. Once it is connected with mobile app, Raspberry pi is ready to carry out commands from app. Depends on the type of commands, the robot will enter into three different modes of control.
+            Without blocking EV3's data, the server will proceed to listen on the connection from the mobile app. If there's no connection, it will stop at this stage until the connection is established. Indeed, it is usually not the case that the user uses the robot immediately after turning it on, but as long as the robot is switched on without any exception intervening in the normal flow of the program, it can react to incoming connection right away. Once it is connected with the mobile app, Raspberry Pi is ready to carry out commands from app. Depending on the type of commands, the robot will enter into three different modes of control.
         </li>
         <li><a name="control"></a><b>Manual control mode</b><br>
-            If the command is an explicit direction, i.e. one of “forward”, ”backward”, ”right”, ”left”, “forward-right”, “forward-left”, “backward-right” and “backward-left”, the wheel’s 
+            If the command is an explicit direction, i.e. one of “forward”, ”backward”, ”right”, ”left”, “forward-right”, “forward-left”, “backward-right” and “backward-left”, the wheels' 
             motor controller will rotate motors at a given speed in combination to move the robot in that direction. It will keep moving until either the app issues a “stop” command or 
             there are objects in front of the robot.
         </li>
@@ -329,16 +334,16 @@ permalink: /how-it-work/
             obstacles blocking its path. If there exists any object within 50 cm in front of the robot, the controller will trigger the object avoidance mechanism to move around that object. 
             To be specific, the robot will rotate either right or left depending on which side doesn’t detect objects based on the data from auxiliary ultrasonic sensors on both sides. 
             <br>If the object blocks the whole range of area the robot’s sensors cover, the robot will stop and send a message to the app. If the user moves too fast for the robot to follow resulting 
-            in the infrared sensor losing the beacon’s signal, the robot will also stop and raise an exception to the app. The controller on Raspberry pi will stop automatic following if the 
+            in the infrared sensor losing the beacon’s signal, the robot will also stop and raise an exception to the app. The controller on Raspberry Pi will stop automatic following if the 
             user issues a “stop following” command.
         </li>
         <li><b>Lift control mode</b><br>
-            For the sake of safety, the robot is only allowed to move when the lift is at base height, i.e. fully folded. When the user opens the lift control panel on the app, Raspberry pi 
-            will receive a notification on it and unlock the control of the lift motor. Depending on the command, it moves the lift up or down. Once the app relays that the user exits from 
+            For the sake of safety, the robot is only allowed to move when the lift is at base height, i.e. fully folded. When the user opens the lift control panel on the app, Raspberry Pi 
+            will receive a notification and unlock the control of the lift motor. Depending on the command, it moves the lift up or down. Once the app relays that the user exits from 
             lift control mode, it will check whether the lift is in base height. If not, it will automatically fold the lift before switching to another mode.
         </li>
         <li><a name="finish"></a><b>Finish up stage</b><br>
-            When the user closes the app, Raspberry pi will automatically disconnects with app. Depends on whether the user switches off the robot, it will either revert to idle 
+            When the user closes the app, Raspberry Pi will automatically disconnect from the app. Depending on whether the user switches off the robot, it will either revert to idle 
             mode and wait for next connection or shut down the server.
         </li>
     </ul>
@@ -348,9 +353,9 @@ permalink: /how-it-work/
         <div class="column">
             <ul>
                 <li>
-                    The program on EV3 continuously reads the distance-from-object data from the ultrasonic sensors as well as angle and distance to the portable beacon from the infrared sensor.
+                    The program on EV3 continuously reads the distance-from-object data from the ultrasonic sensors, as well as angle and distance to the portable beacon from the infrared sensor.
                 </li>
-                <li>The TCP client running on EV3 automatically connected to the server on Raspberry pi when EV3 is turned on. Then, it organises sensor data into a package and sends to the
+                <li>The TCP client running on EV3 automatically connects to the server on Raspberry Pi when EV3 is turned on. Then, it organises sensor data into a package and sends to the
                      server continuously.
                     </li>
             </ul>
@@ -363,14 +368,6 @@ permalink: /how-it-work/
         <a href="/images/client_diagram.png"><img src="/images/client_diagram.png" alt="client" usemap="#clientmap" width="15%" height="10%"></a>
     </center>
     </div>
-    <ul>
-        <li>
-            The program on EV3 continuously reads the distance-from-object data from the ultrasonic sensors as well as angle and distance to the portable beacon from the infrared sensor.
-        </li>
-        <li>The TCP client running on EV3 automatically connected to the server on Raspberry pi when EV3 is turned on. Then, it organises sensor data into a package and sends to the
-             server continuously.
-            </li>
-    </ul>
 
     <hr style="height:3px;border:none;color:#333;background-color:#333;">
     <a name="app"></a>
