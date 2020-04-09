@@ -48,9 +48,10 @@ permalink: /evaluation/
 <hr style="height:3px;border:none;color:#333;background-color:#333;">
 <center><h2>Main Areas of Improvement</h2></center>
 
-  * **More sensors**, 360 degree vision for improved object avoidance. General rule: Detect, Turn, Clear, Continue
-  * Use **better** infrared **sensor-beacon combination** for longer range following possibly with wider (360 degrees) range
+  * **More sensors**, 360 degree vision for improved object avoidance. General rule: Detect, Turn, Clear, Continue.
+  * Use **better** infrared **sensor-beacon combination** for longer range following possibly with wider (360 degrees) range.
   * **Better materials**, structural improvements would help improve the weight limit and make it usable for heavier objects. A solid base would be less prone to breaking apart after heavy collisions than our current base consisting of Lego pieces. 
-  * **Greater weight bearing** mecanum wheels (4kg is what our current wheels are meant to take at maximum)
+  * **Greater weight bearing** mecanum wheels (4kg is what our current wheels are meant to take at maximum).
+  * **Faster** lift time when raising and lower.
   
 {% include long_page.html %}
