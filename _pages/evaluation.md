@@ -38,7 +38,7 @@ permalink: /evaluation/
 
 <hr style="height:3px;border:none;color:#333;background-color:#333;">
 <center><h2>User Tests</h2></center>
-  No official user tests have been conducted as we were unable to gain ethics approval for them due to strikes and time constraints. Some user tests we had in mind were interviewing people with mobility issues after they have had some experience with the mobile application to gain user feedback on how easy the application is to use, if the UI can be understood and most importantly, if they could see themselves being able to use the N.E.A.T. system at home. 
+  No official user tests have been conducted as we submitted a request for ethics approval, however, the ethics advisor was unavailable. Some user tests we had in mind were interviewing people with mobility issues after they have had some experience with the mobile application to gain user feedback on how easy the application is to use, if the UI can be understood and most importantly, if they could see themselves being able to use the N.E.A.T. system at home. 
   
   We also had the idea of running a full scale simulation of the system, granted we could find a suitable participants that were willing to help with our testing. The simulation would entail the user placing food on the robot, having the robot follow them to a table, the robot raising the food to the table height and the user removing the food. From this test we would hope to gain signficant feedback on how easy the system it to use, any flaws that the system has and if they could see themselves installing N.E.A.T. in their own homes.
   
