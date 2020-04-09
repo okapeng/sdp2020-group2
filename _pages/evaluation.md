@@ -50,6 +50,6 @@ permalink: /evaluation/
 
   * **More sensors**, 360 degree vision for improved object avoidance. General rule: Detect, Turn, Clear, Continue
   * Use **better** infrared **sensor-beacon combination** for longer range following possibly with wider (360 degree) range
-  * **Better materials**, structural improvements would help improve the weight limit and make it usable for heavier objects
+  * **Better materials**, structural improvements would help improve the weight limit and make it usable for heavier objects. A solid base would be less prone to breaking apart after collisions than our current base consisting of Lego pieces. 
   * **Greater weight bearing** mecanum wheels (4kg is what our current wheels are meant to take at maximum)
   
