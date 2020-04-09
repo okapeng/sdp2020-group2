@@ -36,7 +36,8 @@ permalink: /budget/
 |**Estimated Neccessary Lift Total:**  | |**£65.55** |
 
 <h3>3. Miscellaneous</h3>
-
+| Name | Quantity| Price|
+|--|--|--|
 |Ultrasonic sensor  | 3|_£89.97_ |
 |Infrared Sensor  | 1|_£25.99_ |
 |Infrared Beacon  | 1|_£28_ |
