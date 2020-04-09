@@ -36,14 +36,9 @@ permalink: /evaluation/
   
   Throughout the development of the N.E.A.T. base structure, several drop tests were conducted to identify areas of structural weaknesses and aid design changes. The tests were carried out in a safe environment (lab floor) with advanced warnings given to surrounding groups to make them aware of what was taking place and prevent harm. The heights dropped from were no higher than 50 cm and were always conducted in a controller manner to avoid serious equipment damage. These tests were not carried out in an offical manner like the previous tests mentioned above, but were rather done incrementally throughtout the base development process.
 
-<<<<<<< HEAD
 <hr style="height:3px;border:none;color:#333;background-color:#333;">
 <center><h2>User Tests</h2></center>
   No official user test has been conducted as we never got the ethics approval for it. Instead we tested the robot ourselves trying to give our best estimation of how a person with different disabilities or age would use the robot so we can adjust features and discover limitations. Factors we took into consideration were: Speed, duration, load weight, environment(obstacles).
-=======
-### User Tests: 
-  No official user test has been conducted as we never got the ethics approval for it. Instead we tested the robot ourselves trying to give our best estimation of how a person with different disabilities or age would use the robot so we can adjust features and discover limitations. Factors we took into consideration were: Speed, duration, load weight, environment (obstacles).
->>>>>>> 83a62d61bf523856e7ca9bc333f3bc0654dee73d
 
 <hr style="height:3px;border:none;color:#333;background-color:#333;">
 <center><h2>Main Areas of Improvement</h2></center>
