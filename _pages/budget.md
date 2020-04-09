@@ -47,4 +47,4 @@ permalink: /budget/
 
 |Domain | 1|_£3/year_ |
 
-*price in tables is already multiplied by quantity 
+*prices in the tables are after being multiplied by the quantity 
