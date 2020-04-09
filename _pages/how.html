@@ -284,8 +284,20 @@ permalink: /how-it-work/
         Raspberry pi is the center of control for the robot. It runs a TCP server connecting with the mobile app and EV3. Based on the sensor data from EV3, it interprets the command 
         issued by the mobile app and changes the state of the robot accordingly. 
     </div>
+
+    <center>
+        <h4>Raspberry pi system diagram</h4>
+        <div>Click on rectangle regions for more details</div>
+        <img class="sticky" src="/images/server_diagram.png" alt="server" usemap="#systemmap">
+    </center>
+    <map name="systemmap">
+        <area shape="rect" coords="0,0,400,360" href="#setup">
+        <area shape="rect" coords="0,365,400,550" href="#idle">
+        <area shape="rect" coords="0,550,635,1070" href="#control">
+        <area shape="rect" coords="0,1075,400,1355" href="#finish">
+    </map>
     <ul>
-        <li><b>Set up stage</b><br>
+        <li><a name="setup"></a><b>Set up stage</b><br>
             When the user turns on the robot, the program on Raspberry pi will be invoked automatically on system boot and listen on TCP connection from EV3 brick.
             The robot's set up time is essential the time for Raspberry pi's operating system to finish booting plus the time for EV3 connecting to Raspberry pi's server.
             Once it's done, the server will decode the message received, conver it to sensor data and temporarily store in local variable.
@@ -293,13 +305,13 @@ permalink: /how-it-work/
             Rather than initiatively request for sensor data from EV3, it will be updated on new data’s arrival. This guarantees the control of the motors is
              always smooth and continuous and reduces the communication overhead for sensor data to be propagated from EV3 to Raspberry pi.
         </li>
-        <li><b>Idle mode</b><br>
+        <li><a name="idle"></a><b>Idle mode</b><br>
             Without blocking on EV3's data, the server will proceed to listen on connection from mobile app. If there's no connection, it will stop at this stage until the connection is 
             established. Indeed, it is usually not the case that the user use the robot immediately after turning it on, but as long as the robot is swiched on without any exception intervene the normal flow of the program, 
             it can react to incoming connection right away. Once it is connected with mobile app, Raspberry pi is ready to carry out commands from app. Depends on the type of commands, the robot 
             will enter into three different mode of control.
         </li>
-        <li><b>Manual control mode</b><br>
+        <li><a name="control"></a><b>Manual control mode</b><br>
             If the command is an explicit direction, i.e. one of “forward”, ”backward”, ”right”, ”left”, “forward-right”, “forward-left”, “backward-right” and “backward-left”, the wheel’s 
             motor controller will rotate motors at a given speed in combination to move the robot in that direction. It will keep moving until either the app issues a “stop” command or 
             there are objects in front of the robot.
@@ -318,14 +330,23 @@ permalink: /how-it-work/
             will receive a notification on it and unlock the control of the lift motor. Depending on the command, it moves the lift up or down. Once the app relays that the user exits from 
             lift control mode, it will check whether the lift is in base height. If not, it will automatically fold the lift before switching to another mode.
         </li>
+        <li><a name="finish"></a><b>Finish up stage</b><br>
+            When the user closes the app, Raspberry pi will automatically disconnects with app. Depends on whether the user switches off the robot, it will either revert to idle 
+            mode and wait for next connection or shut down the server.
+        </li>
     </ul>
     <h4>EV3 brick</h4>
     <div class="tab">EV3 brick is connected to four sensors: an infrared sensor and three ultrasonic sensors. </div> 
+    <center>
+        <h4>EV3 system diagram</h4>
+        <img src="/images/client_diagram.png" alt="client" usemap="#clientmap" width="20%">
+    </center>
     <ul>
         <li>
             The program on EV3 continuously reads the distance-from-object data from the ultrasonic sensors as well as angle and distance to the portable beacon from the infrared sensor.
         </li>
-        <li>It also runs a TCP client connected to the server on Raspberry pi. The sensor data is organised into a package and sent to the server continuously.
+        <li>The TCP client running on EV3 automatically connected to the server on Raspberry pi when EV3 is turned on. Then, it organises sensor data into a package and sends to the
+             server continuously.
             </li>
     </ul>
 
