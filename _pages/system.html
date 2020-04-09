@@ -31,34 +31,6 @@ permalink: /system/
         </div>
       </div>
     </div>
-  <!-- <div class="system">
-    <div class="one_column">
-        <h2> Concept: Having difficulties carrying fragile objects at home? </h2>
-        <h3>We got you covered!</h3>
-        <h3>N.E.A.T offer 4 key features</h3>
-
-        <h3>Follow you</h3>
-        <div class="two_columns">
-            <div class="column">
-                <div class="system_img">
-                    <img src="/images/following.jpg" alt="follow image" >
-                    </div>
-                <p class="functinality">
-                        <b>2)</b> Based on the measured misalignment of the current forward movement and the user’s position, we rotate the robot when needed then continue moving forward.
-                </p>        
-            </div>
-            <div class="column">
-                    <p class="functinality">
-                            <b>1)</b> N.E.A.T achieve following by detecting the relative position of a beacon using an infrared sensor(add a picture of each).
-                        </p>
-                    <div class="system_img">
-                            <img src="/images//direction.jpeg" alt="follow image" >
-                        </div>
-            </div>
-
-
-    </div>
-</div> -->
 
   <hr style="height:3px;border:none;color:#333;background-color:#333;">
   <center><h1>Market research</h1></center>
@@ -134,18 +106,25 @@ permalink: /system/
   <hr style="height:3px;border:none;color:#333;background-color:#333;">
   <center><h1>Potential for future development</h1></center>
   <ul>
-      <li class="fut_dev">Augment the <b>Android app with WiFi localization</b> for better user experience (https://developer.android.com/guide/topics/connectivity/wifi-rtt) . It enables the robot to localise the user within the room when it is woken up from idle mode. Therefore, the user can place the robot anywhere in the house for charging or placement. When the user want to use the robot, he or she can invoke the robot while preparing food. Then the robot will navigate itself to the user and be ready for carrying food after a while.
+      <li class="fut_dev">Augment the Android app with<a href="https://developer.android.com/guide/topics/connectivity/wifi-rtt"><b> WiFi localization</b></a> for better user experience. 
+        It enables the robot to localise the user within the room when it is woken up from idle mode. Therefore, the user can place the robot anywhere in the house for charging or placement. 
+        When the user want to use the robot, he or she can invoke the robot while preparing food. Then the robot will navigate itself to the user and be ready for carrying food after a while.
         </li>
-      <li class="fut_dev">We would like to implement computer vision algorithms for <b>object detection and recognition</b> in the future. 
+      <li class="fut_dev">Implement <b> computer vision algorithms</b> for object detection and recognition in the future. 
         <br>
          There are two potential benefits:
          <ol>
-             <li class="fut_dev_inside">First, we can fully get rid of the infrared beacon when following and give the user more freedom when using our robot. Deep learning algorithms (ref Deep Learning for Computer Vision) will be integrated into our system for object localisation, i,e. identify an object and isolate it from the rest of objects including background within an image. Thus, the robot is able to follow the user based on analysing the image from the camera.</li>
+             <li class="fut_dev_inside">First, we can fully get rid of the infrared beacon when following and give the user more freedom when using our robot. <a href="https://www.hindawi.com/journals/cin/2018/7068349/">Deep learning algorithms </a> will be integrated into our system for object localisation, i,e. identify an object and isolate it from the rest of objects including background within an image. Thus, the robot is able to follow the user based on analysing the image from the camera.</li>
              <li class="fut_dev_inside">In addition, adding camera based object detection allows the system to support indoor mapping. In combination with WiFi localization on the app, the robot is able to come to the user from any place in the house.</li>
          </ol> 
          </li>
       <li class="fut_dev">Implementation of <b>battery lifetime notifications</b> that allow the user to get a time estimate of the remaining time (not just a percentage) that the robot can work for before requiring charged</li>
       <li class="fut_dev">Implementation of a <b>“home docking system”</b> that would charge the robot during downtime with minimal human interaction</li>
+      <li class="fut_dev">Integrate the robot with existing home automation devices together to enhance the <b>smart home ecosystem</b>. Currently, the mobile phone has to be in the same local network 
+        to connect to the robot. With the help of other smart home devices, the user can remotely control the robot. It can then extend to more complicated use cases beyond just 
+        carrying food between kitchen and dining room. For instance,imagine the user is heading back home from shopping, the user can ask the robot to come to the door by talking to a smart 
+        home interface installed on his or her mobile phone when he or she finishes shopping. The command will be propagated to the robot in the house by the central hub that connects to the internet. When the user arrives at 
+        home, the robot will be in front of them ready to carry stuffs. </li>
   </ul>
 
 </body>
