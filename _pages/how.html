@@ -240,9 +240,7 @@ permalink: /how-it-work/
     <center><h1>Robot Lift</h1></center>
     <h4>Lift Hardware Design</h4>
 
-    <p class="tab"> The lift’s design was developed using the SOLIDWORKS CAD modelling package. SOLIDWORKS includes several useful features which were used in the development
-          of the system. Some of these features include motion studies to detect collision between components through the lifts range of motion, mass property evaluation to 
-          estimate the weight of the lift, and clearance verification to determine if there’s enough clearance between components.
+    <p class="tab"> The lift’s design was developed using the SOLIDWORKS CAD modelling package. SOLIDWORKS includes several useful features which were used in the development of the system. Some of these features include motion studies to detect collision between components through the lift's range of motion, mass property evaluation to estimate the weight of the lift, and clearance verification to determine if there’s enough clearance between components.
     </p>
     <p class="tab"> 
       Utilising these features allowed us to present a design which required minimal modification before being constructed in the mechanical workshop. The final design produced in the workshop was made from MDF and aluminium to ensure strength and stability.
@@ -261,9 +259,7 @@ permalink: /how-it-work/
     </center>
 
     <h4>Lift Drive System</h4> 
-    <p class="tab"> The chosen drive system for the lift was a threaded rod design. Utilising a threaded rod design allowed us to provide a mechanism for moving the lift up and down 
-          without buckling under the weight of whatever was placed on the platform. It also means less effort is required too move the platform compared to a design that is moving 
-          directly against the forces exerted by the lift.</p>
+    <p class="tab"> The chosen drive system for the lift was a threaded rod design. Utilising a threaded rod design allowed us to provide a mechanism for moving the lift up and down without buckling under the weight of whatever was placed on the platform. It also means less effort is required to move the platform compared to a design that is moving directly against the forces exerted by the lift.</p>
       
     <h4>Lift Electronics</h4>
     <p class="tab"> The lift uses a custom H-bridge circuit connected to the robot’s Raspberry Pi to control the movement of the motor. The circuit is made up of 6 transistors, 4 diodes
@@ -276,13 +272,11 @@ permalink: /how-it-work/
     <a name="pi_ev3"></a>
     <center><h1>Raspberry pi and EV3</h1></center>
     <div class="tab">Our design separates robot control on Raspberry pi from sensor reading on EV3 brick. 
-        This decision is made based on the fact that EV3 has a more compatible interface to hardware components like sensors, but meanwhile constrained by limited computation power. On the other hand, Raspberry pi 
-        not only is capable of concurrent multitasking but also has an independent power supply for the motors resulting in more powerful motor control. Therefore, by isolating the tasks 
+        This decision is made based on the fact that EV3 has a more compatible interface to hardware components like sensors, but meanwhile constrained by limited computation power. On the other hand, Raspberry pi not only is capable of concurrent multitasking but also has an independent power supply for the motors resulting in more powerful motor control. Therefore, by isolating the tasks 
         on two devices, our robot achieves better weight capacity, simpler design and smoother robot control. </div>
     <h4>Raspberry pi</h4>
     <div class="tab">
-        Raspberry pi is the center of control for the robot. It runs a TCP server connecting with the mobile app and EV3. Based on the sensor data from EV3, it interprets the command 
-        issued by the mobile app and changes the state of the robot accordingly. 
+        Raspberry pi is the centre of control for the robot. It runs a TCP server connecting with the mobile app and EV3. Based on the sensor data from EV3, it interprets the command issued by the mobile app and changes the state of the robot accordingly. 
     </div>
 
     <center>
@@ -300,16 +294,13 @@ permalink: /how-it-work/
         <li><a name="setup"></a><b>Set up stage</b><br>
             When the user turns on the robot, the program on Raspberry pi will be invoked automatically on system boot and listen on TCP connection from EV3 brick.
             The robot's set up time is essential the time for Raspberry pi's operating system to finish booting plus the time for EV3 connecting to Raspberry pi's server.
-            Once it's done, the server will decode the message received, conver it to sensor data and temporarily store in local variable.
-            The processing of data received from EV3 is done in background without disrupting the normal control flow of the robot to maximize its performance. 
+            Once it's done, the server will decode the message received, convert it to sensor data and temporarily store in a local variable.
+            The processing of data received from EV3 is done in the background without disrupting the normal control flow of the robot to maximize its performance. 
             Rather than initiatively request for sensor data from EV3, it will be updated on new data’s arrival. This guarantees the control of the motors is
-             always smooth and continuous and reduces the communication overhead for sensor data to be propagated from EV3 to Raspberry pi.
+            always smooth and continuous and reduces the communication overhead for sensor data to be propagated from EV3 to Raspberry pi.
         </li>
         <li><a name="idle"></a><b>Idle mode</b><br>
-            Without blocking on EV3's data, the server will proceed to listen on connection from mobile app. If there's no connection, it will stop at this stage until the connection is 
-            established. Indeed, it is usually not the case that the user use the robot immediately after turning it on, but as long as the robot is swiched on without any exception intervene the normal flow of the program, 
-            it can react to incoming connection right away. Once it is connected with mobile app, Raspberry pi is ready to carry out commands from app. Depends on the type of commands, the robot 
-            will enter into three different mode of control.
+            Without blocking on EV3's data, the server will proceed to listen on the connection from the mobile app. If there's no connection, it will stop at this stage until the connection is established. Indeed, it is usually not the case that the user uses the robot immediately after turning it on, but as long as the robot is switched on without any exception intervene the normal flow of the program, it can react to incoming connection right away. Once it is connected with mobile app, Raspberry pi is ready to carry out commands from app. Depends on the type of commands, the robot will enter into three different modes of control.
         </li>
         <li><a name="control"></a><b>Manual control mode</b><br>
             If the command is an explicit direction, i.e. one of “forward”, ”backward”, ”right”, ”left”, “forward-right”, “forward-left”, “backward-right” and “backward-left”, the wheel’s 
@@ -397,9 +388,9 @@ permalink: /how-it-work/
         <h4>Voice Controls</h4>
         <p class="tab" style="width: 60%; float: left; margin-right: 20px;">
             In the interest of ensuring our app is accessible to all, the “use voice commands” button on the main menu allows a user to control their N.E.A.T. using voice commands. Once they 
-            click this button, they are brought to a new screen which is ready to receive voice commands. There are a set list of commands to control all the functionality of the robot. When the 
-            app recognises a command, it will play a success tone and show the command on screen. If the app doesn’t recognise a command, it will respond with an error tone and prompt the user to 
-            try again. To stop using voice control and return to use of the app interface, the user must simply exit this screen.
+            click this button, they are brought to a new screen which is ready to receive voice commands. There is a set list of commands to control all the functionality of the robot. When the 
+            app recognises a command, it will play a success tone and show the command on the screen. If the app doesn’t recognise a command, it will respond with an error tone and prompt the user to 
+            try again. To stop using voice control and return to the use of the app interface, the user must simply exit this screen.
         </p>
         <img src="/images/voice_app.jpg" style="width: 25%;"/>
     </div>
@@ -427,7 +418,7 @@ permalink: /how-it-work/
         <h4>Lift Controls</h4>
         <p class="tab" style="width: 60%; float: left; margin-right: 20px;">
             The final button on the main menu, “lift controls” allows the user to change the height of the lift. Once clicked, it leads the user to a new screen which offers both manual control of 
-            the lift height and various preset heights. The manual controls work as they did for manual movement, with the lift moving while the button is pressed and stopping once it is released. 
+            the lift height and various preset heights. The manual controls work as they did for manual movement, with the lift moving while the button is pressed and stop once it is released. 
             Once again, these buttons offer haptic and visual feedback. The preset heights include counter height, table height and base height. Counter height and table height are set to the averages 
             heights for each, 91cm and 76cm respectively (as found <a href="http://www.parotas.com/en/standard-table-chair-heights-guide/">here</a>), while base height lowers the lift to be fully folded against the 
             robot base. These buttons respond with haptic feedback and individual audio tones to distinguish them from one another.
