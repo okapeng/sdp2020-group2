@@ -6,7 +6,7 @@ permalink: /budget/
 
 **Disclaimer:**Our budget page includes the price of our robot at the current point in time. This sum does not account for assembly, profit, delivery and other potential cost occuring in case the product was to be manufactured and sold.
 
-Total cost for a N.E.A.T. robot is **£1774.17**
+Total cost for a N.E.A.T. robot is **£1822.73**
 
 *price is multiplied by quantity already
 <h3>1. Base</h3>
