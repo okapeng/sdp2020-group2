@@ -2,6 +2,7 @@
 div.two_columns{
     display: flex;
     justify-content: flex-start;
+    flex-direction: row;
 
 }
 div.one_column{
@@ -24,6 +25,11 @@ p.intro{
 }
 .tag{
     text-indent: 40px;
+}
+
+div.system_img{
+}
+div.system_funct{
 }
 
 

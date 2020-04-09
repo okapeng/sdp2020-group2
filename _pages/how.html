@@ -101,7 +101,7 @@ permalink: /how-it-work/
                 <div class="flip-content lg">
                     <p></p>
                     <p>
-                    <a href="#">read more <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#app">read more <i class="fa fa-arrow-circle-right"></i></a>
                     </p>
                 </div>
                 </div>
@@ -119,7 +119,7 @@ permalink: /how-it-work/
     <h3>Base Features</h3>
       <ul>
           <li>Provides a strong reinforced base that wholed the rest of final product.</li>
-          <li>Has the means for directional travel in up to 6 direction.</li>
+          <li>Has the means for directional travel in up to 8 directions and can rotate on the spot.</li>
           <li>Securely houses the brains of the N.E.A.T. (EV3 and Raspberry Pi).</li>
           <li>Contains on-board object detection and avoidance.</li>
           <li>Provides power to the EV3, Raspberry Pi and Lift.</li>
@@ -133,7 +133,7 @@ permalink: /how-it-work/
                 <span class="flag">Iteration 1</span>
                 <span class="time-wrapper"><span class="time">January 15th</span></span>
             </div>
-            <div class="desc"><img src="/images/ivy_sketch.png"/> <img src="/images/barna_design.png"/> The first iteration of the robot was a simple lego base which had 4 wheels and a very fragile frame that spanned roughly 20cm by 20cm. It was 
+            <div class="desc"><img src="/images/ivy_sketch.png"/> <img src="/images/barna_design.png"/> The first iteration of the robot was a simple Lego base which had 4 wheels and a very fragile frame that spanned roughly 20cm by 20cm. It was 
                 created during the Robot Building Workshop.</div>
         </div>
     </li>
@@ -162,7 +162,7 @@ permalink: /how-it-work/
                 <span class="flag">Iteration 5</span>
                 <span class="time-wrapper"><span class="time">January 27th</span></span>
             </div>
-            <div class="desc"><img src="/images/lego_base1.png"/> iteration was similar to the previous iteration with the exception of the arrival of the Mechanum wheels which saw the base vastly improve through providing a testing platform for the development of the EV3 movement code.</div>
+            <div class="desc"><img src="/images/lego_base1.png"/> This iteration was similar to the previous iteration with the exception of the arrival of the Mechanum wheels which saw the base vastly improve by providing a testing platform for the development of the EV3 movement code.</div>
         </div>
     </li>
     <li>
@@ -171,7 +171,7 @@ permalink: /how-it-work/
                 <span class="flag">Iteration 6</span>
                 <span class="time-wrapper"><span class="time">January 30th</span></span>
             </div>
-            <div class="desc"><img src="/images/lego_base2.png"/> The base has increased in size significantly with considerable structural improvement. This base helped develop the EV3 code to control directional movements as well as rotation on the spot. A single ultrasound sensor was added to aid development testing of the object detection and avoidance code.</div>
+            <div class="desc"><img src="/images/lego_base2.png"/> The base has increased in size significantly with considerable structural improvement. This base helped develop the EV3 code to control directional movements as well as rotation on the spot. A single ultrasonic sensor was added to aid the development and testing of the object detection and avoidance code.</div>
         </div>
     </li>
     <li>
@@ -225,7 +225,7 @@ permalink: /how-it-work/
                 <span class="flag">Iteration 12</span>
                 <span class="time-wrapper"><span class="time">March 8th</span></span>
             </div>
-            <div class="desc"><img src="/images/lego_base777777.jpg"/> The final interation of the robot base entailed creating housing under the robot base to hold the Rasbperry Pi and the EV3 in order to make the base top as flat as possible for the arrival of the lift. The lift was intergrated into the robot base and secured, making this iteration the final product.</div>
+            <div class="desc"><img src="/images/lego_base777777.jpg"/> The final iteration of the robot base entailed creating housing under the robot base to hold the Rasbperry Pi and the EV3 in order to make the base top as flat as possible for the arrival of the lift. The lift was intergrated into the robot base and secured, making this iteration the final product.</div>
         </div>
     </li>
 
@@ -267,6 +267,91 @@ permalink: /how-it-work/
           ensure accurate simulation results.</p>
       
     <img src="/images/H-Bridge_Revised.PNG">
+
+    <hr style="height:3px;border:none;color:#333;background-color:#333;">
+    <a name="app"></a>
+    <center><h1>Mobile Application</h1></center>
+
+    <p class="tab"> The primary purpose of the app is to be the main source of communication between the user and their N.E.A.T. The app uses TCP/IP protocol to send commands to 
+        the robot and receive feedback which is used to inform the user of any issues the robot has encountered during use.
+    </p>
+    <h4>Mobile App Design</h4>
+    <p class="tab">
+        The app was designed with usability and accessibility for all as a priority. Therefore it complies with W3C accessibility guidelines, resulting in an app which is fully compatible 
+        with screen readers and other accessibility features offered by modern smartphones. In addition to our focus on making the app accessible to all users, we have also 
+        implemented a simple and easy to use interface to ensure even those who are less “tech-savvy” can take full advantage of all the features their N.E.A.T. has to offer. Some of the             
+        key features of our interface include at least two types of feedback from all buttons: haptic (vibrate on touch), audio and visual as appropriate for that action; as well as the option 
+        to use voice commands to control your N.E.A.T. By streamlining the design to focus on the goals of the user, we have developed an app that we hope everyone loves to use.
+    </p>
+    <div style="float: left;">
+        <h4>Main Menu</h4>
+        <p class="tab">
+            The initial landing screen provides a pop-up which allows a user to connect their mobile app to their N.E.A.T. Once they have done so, they are ready to control their robot. 
+            The main menu consists of four buttons, as seen below. Each button offers both haptic and audio feedback. A different audio tone plays for each to improve the ease with which a 
+            user can identify which button they have pressed. The buttons are large and differently coloured, to help to identify them. The large text makes it easy to read, and those buttons 
+            which lead to a new screen on the app have an arrow icon to indicate this to a user.
+        </p>
+        <div style="margin-bottom: 10px;">
+            <img src="/images/connect_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
+            <img src="/images/menu_app.jpg" style="width: 25%; float: left;"/>
+        </div>
+    </div>
+    <div style="float: left;">
+        <h4>Voice Controls</h4>
+        <p class="tab" style="width: 60%; float: left; margin-right: 20px;">
+            In the interest of ensuring our app is accessible to all, the “use voice commands” button on the main menu allows a user to control their N.E.A.T. using voice commands. Once they 
+            click this button, they are brought to a new screen which is ready to receive voice commands. There are a set list of commands to control all the functionality of the robot. When the 
+            app recognises a command, it will play a success tone and show the command on screen. If the app doesn’t recognise a command, it will respond with an error tone and prompt the user to 
+            try again. To stop using voice control and return to use of the app interface, the user must simply exit this screen.
+        </p>
+        <img src="/images/voice_app.jpg" style="width: 25%;"/>
+    </div>
+    <div style="float: left;"></div>
+        <h4>Movement Options</h4>
+        <div style="margin-bottom: 40px;">
+            <p class="tab" style="width: 60%; float: left; margin-right: 20px; margin-bottom: 10px;">
+                There are two different modes of movement offered via the main menu: manual control of your N.E.A.T. and use of the “follow me” feature. Selecting “manual control” brings the user to a 
+                new screen with a control panel which allows a user to move the robot in eight different directions and rotate, as shown to the right. Using a simple control interface where the robot moves 
+                while a direction button is being held, and stops once it is released, the user can easily control the robot. Each of these buttons offers both haptic and visual feedback, with the colour of the button changing while pressed.
+            </p>
+            <img src="/images/manual_app.jpg" style="width: 25%;"/>
+        </div>
+        <p class="tab">
+            The alternative movement option is the “follow me” mode, one of the main features of N.E.A.T. Once the user has the portable infrared beacon turned on, they can start the “follow me” 
+            feature with one simple click of a button. Once clicked, the “follow me” button will change to show “stop following” with a red background, to make it easy for a user to stop the robot 
+            once they have reached their destination. The robot will then follow the user to their destination until the user taps the “stop following” button, which reverts to showing “follow me” 
+            once the robot has stopped.
+        </p>
+        <div style="margin-bottom: 10px;">
+            <img src="/images/menu_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
+            <img src="/images/stop_follow_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
+        </div>
+    </div>
+    <div style="float: left;">
+        <h4>Lift Controls</h4>
+        <p class="tab" style="width: 60%; float: left; margin-right: 20px;">
+            The final button on the main menu, “lift controls” allows the user to change the height of the lift. Once clicked, it leads the user to a new screen which offers both manual control of 
+            the lift height and various preset heights. The manual controls work as they did for manual movement, with the lift moving while the button is pressed and stopping once it is released. 
+            Once again, these buttons offer haptic and visual feedback. The preset heights include counter height, table height and base height. Counter height and table height are set to the averages 
+            heights for each, 91cm and 76cm respectively (as found <a href="http://www.parotas.com/en/standard-table-chair-heights-guide/">here</a>), while base height lowers the lift to be fully folded against the 
+            robot base. These buttons respond with haptic feedback and individual audio tones to distinguish them from one another.
+        </p>
+        <img src="/images/lift_app.jpg" style="width: 25%; margin-top: 70px;"/>
+    </div>
+    <div style="float: left;">
+        <h4>Robot Feedback</h4>
+        <p class="tab">
+            The final key feature of the app is that it provides feedback from the robot to the user. The main two issues we deal with are that of the infrared beacon signal being lost while the 
+            robot is following a user, or the robot finding itself unable to avoid an obstacle in its path. In both cases, a pop-up appears on the app to inform the user and offer guidance on how 
+            to resolve it. When the beacon is lost, the pop-up suggests the user move within range of the infrared sensor, or offers the option to briefly switch to manual control to bring the robot closer to the user. In the case of an unavoidable obstacle, the pop-up encourages the user to either manually remove the obstacle or switch to manual control to guide the robot around the object.
+        </p>
+        <div style="margin-bottom: 10px;"></div>
+            <img src="/images/beacon_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
+            <img src="/images/obstacle_app.jpg" style="width: 25%; float: left; margin-right: 30px;"/>
+        </div>
+    </div>
+    
+
     <script>
         //Get the button
         var mybutton = document.getElementById("myBtn");
