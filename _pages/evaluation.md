@@ -3,7 +3,7 @@ layout: page
 title: Evaluation
 permalink: /evaluation/
 ---
-### Testing Summary:
+## Testing Summary:
   Throughout the development process of N.E.A.T. we carried out numerous base related tests that were designed to uncover the robots weight capacity, battery life, structural integrity and the efficiency comparison of different hardware controllers.
   
 ##### 1. How load weight affects lift performance?
