@@ -4,6 +4,7 @@ title: Evaluation
 permalink: /evaluation/
 ---
 <style>.tab { text-indent: 40px; }</style>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <center><h2>Testing Summary</h2></center>
   Throughout the development process of N.E.A.T. we carried out numerous base related tests that were designed to uncover the robot's weight capacity, battery life, structural integrity and the efficiency comparison of different hardware controllers.
   
@@ -52,3 +53,4 @@ permalink: /evaluation/
   * **Better materials**, structural improvements would help improve the weight limit and make it usable for heavier objects. A solid base would be less prone to breaking apart after heavy collisions than our current base consisting of Lego pieces. 
   * **Greater weight bearing** mecanum wheels (4kg is what our current wheels are meant to take at maximum)
   
+{% include long_page.html %}
