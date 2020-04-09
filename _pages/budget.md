@@ -4,10 +4,9 @@ title: Budget
 permalink: /budget/
 ---
 
-**Disclaimer:**Our budget page includes the price of our robot at the current point in time. This sum does not account for assembly, profit, delivery and other potential cost occuring in case the product was to be manufactured and sold.
-
-<h4>Total cost for a N.E.A.T. robot currently  is £1822.73 </h4>
-<h2>With our Alternative lift motor that goes down to  £742.28</h2>
+**Disclaimer:** Our budget page includes the price of our robot at the current point in time. This sum does not account for assembly, profit, delivery and other potential cost occuring in case the product was to be manufactured and sold. 
+**Total cost for a N.E.A.T. robot currently  is £1822.73.**
+<center><h2>With our Alternative lift motor the cost goes down to  £742.28</h2></center >
 
 <h3>1. Base</h3>
 
@@ -23,7 +22,7 @@ permalink: /budget/
 | Name | Quantity| Price|
 |--|--|--|
 |Current Lift motor (Overkill, but we only had this availale) | 1| _£1100_ |
-|Lift motor  **Alternative**\*| 1| _£22.54_ |
+|Lift motor  <a href="https://uk.rs-online.com/web/p/dc-geared-motors/2389670/">**Alternative**</a>| 1| _£22.54_ |
 |6mm+8mm Bright Steel Round Bar | 1|_£15_ |
 |MDF (per 8ft x 6ft x 12mm sheet)  | 1|_£11_ |
 |12mm Thk T6 Aluminium Plate  | 1|_£10_ |
@@ -35,8 +34,6 @@ permalink: /budget/
 |Custom PCB| 1|_£2.00_ |
 |**Current Lift Total:**  | |_£1143.01_ |
 |**Estimated Neccessary Lift Total:**  | |**£65.55** |
-
-*https://uk.rs-online.com/web/p/dc-geared-motors/2389670/
 
 <h3>3. Miscellaneous</h3>
 
